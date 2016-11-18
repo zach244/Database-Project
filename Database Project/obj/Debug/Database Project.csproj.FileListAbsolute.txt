@@ -1,0 +1,11 @@
+c:\users\zach\documents\visual studio 2015\Projects\Database Project\Database Project\bin\Debug\Database Project.exe.config
+c:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\bin\Debug\Database Project.exe
+c:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\bin\Debug\Database Project.pdb
+c:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\obj\Debug\Database Project.csprojResolveAssemblyReference.cache
+c:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\obj\Debug\Database_Project.Form1.resources
+c:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\obj\Debug\Database_Project.Properties.Resources.resources
+c:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\obj\Debug\Database Project.csproj.GenerateResource.Cache
+c:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\obj\Debug\Database Project.exe
+c:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\obj\Debug\Database Project.pdb
+C:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\bin\Debug\MySql.Data.dll
+C:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\bin\Debug\MySql.Data.xml
