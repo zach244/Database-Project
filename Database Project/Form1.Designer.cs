@@ -30,31 +30,31 @@
         private void InitializeComponent()
         {
             this.Actor = new System.Windows.Forms.TabPage();
-            this.CustomTxt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CustomDataGrid = new System.Windows.Forms.DataGridView();
-            this.SubmitCustom = new System.Windows.Forms.Button();
-            this.CustomLblShowall = new System.Windows.Forms.Label();
             this.ComboBoxCustom = new System.Windows.Forms.ComboBox();
+            this.CustomLblShowall = new System.Windows.Forms.Label();
+            this.SubmitCustom = new System.Windows.Forms.Button();
+            this.CustomDataGrid = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CustomTxt = new System.Windows.Forms.TextBox();
             this.Planet = new System.Windows.Forms.TabPage();
-            this.PlanetIdTxt = new System.Windows.Forms.TextBox();
-            this.PlanetIDLbl = new System.Windows.Forms.Label();
-            this.SubmitPlanet = new System.Windows.Forms.Button();
-            this.ClimateLbl = new System.Windows.Forms.Label();
-            this.ClimateTxt = new System.Windows.Forms.TextBox();
-            this.PlanetNameLbl = new System.Windows.Forms.Label();
-            this.PlanetNameTxt = new System.Windows.Forms.TextBox();
             this.PlanetDataGrid = new System.Windows.Forms.DataGridView();
+            this.PlanetNameTxt = new System.Windows.Forms.TextBox();
+            this.ClimateTxt = new System.Windows.Forms.TextBox();
+            this.PlanetIdTxt = new System.Windows.Forms.TextBox();
+            this.PlanetNameLbl = new System.Windows.Forms.Label();
+            this.ClimateLbl = new System.Windows.Forms.Label();
+            this.SubmitPlanet = new System.Windows.Forms.Button();
+            this.PlanetIDLbl = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.LoginUsernameLbl = new System.Windows.Forms.Label();
-            this.LoginPasswordLbl = new System.Windows.Forms.Label();
-            this.ServerName = new System.Windows.Forms.Label();
-            this.LoginDatabaseNameLbl = new System.Windows.Forms.Label();
-            this.ServerNameTxt = new System.Windows.Forms.TextBox();
-            this.UsernameTxt = new System.Windows.Forms.TextBox();
-            this.PasswordTxt = new System.Windows.Forms.TextBox();
-            this.DatabaseNameTxt = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
+            this.DatabaseNameTxt = new System.Windows.Forms.TextBox();
+            this.PasswordTxt = new System.Windows.Forms.TextBox();
+            this.UsernameTxt = new System.Windows.Forms.TextBox();
+            this.ServerNameTxt = new System.Windows.Forms.TextBox();
+            this.LoginDatabaseNameLbl = new System.Windows.Forms.Label();
+            this.ServerName = new System.Windows.Forms.Label();
+            this.LoginPasswordLbl = new System.Windows.Forms.Label();
+            this.LoginUsernameLbl = new System.Windows.Forms.Label();
             this.Tab = new System.Windows.Forms.TabControl();
             this.Actor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomDataGrid)).BeginInit();
@@ -80,49 +80,6 @@
             this.Actor.Text = "Custom";
             this.Actor.UseVisualStyleBackColor = true;
             // 
-            // CustomTxt
-            // 
-            this.CustomTxt.Location = new System.Drawing.Point(0, 25);
-            this.CustomTxt.Name = "CustomTxt";
-            this.CustomTxt.Size = new System.Drawing.Size(176, 20);
-            this.CustomTxt.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-3, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(188, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Please Enter a Custom SQL Command";
-            // 
-            // CustomDataGrid
-            // 
-            this.CustomDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CustomDataGrid.Location = new System.Drawing.Point(191, 0);
-            this.CustomDataGrid.Name = "CustomDataGrid";
-            this.CustomDataGrid.Size = new System.Drawing.Size(766, 600);
-            this.CustomDataGrid.TabIndex = 3;
-            // 
-            // SubmitCustom
-            // 
-            this.SubmitCustom.Location = new System.Drawing.Point(46, 51);
-            this.SubmitCustom.Name = "SubmitCustom";
-            this.SubmitCustom.Size = new System.Drawing.Size(75, 23);
-            this.SubmitCustom.TabIndex = 4;
-            this.SubmitCustom.Text = "Submit";
-            this.SubmitCustom.UseVisualStyleBackColor = true;
-            this.SubmitCustom.Click += new System.EventHandler(this.SubmitCustom_Click);
-            // 
-            // CustomLblShowall
-            // 
-            this.CustomLblShowall.AutoSize = true;
-            this.CustomLblShowall.Location = new System.Drawing.Point(-1, 120);
-            this.CustomLblShowall.Name = "CustomLblShowall";
-            this.CustomLblShowall.Size = new System.Drawing.Size(86, 13);
-            this.CustomLblShowall.TabIndex = 19;
-            this.CustomLblShowall.Text = "Show All Results";
-            // 
             // ComboBoxCustom
             // 
             this.ComboBoxCustom.FormattingEnabled = true;
@@ -147,6 +104,49 @@
             this.ComboBoxCustom.TabIndex = 21;
             this.ComboBoxCustom.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // CustomLblShowall
+            // 
+            this.CustomLblShowall.AutoSize = true;
+            this.CustomLblShowall.Location = new System.Drawing.Point(-1, 120);
+            this.CustomLblShowall.Name = "CustomLblShowall";
+            this.CustomLblShowall.Size = new System.Drawing.Size(86, 13);
+            this.CustomLblShowall.TabIndex = 19;
+            this.CustomLblShowall.Text = "Show All Results";
+            // 
+            // SubmitCustom
+            // 
+            this.SubmitCustom.Location = new System.Drawing.Point(46, 45);
+            this.SubmitCustom.Name = "SubmitCustom";
+            this.SubmitCustom.Size = new System.Drawing.Size(75, 23);
+            this.SubmitCustom.TabIndex = 4;
+            this.SubmitCustom.Text = "Submit";
+            this.SubmitCustom.UseVisualStyleBackColor = true;
+            this.SubmitCustom.Click += new System.EventHandler(this.SubmitCustom_Click);
+            // 
+            // CustomDataGrid
+            // 
+            this.CustomDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CustomDataGrid.Location = new System.Drawing.Point(191, 0);
+            this.CustomDataGrid.Name = "CustomDataGrid";
+            this.CustomDataGrid.Size = new System.Drawing.Size(766, 600);
+            this.CustomDataGrid.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(-3, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(188, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Please Enter a Custom SQL Command";
+            // 
+            // CustomTxt
+            // 
+            this.CustomTxt.Location = new System.Drawing.Point(0, 19);
+            this.CustomTxt.Name = "CustomTxt";
+            this.CustomTxt.Size = new System.Drawing.Size(176, 20);
+            this.CustomTxt.TabIndex = 1;
+            // 
             // Planet
             // 
             this.Planet.Controls.Add(this.PlanetDataGrid);
@@ -164,56 +164,13 @@
             this.Planet.Text = "Planet";
             this.Planet.UseVisualStyleBackColor = true;
             // 
-            // PlanetIdTxt
+            // PlanetDataGrid
             // 
-            this.PlanetIdTxt.Location = new System.Drawing.Point(0, 27);
-            this.PlanetIdTxt.Name = "PlanetIdTxt";
-            this.PlanetIdTxt.Size = new System.Drawing.Size(170, 20);
-            this.PlanetIdTxt.TabIndex = 1;
-            // 
-            // PlanetIDLbl
-            // 
-            this.PlanetIDLbl.AutoSize = true;
-            this.PlanetIDLbl.Location = new System.Drawing.Point(-3, 11);
-            this.PlanetIDLbl.Name = "PlanetIDLbl";
-            this.PlanetIDLbl.Size = new System.Drawing.Size(109, 13);
-            this.PlanetIDLbl.TabIndex = 2;
-            this.PlanetIDLbl.Text = "Please Enter PlanetId";
-            // 
-            // SubmitPlanet
-            // 
-            this.SubmitPlanet.Location = new System.Drawing.Point(63, 540);
-            this.SubmitPlanet.Name = "SubmitPlanet";
-            this.SubmitPlanet.Size = new System.Drawing.Size(75, 23);
-            this.SubmitPlanet.TabIndex = 3;
-            this.SubmitPlanet.Text = "Submit";
-            this.SubmitPlanet.UseVisualStyleBackColor = true;
-            this.SubmitPlanet.Click += new System.EventHandler(this.SubmitPlanet_Click);
-            // 
-            // ClimateLbl
-            // 
-            this.ClimateLbl.AutoSize = true;
-            this.ClimateLbl.Location = new System.Drawing.Point(0, 67);
-            this.ClimateLbl.Name = "ClimateLbl";
-            this.ClimateLbl.Size = new System.Drawing.Size(162, 13);
-            this.ClimateLbl.TabIndex = 5;
-            this.ClimateLbl.Text = "Please Enter the Planet\'s Climate";
-            // 
-            // ClimateTxt
-            // 
-            this.ClimateTxt.Location = new System.Drawing.Point(0, 83);
-            this.ClimateTxt.Name = "ClimateTxt";
-            this.ClimateTxt.Size = new System.Drawing.Size(170, 20);
-            this.ClimateTxt.TabIndex = 6;
-            // 
-            // PlanetNameLbl
-            // 
-            this.PlanetNameLbl.AutoSize = true;
-            this.PlanetNameLbl.Location = new System.Drawing.Point(0, 122);
-            this.PlanetNameLbl.Name = "PlanetNameLbl";
-            this.PlanetNameLbl.Size = new System.Drawing.Size(138, 13);
-            this.PlanetNameLbl.TabIndex = 7;
-            this.PlanetNameLbl.Text = "Please Enter Planet\'s Name";
+            this.PlanetDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PlanetDataGrid.Location = new System.Drawing.Point(176, 3);
+            this.PlanetDataGrid.Name = "PlanetDataGrid";
+            this.PlanetDataGrid.Size = new System.Drawing.Size(781, 597);
+            this.PlanetDataGrid.TabIndex = 9;
             // 
             // PlanetNameTxt
             // 
@@ -227,13 +184,56 @@
             this.PlanetNameTxt.TabIndex = 8;
             this.PlanetNameTxt.TextChanged += new System.EventHandler(this.PlanetNameTxt_TextChanged);
             // 
-            // PlanetDataGrid
+            // ClimateTxt
             // 
-            this.PlanetDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PlanetDataGrid.Location = new System.Drawing.Point(176, 3);
-            this.PlanetDataGrid.Name = "PlanetDataGrid";
-            this.PlanetDataGrid.Size = new System.Drawing.Size(781, 597);
-            this.PlanetDataGrid.TabIndex = 9;
+            this.ClimateTxt.Location = new System.Drawing.Point(0, 83);
+            this.ClimateTxt.Name = "ClimateTxt";
+            this.ClimateTxt.Size = new System.Drawing.Size(170, 20);
+            this.ClimateTxt.TabIndex = 6;
+            // 
+            // PlanetIdTxt
+            // 
+            this.PlanetIdTxt.Location = new System.Drawing.Point(0, 27);
+            this.PlanetIdTxt.Name = "PlanetIdTxt";
+            this.PlanetIdTxt.Size = new System.Drawing.Size(170, 20);
+            this.PlanetIdTxt.TabIndex = 1;
+            // 
+            // PlanetNameLbl
+            // 
+            this.PlanetNameLbl.AutoSize = true;
+            this.PlanetNameLbl.Location = new System.Drawing.Point(0, 122);
+            this.PlanetNameLbl.Name = "PlanetNameLbl";
+            this.PlanetNameLbl.Size = new System.Drawing.Size(138, 13);
+            this.PlanetNameLbl.TabIndex = 7;
+            this.PlanetNameLbl.Text = "Please Enter Planet\'s Name";
+            // 
+            // ClimateLbl
+            // 
+            this.ClimateLbl.AutoSize = true;
+            this.ClimateLbl.Location = new System.Drawing.Point(0, 67);
+            this.ClimateLbl.Name = "ClimateLbl";
+            this.ClimateLbl.Size = new System.Drawing.Size(162, 13);
+            this.ClimateLbl.TabIndex = 5;
+            this.ClimateLbl.Text = "Please Enter the Planet\'s Climate";
+            // 
+            // SubmitPlanet
+            // 
+            this.SubmitPlanet.Location = new System.Drawing.Point(63, 540);
+            this.SubmitPlanet.Name = "SubmitPlanet";
+            this.SubmitPlanet.Size = new System.Drawing.Size(75, 23);
+            this.SubmitPlanet.TabIndex = 3;
+            this.SubmitPlanet.Text = "Submit";
+            this.SubmitPlanet.UseVisualStyleBackColor = true;
+            this.SubmitPlanet.Click += new System.EventHandler(this.SubmitPlanet_Click);
+            // 
+            // PlanetIDLbl
+            // 
+            this.PlanetIDLbl.AutoSize = true;
+            this.PlanetIDLbl.Location = new System.Drawing.Point(-3, 11);
+            this.PlanetIDLbl.Name = "PlanetIDLbl";
+            this.PlanetIDLbl.Size = new System.Drawing.Size(109, 13);
+            this.PlanetIDLbl.TabIndex = 2;
+            this.PlanetIDLbl.Text = "Please Enter PlanetId";
             // 
             // tabPage1
             // 
@@ -253,32 +253,43 @@
             this.tabPage1.Text = "Login";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // LoginUsernameLbl
+            // LoginButton
             // 
-            this.LoginUsernameLbl.AutoSize = true;
-            this.LoginUsernameLbl.Location = new System.Drawing.Point(388, 153);
-            this.LoginUsernameLbl.Name = "LoginUsernameLbl";
-            this.LoginUsernameLbl.Size = new System.Drawing.Size(55, 13);
-            this.LoginUsernameLbl.TabIndex = 0;
-            this.LoginUsernameLbl.Text = "Username";
+            this.LoginButton.Location = new System.Drawing.Point(391, 322);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(100, 23);
+            this.LoginButton.TabIndex = 8;
+            this.LoginButton.Text = "Login";
+            this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // LoginPasswordLbl
+            // DatabaseNameTxt
             // 
-            this.LoginPasswordLbl.AutoSize = true;
-            this.LoginPasswordLbl.Location = new System.Drawing.Point(388, 207);
-            this.LoginPasswordLbl.Name = "LoginPasswordLbl";
-            this.LoginPasswordLbl.Size = new System.Drawing.Size(53, 13);
-            this.LoginPasswordLbl.TabIndex = 1;
-            this.LoginPasswordLbl.Text = "Password";
+            this.DatabaseNameTxt.Location = new System.Drawing.Point(391, 278);
+            this.DatabaseNameTxt.Name = "DatabaseNameTxt";
+            this.DatabaseNameTxt.Size = new System.Drawing.Size(100, 20);
+            this.DatabaseNameTxt.TabIndex = 7;
             // 
-            // ServerName
+            // PasswordTxt
             // 
-            this.ServerName.AutoSize = true;
-            this.ServerName.Location = new System.Drawing.Point(388, 95);
-            this.ServerName.Name = "ServerName";
-            this.ServerName.Size = new System.Drawing.Size(69, 13);
-            this.ServerName.TabIndex = 2;
-            this.ServerName.Text = "Server Name";
+            this.PasswordTxt.Location = new System.Drawing.Point(391, 223);
+            this.PasswordTxt.Name = "PasswordTxt";
+            this.PasswordTxt.Size = new System.Drawing.Size(100, 20);
+            this.PasswordTxt.TabIndex = 6;
+            // 
+            // UsernameTxt
+            // 
+            this.UsernameTxt.Location = new System.Drawing.Point(391, 170);
+            this.UsernameTxt.Name = "UsernameTxt";
+            this.UsernameTxt.Size = new System.Drawing.Size(100, 20);
+            this.UsernameTxt.TabIndex = 5;
+            // 
+            // ServerNameTxt
+            // 
+            this.ServerNameTxt.Location = new System.Drawing.Point(391, 112);
+            this.ServerNameTxt.Name = "ServerNameTxt";
+            this.ServerNameTxt.Size = new System.Drawing.Size(100, 20);
+            this.ServerNameTxt.TabIndex = 4;
             // 
             // LoginDatabaseNameLbl
             // 
@@ -289,43 +300,32 @@
             this.LoginDatabaseNameLbl.TabIndex = 3;
             this.LoginDatabaseNameLbl.Text = "Name of Database";
             // 
-            // ServerNameTxt
+            // ServerName
             // 
-            this.ServerNameTxt.Location = new System.Drawing.Point(391, 112);
-            this.ServerNameTxt.Name = "ServerNameTxt";
-            this.ServerNameTxt.Size = new System.Drawing.Size(100, 20);
-            this.ServerNameTxt.TabIndex = 4;
+            this.ServerName.AutoSize = true;
+            this.ServerName.Location = new System.Drawing.Point(388, 95);
+            this.ServerName.Name = "ServerName";
+            this.ServerName.Size = new System.Drawing.Size(69, 13);
+            this.ServerName.TabIndex = 2;
+            this.ServerName.Text = "Server Name";
             // 
-            // UsernameTxt
+            // LoginPasswordLbl
             // 
-            this.UsernameTxt.Location = new System.Drawing.Point(391, 170);
-            this.UsernameTxt.Name = "UsernameTxt";
-            this.UsernameTxt.Size = new System.Drawing.Size(100, 20);
-            this.UsernameTxt.TabIndex = 5;
+            this.LoginPasswordLbl.AutoSize = true;
+            this.LoginPasswordLbl.Location = new System.Drawing.Point(388, 207);
+            this.LoginPasswordLbl.Name = "LoginPasswordLbl";
+            this.LoginPasswordLbl.Size = new System.Drawing.Size(53, 13);
+            this.LoginPasswordLbl.TabIndex = 1;
+            this.LoginPasswordLbl.Text = "Password";
             // 
-            // PasswordTxt
+            // LoginUsernameLbl
             // 
-            this.PasswordTxt.Location = new System.Drawing.Point(391, 223);
-            this.PasswordTxt.Name = "PasswordTxt";
-            this.PasswordTxt.Size = new System.Drawing.Size(100, 20);
-            this.PasswordTxt.TabIndex = 6;
-            // 
-            // DatabaseNameTxt
-            // 
-            this.DatabaseNameTxt.Location = new System.Drawing.Point(391, 278);
-            this.DatabaseNameTxt.Name = "DatabaseNameTxt";
-            this.DatabaseNameTxt.Size = new System.Drawing.Size(100, 20);
-            this.DatabaseNameTxt.TabIndex = 7;
-            // 
-            // LoginButton
-            // 
-            this.LoginButton.Location = new System.Drawing.Point(391, 322);
-            this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(100, 23);
-            this.LoginButton.TabIndex = 8;
-            this.LoginButton.Text = "Login";
-            this.LoginButton.UseVisualStyleBackColor = true;
-            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            this.LoginUsernameLbl.AutoSize = true;
+            this.LoginUsernameLbl.Location = new System.Drawing.Point(388, 153);
+            this.LoginUsernameLbl.Name = "LoginUsernameLbl";
+            this.LoginUsernameLbl.Size = new System.Drawing.Size(55, 13);
+            this.LoginUsernameLbl.TabIndex = 0;
+            this.LoginUsernameLbl.Text = "Username";
             // 
             // Tab
             // 
@@ -346,7 +346,7 @@
             this.ClientSize = new System.Drawing.Size(969, 621);
             this.Controls.Add(this.Tab);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "BanthaFodder Gui";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Actor.ResumeLayout(false);
             this.Actor.PerformLayout();

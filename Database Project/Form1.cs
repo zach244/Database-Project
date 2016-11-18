@@ -12,8 +12,14 @@ using MySql.Data.MySqlClient;
 
 namespace Database_Project
 {
+
+
     public partial class Form1 : Form
     {
+        public string LoginServerName { get; set; }
+        public string useridName{ get; set; }
+        public string passwordName { get; set; }
+        public string databaseName { get; set; }
 
         public Form1()
         {
@@ -76,10 +82,14 @@ namespace Database_Project
 
              }*/
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-            builder.Server = "localhost";
-            builder.UserID = "root";
-            builder.Password = "skiutah1982";
-            builder.Database = "mydb";
+            if(LoginServerName == null || useridName == null || passwordName == null || databaseName == null)
+            {
+                MessageBox.Show("You have not logged in with the right creditentials please re-login");
+            }
+            builder.Server = LoginServerName;
+            builder.UserID = useridName;
+            builder.Password = passwordName;
+            builder.Database = databaseName;
             MySqlConnection connection = new MySqlConnection(builder.ToString());
             MySqlCommand sqlCmd = new MySqlCommand();
             sqlCmd.Connection = connection;
@@ -150,16 +160,25 @@ namespace Database_Project
 
         private void SubmitCustom_Click(object sender, EventArgs e)
         {
+            if (LoginServerName == null || useridName == null || passwordName == null || databaseName == null)
+            {
+                MessageBox.Show("You have not logged in with the right creditentials please re-login");
+            }
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-            builder.Server = "localhost";
-            builder.UserID = "root";
-            builder.Password = "skiutah1982";
-            builder.Database = "mydb";
+            builder.Server = LoginServerName;
+            builder.UserID = useridName;
+            builder.Password = passwordName;
+            builder.Database = databaseName;
             MySqlConnection connection = new MySqlConnection(builder.ToString());
             MySqlCommand sqlCmd = new MySqlCommand();
             sqlCmd.Connection = connection;
             sqlCmd.CommandType = CommandType.Text;
             sqlCmd.CommandText = CustomTxt.Text;
+            if (string.IsNullOrEmpty(CustomTxt.Text))
+            {
+                MessageBox.Show("Must enter a valid Sql Command");
+
+            }
             try
             {
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(sqlCmd);
@@ -185,13 +204,17 @@ namespace Database_Project
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (LoginServerName == null || useridName == null || passwordName == null || databaseName == null)
+            {
+                MessageBox.Show("You have not logged in with the right creditentials please re-login");
+            }
             if (ComboBoxCustom.Text == "Planets")
             {
                 MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-                builder.Server = "localhost";
-                builder.UserID = "root";
-                builder.Password = "skiutah1982";
-                builder.Database = "mydb";
+                builder.Server = LoginServerName;
+                builder.UserID = useridName;
+                builder.Password = passwordName;
+                builder.Database = databaseName;
                 MySqlConnection connection = new MySqlConnection(builder.ToString());
                 MySqlCommand sqlCmd = new MySqlCommand();
                 sqlCmd.Connection = connection;
@@ -222,7 +245,10 @@ namespace Database_Project
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-
-        }
+            LoginServerName = ServerNameTxt.Text;
+            useridName = UsernameTxt.Text;
+            passwordName = PasswordTxt.Text;
+            databaseName = DatabaseNameTxt.Text;
+    }
     }
 }
