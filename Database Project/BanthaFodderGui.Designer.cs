@@ -124,7 +124,7 @@
             this.ComboBoxCustom.Location = new System.Drawing.Point(0, 167);
             this.ComboBoxCustom.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxCustom.Name = "ComboBoxCustom";
-            this.ComboBoxCustom.Size = new System.Drawing.Size(160, 24);
+            this.ComboBoxCustom.Size = new System.Drawing.Size(227, 24);
             this.ComboBoxCustom.TabIndex = 21;
             this.ComboBoxCustom.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -152,10 +152,10 @@
             // CustomDataGrid
             // 
             this.CustomDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CustomDataGrid.Location = new System.Drawing.Point(255, 0);
+            this.CustomDataGrid.Location = new System.Drawing.Point(262, 0);
             this.CustomDataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.CustomDataGrid.Name = "CustomDataGrid";
-            this.CustomDataGrid.Size = new System.Drawing.Size(1021, 738);
+            this.CustomDataGrid.Size = new System.Drawing.Size(1021, 735);
             this.CustomDataGrid.TabIndex = 3;
             // 
             // label2
@@ -173,7 +173,7 @@
             this.CustomTxt.Location = new System.Drawing.Point(0, 23);
             this.CustomTxt.Margin = new System.Windows.Forms.Padding(4);
             this.CustomTxt.Name = "CustomTxt";
-            this.CustomTxt.Size = new System.Drawing.Size(233, 22);
+            this.CustomTxt.Size = new System.Drawing.Size(227, 22);
             this.CustomTxt.TabIndex = 1;
             // 
             // Planet
@@ -197,10 +197,10 @@
             // PlanetDataGrid
             // 
             this.PlanetDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PlanetDataGrid.Location = new System.Drawing.Point(235, 4);
+            this.PlanetDataGrid.Location = new System.Drawing.Point(262, 4);
             this.PlanetDataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.PlanetDataGrid.Name = "PlanetDataGrid";
-            this.PlanetDataGrid.Size = new System.Drawing.Size(1041, 735);
+            this.PlanetDataGrid.Size = new System.Drawing.Size(1021, 735);
             this.PlanetDataGrid.TabIndex = 9;
             // 
             // PlanetNameTxt
@@ -469,11 +469,11 @@
             // ActorDataGrid
             // 
             this.ActorDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ActorDataGrid.Location = new System.Drawing.Point(235, 4);
+            this.ActorDataGrid.Location = new System.Drawing.Point(262, 4);
             this.ActorDataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.ActorDataGrid.Name = "ActorDataGrid";
             this.ActorDataGrid.RowTemplate.Height = 24;
-            this.ActorDataGrid.Size = new System.Drawing.Size(1041, 735);
+            this.ActorDataGrid.Size = new System.Drawing.Size(1021, 735);
             this.ActorDataGrid.TabIndex = 0;
             // 
             // Movie
@@ -495,11 +495,11 @@
             // MoviesDataGrid
             // 
             this.MoviesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MoviesDataGrid.Location = new System.Drawing.Point(235, 4);
+            this.MoviesDataGrid.Location = new System.Drawing.Point(262, 4);
             this.MoviesDataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.MoviesDataGrid.Name = "MoviesDataGrid";
             this.MoviesDataGrid.RowTemplate.Height = 24;
-            this.MoviesDataGrid.Size = new System.Drawing.Size(1041, 735);
+            this.MoviesDataGrid.Size = new System.Drawing.Size(1021, 735);
             this.MoviesDataGrid.TabIndex = 6;
             // 
             // comboBox2
