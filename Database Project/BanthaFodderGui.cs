@@ -14,17 +14,17 @@ namespace Database_Project
 {
 
 
-    public partial class Form1 : Form
-    {
+    public partial class BanthaFodderGui : Form
+    {   //need to create login class / method and write unit tests
         public string LoginServerName { get; set; }
         public string useridName{ get; set; }
         public string passwordName { get; set; }
         public string databaseName { get; set; }
 
-        public Form1()
+        public BanthaFodderGui()
         {
             InitializeComponent();
-
+          
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -95,7 +95,6 @@ namespace Database_Project
             sqlCmd.Connection = connection;
             sqlCmd.CommandType = CommandType.Text;
 
-
             if (!string.IsNullOrEmpty(PlanetIdTxt.Text) && string.IsNullOrEmpty(ClimateTxt.Text) && string.IsNullOrEmpty(PlanetNameTxt.Text))
             {
                 sqlCmd.CommandText = "Select * from planet where idPlanet =" + PlanetIdTxt.Text;
@@ -137,12 +136,10 @@ namespace Database_Project
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(sqlCmd);
                 DataTable dtRecord = new DataTable();
                 sqlDataAdap.Fill(dtRecord);
-
                 if (dtRecord != null && dtRecord.Rows.Count == 0)
                 {
                     MessageBox.Show("No Results from Parameters");
                 }
-
                 PlanetDataGrid.ReadOnly = true;
                 PlanetDataGrid.DataSource = dtRecord;
                 connection.Close();
@@ -250,5 +247,16 @@ namespace Database_Project
             passwordName = PasswordTxt.Text;
             databaseName = DatabaseNameTxt.Text;
     }
+
+        private void MovieComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ActorSubmitBtn_Click(object sender, EventArgs e)
+        {
+            //Need to mimic Planet class but for Actor
+
+        }
     }
 }

@@ -8,3 +8,14 @@ C:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Pr
 C:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\obj\Debug\Database Project.csproj.GenerateResource.Cache
 C:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\obj\Debug\Database Project.exe
 C:\Users\zach\Documents\Visual Studio 2015\Projects\Database Project\Database Project\obj\Debug\Database Project.pdb
+C:\Users\ZACH\Documents\GitHub\Database-Project\Database Project\bin\Debug\Database Project.exe.config
+C:\Users\ZACH\Documents\GitHub\Database-Project\Database Project\obj\Debug\Database Project.exe
+C:\Users\ZACH\Documents\GitHub\Database-Project\Database Project\obj\Debug\Database Project.pdb
+C:\Users\ZACH\Documents\GitHub\Database-Project\Database Project\bin\Debug\Database Project.exe
+C:\Users\ZACH\Documents\GitHub\Database-Project\Database Project\bin\Debug\Database Project.pdb
+C:\Users\ZACH\Documents\GitHub\Database-Project\Database Project\bin\Debug\MySql.Data.dll
+C:\Users\ZACH\Documents\GitHub\Database-Project\Database Project\bin\Debug\MySql.Data.xml
+C:\Users\ZACH\Documents\GitHub\Database-Project\Database Project\obj\Debug\Database Project.csprojResolveAssemblyReference.cache
+C:\Users\ZACH\Documents\GitHub\Database-Project\Database Project\obj\Debug\Database_Project.Properties.Resources.resources
+C:\Users\ZACH\Documents\GitHub\Database-Project\Database Project\obj\Debug\Database Project.csproj.GenerateResource.Cache
+C:\Users\ZACH\Documents\GitHub\Database-Project\Database Project\obj\Debug\Database_Project.BanthaFodderGui.resources
