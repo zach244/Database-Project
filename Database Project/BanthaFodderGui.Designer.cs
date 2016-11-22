@@ -57,33 +57,33 @@
             this.LoginPasswordLbl = new System.Windows.Forms.Label();
             this.LoginUsernameLbl = new System.Windows.Forms.Label();
             this.Tab = new System.Windows.Forms.TabControl();
-            this.Movie = new System.Windows.Forms.TabPage();
-            this.ActorsMovieDropLbl = new System.Windows.Forms.Label();
-            this.MovieComboBox1 = new System.Windows.Forms.ComboBox();
-            this.MovieDirectedBy = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.charInMovie = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.MoviesDataGrid = new System.Windows.Forms.DataGridView();
             this.Actor = new System.Windows.Forms.TabPage();
-            this.ActorDataGrid = new System.Windows.Forms.DataGridView();
-            this.ActorLabalFName = new System.Windows.Forms.Label();
-            this.ActorTextBoxFname = new System.Windows.Forms.TextBox();
-            this.ActorTxtLName = new System.Windows.Forms.Label();
-            this.ActorsLNametxt = new System.Windows.Forms.TextBox();
-            this.ChNameLbl = new System.Windows.Forms.Label();
-            this.chNameTxt = new System.Windows.Forms.TextBox();
             this.ActorSubmitBtn = new System.Windows.Forms.Button();
+            this.chNameTxt = new System.Windows.Forms.TextBox();
+            this.ChNameLbl = new System.Windows.Forms.Label();
+            this.ActorsLNametxt = new System.Windows.Forms.TextBox();
+            this.ActorTxtLName = new System.Windows.Forms.Label();
+            this.ActorTextBoxFname = new System.Windows.Forms.TextBox();
+            this.ActorLabalFName = new System.Windows.Forms.Label();
+            this.ActorDataGrid = new System.Windows.Forms.DataGridView();
+            this.Movie = new System.Windows.Forms.TabPage();
+            this.MoviesDataGrid = new System.Windows.Forms.DataGridView();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.charInMovie = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.MovieDirectedBy = new System.Windows.Forms.Label();
+            this.MovieComboBox1 = new System.Windows.Forms.ComboBox();
+            this.ActorsMovieDropLbl = new System.Windows.Forms.Label();
             this.Custom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomDataGrid)).BeginInit();
             this.Planet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlanetDataGrid)).BeginInit();
             this.Login.SuspendLayout();
             this.Tab.SuspendLayout();
-            this.Movie.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MoviesDataGrid)).BeginInit();
             this.Actor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorDataGrid)).BeginInit();
+            this.Movie.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MoviesDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // Custom
@@ -391,83 +391,6 @@
             this.Tab.Size = new System.Drawing.Size(1287, 766);
             this.Tab.TabIndex = 0;
             // 
-            // Movie
-            // 
-            this.Movie.Controls.Add(this.MoviesDataGrid);
-            this.Movie.Controls.Add(this.comboBox2);
-            this.Movie.Controls.Add(this.charInMovie);
-            this.Movie.Controls.Add(this.comboBox1);
-            this.Movie.Controls.Add(this.MovieDirectedBy);
-            this.Movie.Controls.Add(this.MovieComboBox1);
-            this.Movie.Controls.Add(this.ActorsMovieDropLbl);
-            this.Movie.Location = new System.Drawing.Point(4, 25);
-            this.Movie.Name = "Movie";
-            this.Movie.Size = new System.Drawing.Size(1279, 737);
-            this.Movie.TabIndex = 4;
-            this.Movie.Text = "Movie";
-            this.Movie.UseVisualStyleBackColor = true;
-            // 
-            // ActorsMovieDropLbl
-            // 
-            this.ActorsMovieDropLbl.AutoSize = true;
-            this.ActorsMovieDropLbl.Location = new System.Drawing.Point(4, 32);
-            this.ActorsMovieDropLbl.Name = "ActorsMovieDropLbl";
-            this.ActorsMovieDropLbl.Size = new System.Drawing.Size(104, 17);
-            this.ActorsMovieDropLbl.TabIndex = 0;
-            this.ActorsMovieDropLbl.Text = "Actors In Movie";
-            // 
-            // MovieComboBox1
-            // 
-            this.MovieComboBox1.FormattingEnabled = true;
-            this.MovieComboBox1.Location = new System.Drawing.Point(7, 52);
-            this.MovieComboBox1.Name = "MovieComboBox1";
-            this.MovieComboBox1.Size = new System.Drawing.Size(121, 24);
-            this.MovieComboBox1.TabIndex = 1;
-            this.MovieComboBox1.SelectedIndexChanged += new System.EventHandler(this.MovieComboBox1_SelectedIndexChanged);
-            // 
-            // MovieDirectedBy
-            // 
-            this.MovieDirectedBy.AutoSize = true;
-            this.MovieDirectedBy.Location = new System.Drawing.Point(4, 97);
-            this.MovieDirectedBy.Name = "MovieDirectedBy";
-            this.MovieDirectedBy.Size = new System.Drawing.Size(121, 17);
-            this.MovieDirectedBy.TabIndex = 2;
-            this.MovieDirectedBy.Text = "Movie Directed by";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(7, 117);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // charInMovie
-            // 
-            this.charInMovie.AutoSize = true;
-            this.charInMovie.Location = new System.Drawing.Point(4, 170);
-            this.charInMovie.Name = "charInMovie";
-            this.charInMovie.Size = new System.Drawing.Size(133, 17);
-            this.charInMovie.TabIndex = 4;
-            this.charInMovie.Text = "Characters in Movie";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(7, 190);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 5;
-            // 
-            // MoviesDataGrid
-            // 
-            this.MoviesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MoviesDataGrid.Location = new System.Drawing.Point(143, 0);
-            this.MoviesDataGrid.Name = "MoviesDataGrid";
-            this.MoviesDataGrid.RowTemplate.Height = 24;
-            this.MoviesDataGrid.Size = new System.Drawing.Size(1136, 713);
-            this.MoviesDataGrid.TabIndex = 6;
-            // 
             // Actor
             // 
             this.Actor.Controls.Add(this.ActorSubmitBtn);
@@ -485,46 +408,22 @@
             this.Actor.Text = "Actor";
             this.Actor.UseVisualStyleBackColor = true;
             // 
-            // ActorDataGrid
+            // ActorSubmitBtn
             // 
-            this.ActorDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ActorDataGrid.Location = new System.Drawing.Point(223, 3);
-            this.ActorDataGrid.Name = "ActorDataGrid";
-            this.ActorDataGrid.RowTemplate.Height = 24;
-            this.ActorDataGrid.Size = new System.Drawing.Size(1053, 723);
-            this.ActorDataGrid.TabIndex = 0;
+            this.ActorSubmitBtn.Location = new System.Drawing.Point(7, 684);
+            this.ActorSubmitBtn.Name = "ActorSubmitBtn";
+            this.ActorSubmitBtn.Size = new System.Drawing.Size(192, 23);
+            this.ActorSubmitBtn.TabIndex = 7;
+            this.ActorSubmitBtn.Text = "Submit";
+            this.ActorSubmitBtn.UseVisualStyleBackColor = true;
+            this.ActorSubmitBtn.Click += new System.EventHandler(this.ActorSubmitBtn_Click);
             // 
-            // ActorLabalFName
+            // chNameTxt
             // 
-            this.ActorLabalFName.AutoSize = true;
-            this.ActorLabalFName.Location = new System.Drawing.Point(4, 20);
-            this.ActorLabalFName.Name = "ActorLabalFName";
-            this.ActorLabalFName.Size = new System.Drawing.Size(123, 17);
-            this.ActorLabalFName.TabIndex = 1;
-            this.ActorLabalFName.Text = "Actor\'s First Name";
-            // 
-            // ActorTextBoxFname
-            // 
-            this.ActorTextBoxFname.Location = new System.Drawing.Point(7, 41);
-            this.ActorTextBoxFname.Name = "ActorTextBoxFname";
-            this.ActorTextBoxFname.Size = new System.Drawing.Size(192, 22);
-            this.ActorTextBoxFname.TabIndex = 2;
-            // 
-            // ActorTxtLName
-            // 
-            this.ActorTxtLName.AutoSize = true;
-            this.ActorTxtLName.Location = new System.Drawing.Point(4, 78);
-            this.ActorTxtLName.Name = "ActorTxtLName";
-            this.ActorTxtLName.Size = new System.Drawing.Size(123, 17);
-            this.ActorTxtLName.TabIndex = 3;
-            this.ActorTxtLName.Text = "Actor\'s Last Name";
-            // 
-            // ActorsLNametxt
-            // 
-            this.ActorsLNametxt.Location = new System.Drawing.Point(7, 99);
-            this.ActorsLNametxt.Name = "ActorsLNametxt";
-            this.ActorsLNametxt.Size = new System.Drawing.Size(192, 22);
-            this.ActorsLNametxt.TabIndex = 4;
+            this.chNameTxt.Location = new System.Drawing.Point(7, 161);
+            this.chNameTxt.Name = "chNameTxt";
+            this.chNameTxt.Size = new System.Drawing.Size(221, 22);
+            this.chNameTxt.TabIndex = 6;
             // 
             // ChNameLbl
             // 
@@ -535,22 +434,126 @@
             this.ChNameLbl.TabIndex = 5;
             this.ChNameLbl.Text = "Character\'s Name";
             // 
-            // chNameTxt
+            // ActorsLNametxt
             // 
-            this.chNameTxt.Location = new System.Drawing.Point(7, 161);
-            this.chNameTxt.Name = "chNameTxt";
-            this.chNameTxt.Size = new System.Drawing.Size(192, 22);
-            this.chNameTxt.TabIndex = 6;
+            this.ActorsLNametxt.Location = new System.Drawing.Point(7, 99);
+            this.ActorsLNametxt.Name = "ActorsLNametxt";
+            this.ActorsLNametxt.Size = new System.Drawing.Size(221, 22);
+            this.ActorsLNametxt.TabIndex = 4;
             // 
-            // ActorSubmitBtn
+            // ActorTxtLName
             // 
-            this.ActorSubmitBtn.Location = new System.Drawing.Point(7, 684);
-            this.ActorSubmitBtn.Name = "ActorSubmitBtn";
-            this.ActorSubmitBtn.Size = new System.Drawing.Size(192, 23);
-            this.ActorSubmitBtn.TabIndex = 7;
-            this.ActorSubmitBtn.Text = "Submit";
-            this.ActorSubmitBtn.UseVisualStyleBackColor = true;
-            this.ActorSubmitBtn.Click += new System.EventHandler(this.ActorSubmitBtn_Click);
+            this.ActorTxtLName.AutoSize = true;
+            this.ActorTxtLName.Location = new System.Drawing.Point(4, 78);
+            this.ActorTxtLName.Name = "ActorTxtLName";
+            this.ActorTxtLName.Size = new System.Drawing.Size(123, 17);
+            this.ActorTxtLName.TabIndex = 3;
+            this.ActorTxtLName.Text = "Actor\'s Last Name";
+            // 
+            // ActorTextBoxFname
+            // 
+            this.ActorTextBoxFname.Location = new System.Drawing.Point(7, 41);
+            this.ActorTextBoxFname.Name = "ActorTextBoxFname";
+            this.ActorTextBoxFname.Size = new System.Drawing.Size(221, 22);
+            this.ActorTextBoxFname.TabIndex = 2;
+            // 
+            // ActorLabalFName
+            // 
+            this.ActorLabalFName.AutoSize = true;
+            this.ActorLabalFName.Location = new System.Drawing.Point(4, 20);
+            this.ActorLabalFName.Name = "ActorLabalFName";
+            this.ActorLabalFName.Size = new System.Drawing.Size(123, 17);
+            this.ActorLabalFName.TabIndex = 1;
+            this.ActorLabalFName.Text = "Actor\'s First Name";
+            // 
+            // ActorDataGrid
+            // 
+            this.ActorDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ActorDataGrid.Location = new System.Drawing.Point(235, 4);
+            this.ActorDataGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.ActorDataGrid.Name = "ActorDataGrid";
+            this.ActorDataGrid.RowTemplate.Height = 24;
+            this.ActorDataGrid.Size = new System.Drawing.Size(1041, 735);
+            this.ActorDataGrid.TabIndex = 0;
+            // 
+            // Movie
+            // 
+            this.Movie.Controls.Add(this.MoviesDataGrid);
+            this.Movie.Controls.Add(this.comboBox2);
+            this.Movie.Controls.Add(this.charInMovie);
+            this.Movie.Controls.Add(this.comboBox1);
+            this.Movie.Controls.Add(this.MovieDirectedBy);
+            this.Movie.Controls.Add(this.MovieComboBox1);
+            this.Movie.Controls.Add(this.ActorsMovieDropLbl);
+            this.Movie.Location = new System.Drawing.Point(4, 25);
+            this.Movie.Name = "Movie";
+            this.Movie.Size = new System.Drawing.Size(1279, 737);
+            this.Movie.TabIndex = 4;
+            this.Movie.Text = "Movie";
+            this.Movie.UseVisualStyleBackColor = true;
+            // 
+            // MoviesDataGrid
+            // 
+            this.MoviesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MoviesDataGrid.Location = new System.Drawing.Point(235, 4);
+            this.MoviesDataGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.MoviesDataGrid.Name = "MoviesDataGrid";
+            this.MoviesDataGrid.RowTemplate.Height = 24;
+            this.MoviesDataGrid.Size = new System.Drawing.Size(1041, 735);
+            this.MoviesDataGrid.TabIndex = 6;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(6, 154);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(221, 24);
+            this.comboBox2.TabIndex = 5;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // charInMovie
+            // 
+            this.charInMovie.AutoSize = true;
+            this.charInMovie.Location = new System.Drawing.Point(3, 134);
+            this.charInMovie.Name = "charInMovie";
+            this.charInMovie.Size = new System.Drawing.Size(133, 17);
+            this.charInMovie.TabIndex = 4;
+            this.charInMovie.Text = "Characters in Movie";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(6, 98);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(221, 24);
+            this.comboBox1.TabIndex = 3;
+            // 
+            // MovieDirectedBy
+            // 
+            this.MovieDirectedBy.AutoSize = true;
+            this.MovieDirectedBy.Location = new System.Drawing.Point(4, 78);
+            this.MovieDirectedBy.Name = "MovieDirectedBy";
+            this.MovieDirectedBy.Size = new System.Drawing.Size(121, 17);
+            this.MovieDirectedBy.TabIndex = 2;
+            this.MovieDirectedBy.Text = "Movie Directed by";
+            // 
+            // MovieComboBox1
+            // 
+            this.MovieComboBox1.FormattingEnabled = true;
+            this.MovieComboBox1.Location = new System.Drawing.Point(6, 40);
+            this.MovieComboBox1.Name = "MovieComboBox1";
+            this.MovieComboBox1.Size = new System.Drawing.Size(221, 24);
+            this.MovieComboBox1.TabIndex = 1;
+            this.MovieComboBox1.SelectedIndexChanged += new System.EventHandler(this.MovieComboBox1_SelectedIndexChanged);
+            // 
+            // ActorsMovieDropLbl
+            // 
+            this.ActorsMovieDropLbl.AutoSize = true;
+            this.ActorsMovieDropLbl.Location = new System.Drawing.Point(3, 20);
+            this.ActorsMovieDropLbl.Name = "ActorsMovieDropLbl";
+            this.ActorsMovieDropLbl.Size = new System.Drawing.Size(104, 17);
+            this.ActorsMovieDropLbl.TabIndex = 0;
+            this.ActorsMovieDropLbl.Text = "Actors In Movie";
             // 
             // BanthaFodderGui
             // 
@@ -573,12 +576,12 @@
             this.Login.ResumeLayout(false);
             this.Login.PerformLayout();
             this.Tab.ResumeLayout(false);
-            this.Movie.ResumeLayout(false);
-            this.Movie.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MoviesDataGrid)).EndInit();
             this.Actor.ResumeLayout(false);
             this.Actor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ActorDataGrid)).EndInit();
+            this.Movie.ResumeLayout(false);
+            this.Movie.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MoviesDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }

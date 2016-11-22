@@ -258,5 +258,10 @@ namespace Database_Project
             //Need to mimic Planet class but for Actor
 
         }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
