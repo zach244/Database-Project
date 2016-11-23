@@ -16,17 +16,27 @@ namespace Database_Project
 
     public partial class BanthaFodderGui : Form
     {   //need to create login class / method and write unit tests
-        public string LoginServerName { get; set; }
+       public string LoginServerName { get; set; }
         public string useridName{ get; set; }
         public string passwordName { get; set; }
         public string databaseName { get; set; }
-
+       // MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+        //MySqlConnection connection = new MySqlConnection();*/
         public BanthaFodderGui()
         {
             InitializeComponent();
-          
         }
 
+        private MySqlConnectionStringBuilder connectionBuilder()
+        {
+            MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+            builder.Server = LoginServerName;
+            builder.UserID = useridName;
+            builder.Password = passwordName;
+            builder.Database = databaseName;
+            return builder;
+
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -54,78 +64,48 @@ namespace Database_Project
 
         private void SubmitPlanet_Click(object sender, EventArgs e)
         {
-            /* MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-             builder.Server = "localhost";
-             builder.UserID = "root";
-             builder.Password = "skiutah1982";
-             builder.Database = "mydb";
-             MySqlConnection connection = new MySqlConnection(builder.ToString());
-             string sql = "SELECT * FROM planet";
-             try
-             {
-                 connection.Open();
-
-
-                 MySqlDataAdapter adp = new MySqlDataAdapter(sql, connection);
-                 MySqlCommandBuilder cmd = new MySqlCommandBuilder(adp);
-                 DataTable record = new DataTable();
-
-                 adp.Fill(record);
-                 PlanetDataGrid.ReadOnly = true;
-                 PlanetDataGrid.DataSource = record.DefaultView;
-
-                 connection.Close();
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(ex.ToString());
-
-             }*/
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
             if(LoginServerName == null || useridName == null || passwordName == null || databaseName == null)
             {
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
             }
-            builder.Server = LoginServerName;
-            builder.UserID = useridName;
-            builder.Password = passwordName;
-            builder.Database = databaseName;
-            MySqlConnection connection = new MySqlConnection(builder.ToString());
+            
+            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
             MySqlCommand sqlCmd = new MySqlCommand();
             sqlCmd.Connection = connection;
             sqlCmd.CommandType = CommandType.Text;
 
             if (!string.IsNullOrEmpty(PlanetIdTxt.Text) && string.IsNullOrEmpty(ClimateTxt.Text) && string.IsNullOrEmpty(PlanetNameTxt.Text))
             {
-                sqlCmd.CommandText = "Select * from planet where idPlanet =" + PlanetIdTxt.Text;
+                sqlCmd.CommandText = "Select * from Planet where idPlanet =" + PlanetIdTxt.Text;
             }
             else if (string.IsNullOrEmpty(PlanetIdTxt.Text) && !string.IsNullOrEmpty(ClimateTxt.Text) && string.IsNullOrEmpty(PlanetNameTxt.Text))
             {
-                sqlCmd.CommandText = string.Format("Select * from planet where climate = \"{0}\"", ClimateTxt.Text);
+                sqlCmd.CommandText = string.Format("Select * from Planet where climate = \"{0}\"", ClimateTxt.Text);
             }
             else if (string.IsNullOrEmpty(PlanetIdTxt.Text) && string.IsNullOrEmpty(ClimateTxt.Text) && !string.IsNullOrEmpty(PlanetNameTxt.Text))
             {
-                sqlCmd.CommandText = string.Format("Select * from planet where name = \"{0}\"", PlanetNameTxt.Text);
+                sqlCmd.CommandText = string.Format("Select * from Planet where name = \"{0}\"", PlanetNameTxt.Text);
             }
             else if (!string.IsNullOrEmpty(PlanetIdTxt.Text) && !string.IsNullOrEmpty(ClimateTxt.Text) && string.IsNullOrEmpty(PlanetNameTxt.Text))
             {
-                sqlCmd.CommandText = string.Format("Select * from planet where idPlanet = {0} and climate = \"{1}\"", PlanetIdTxt.Text, ClimateTxt.Text);
+                sqlCmd.CommandText = string.Format("Select * from Planet where idPlanet = {0} and climate = \"{1}\"", PlanetIdTxt.Text, ClimateTxt.Text);
             }
             else if (!string.IsNullOrEmpty(PlanetIdTxt.Text) && string.IsNullOrEmpty(ClimateTxt.Text) && !string.IsNullOrEmpty(PlanetNameTxt.Text))
             {
-                sqlCmd.CommandText = string.Format("Select * from planet where idPlanet = {0} and name = \"{1}\"", PlanetIdTxt.Text, PlanetNameTxt.Text);
+                sqlCmd.CommandText = string.Format("Select * from Planet where idPlanet = {0} and name = \"{1}\"", PlanetIdTxt.Text, PlanetNameTxt.Text);
             }
             else if (!string.IsNullOrEmpty(PlanetIdTxt.Text) && !string.IsNullOrEmpty(ClimateTxt.Text) && string.IsNullOrEmpty(PlanetNameTxt.Text))
             {
-                sqlCmd.CommandText = string.Format("Select * from planet where idPlanet = {0} and climate = \"{1}\"", PlanetIdTxt.Text, ClimateTxt.Text);
+                sqlCmd.CommandText = string.Format("Select * from Planet where idPlanet = {0} and climate = \"{1}\"", PlanetIdTxt.Text, ClimateTxt.Text);
             }
             else if (string.IsNullOrEmpty(PlanetIdTxt.Text) && !string.IsNullOrEmpty(ClimateTxt.Text) && !string.IsNullOrEmpty(PlanetNameTxt.Text))
             {
-                sqlCmd.CommandText = string.Format("Select * from planet where climate = \"{0}\" and name = \"{1}\"", ClimateTxt.Text, PlanetNameTxt.Text);
+                sqlCmd.CommandText = string.Format("Select * from Planet where climate = \"{0}\" and name = \"{1}\"", ClimateTxt.Text, PlanetNameTxt.Text);
             }
             else if (!string.IsNullOrEmpty(PlanetIdTxt.Text) && !string.IsNullOrEmpty(ClimateTxt.Text) && !string.IsNullOrEmpty(PlanetNameTxt.Text))
             {
-                sqlCmd.CommandText = string.Format("Select * from planet where idPlanet = {0} and climate = \"{1}\" and name = \"{2}\" ", PlanetIdTxt.Text, ClimateTxt.Text, PlanetNameTxt.Text);
+                sqlCmd.CommandText = string.Format("Select * from Planet where idPlanet = {0} and climate = \"{1}\" and name = \"{2}\" ", PlanetIdTxt.Text, ClimateTxt.Text, PlanetNameTxt.Text);
             }
             else
             {
@@ -161,12 +141,8 @@ namespace Database_Project
             {
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
             }
-            MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-            builder.Server = LoginServerName;
-            builder.UserID = useridName;
-            builder.Password = passwordName;
-            builder.Database = databaseName;
-            MySqlConnection connection = new MySqlConnection(builder.ToString());
+
+            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
             MySqlCommand sqlCmd = new MySqlCommand();
             sqlCmd.Connection = connection;
             sqlCmd.CommandType = CommandType.Text;
@@ -174,7 +150,6 @@ namespace Database_Project
             if (string.IsNullOrEmpty(CustomTxt.Text))
             {
                 MessageBox.Show("Must enter a valid Sql Command");
-
             }
             try
             {
@@ -207,12 +182,7 @@ namespace Database_Project
             }
             if (ComboBoxCustom.Text == "Planets")
             {
-                MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-                builder.Server = LoginServerName;
-                builder.UserID = useridName;
-                builder.Password = passwordName;
-                builder.Database = databaseName;
-                MySqlConnection connection = new MySqlConnection(builder.ToString());
+                MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
                 MySqlCommand sqlCmd = new MySqlCommand();
                 sqlCmd.Connection = connection;
                 sqlCmd.CommandType = CommandType.Text;
@@ -246,7 +216,19 @@ namespace Database_Project
             useridName = UsernameTxt.Text;
             passwordName = PasswordTxt.Text;
             databaseName = DatabaseNameTxt.Text;
-    }
+            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
+            connection.Open();
+            if(connection.State == ConnectionState.Open)
+            {
+                LoginConnectionLbl.ForeColor = System.Drawing.Color.LimeGreen; //possible connection indicator on everytab. 
+                Tab.SelectedTab = Actor; //could possiblye do a message box and on click it changes tabs. 
+            }
+            else
+            {
+                LoginConnectionLbl.ForeColor = System.Drawing.Color.Red;
+            }
+            
+        }
 
         private void MovieComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
