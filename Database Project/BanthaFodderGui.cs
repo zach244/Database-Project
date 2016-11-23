@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 
 namespace Database_Project
 {
-
+    enum settings { ON,OFF};
 
     public partial class BanthaFodderGui : Form
     {   //need to create login class / method and write unit tests
@@ -25,8 +25,27 @@ namespace Database_Project
         public BanthaFodderGui()
         {
             InitializeComponent();
+            movieAddBoxes(settings.OFF);
+
         }
 
+        private void movieAddBoxes(settings x)
+        {
+            if(x == settings.ON)
+            {
+                label1.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                label4.Visible = true;
+            }
+            else
+            {
+                label1.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                label4.Visible = false;
+            }
+        }
         private MySqlConnectionStringBuilder connectionBuilder()
         {
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
@@ -217,7 +236,15 @@ namespace Database_Project
             passwordName = PasswordTxt.Text;
             databaseName = DatabaseNameTxt.Text;
             MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
-            connection.Open();
+
+            try
+            {
+                connection.Open();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
             if(connection.State == ConnectionState.Open)
             {
                 LoginConnectionLbl.ForeColor = System.Drawing.Color.LimeGreen; //possible connection indicator on everytab. 
@@ -244,6 +271,36 @@ namespace Database_Project
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(AddComboBox.Text == "Movie")
+            {
+                //needs to set visibilty for textbox to allow data input / submit button / labels
+                movieAddBoxes(settings.ON);
+            }
+            else if(AddComboBox.Text == "Director")
+            {
+
+            }
+             else if(AddComboBox.Text == "Actor")
+            {
+
+            }
+            else if(AddComboBox.Text == "Character")
+            {
+
+            }
+            else if(AddComboBox.Text == "Planet")
+            {
+
+            }
+            else if(AddComboBox.Text == "Pilot")
+            {
+
+            }
+            //Need to add rest of tables
         }
     }
 }
