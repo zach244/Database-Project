@@ -16,34 +16,76 @@ namespace Database_Project
 
     public partial class BanthaFodderGui : Form
     {   //need to create login class / method and write unit tests
-       public string LoginServerName { get; set; }
-        public string useridName{ get; set; }
+        public string LoginServerName { get; set; }
+        public string useridName { get; set; }
         public string passwordName { get; set; }
         public string databaseName { get; set; }
-       // MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+        // MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
         //MySqlConnection connection = new MySqlConnection();*/
         public BanthaFodderGui()
         {
             InitializeComponent();
-            movieAddBoxes(settings.OFF);
+            toggleBoxes(settings.OFF);
 
         }
 
         private void movieAddBoxes(settings x)
         {
-            if(x == settings.ON)
+            if (x == settings.ON)
             {
-                label1.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                label4.Visible = true;
+                MovieNameAdd.Visible = true;
+                movieAddLblYear.Visible = true;
+                movieAddLengthLbl.Visible = true;
+                movieAddName.Visible = true;
+                movieAddYear.Visible = true;
+                movieAddLength.Visible = true;
+                movieAddSubmit.Visible = true;
             }
             else
             {
-                label1.Visible = false;
-                label2.Visible = false;
-                label3.Visible = false;
-                label4.Visible = false;
+                MovieNameAdd.Visible = false;
+                movieAddLblYear.Visible = false;
+                movieAddLengthLbl.Visible = false;
+                movieAddName.Visible = false;
+                movieAddYear.Visible = false;
+                movieAddLength.Visible = false;
+                movieAddSubmit.Visible = false;
+            }
+        }
+        private void directorAddBoxes(settings x)
+        {
+            if(x == settings.ON)
+            {
+                directorADDFName.Visible = true;
+                directorAddLName.Visible = true;
+                directorADDBday.Visible = true;
+                directorADDlnametxt.Visible = true;
+                directorADDSubmit.Visible = true;
+                directorBdayLBL.Visible = true;
+                directorFnameAddLbl.Visible = true;
+            }
+            else
+            {
+                directorADDFName.Visible = false;
+                directorAddLName.Visible = false;
+                directorADDBday.Visible = false;
+                directorADDlnametxt.Visible = false; 
+                directorADDSubmit.Visible = false;
+                directorBdayLBL.Visible = false;
+                directorFnameAddLbl.Visible = false;
+            }
+        }
+        private void toggleBoxes(settings x)
+        {
+            if(x == settings.ON)
+            {
+                movieAddBoxes(settings.ON);
+                directorAddBoxes(settings.ON);
+            }
+            else
+            {
+                movieAddBoxes(settings.OFF);
+                directorAddBoxes(settings.OFF);
             }
         }
         private MySqlConnectionStringBuilder connectionBuilder()
@@ -84,11 +126,11 @@ namespace Database_Project
         private void SubmitPlanet_Click(object sender, EventArgs e)
         {
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-            if(LoginServerName == null || useridName == null || passwordName == null || databaseName == null)
+            if (LoginServerName == null || useridName == null || passwordName == null || databaseName == null)
             {
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
             }
-            
+
             MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
             MySqlCommand sqlCmd = new MySqlCommand();
             sqlCmd.Connection = connection;
@@ -241,11 +283,11 @@ namespace Database_Project
             {
                 connection.Open();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            if(connection.State == ConnectionState.Open)
+            if (connection.State == ConnectionState.Open)
             {
                 LoginConnectionLbl.ForeColor = System.Drawing.Color.LimeGreen; //possible connection indicator on everytab. 
                 Tab.SelectedTab = Actor; //could possiblye do a message box and on click it changes tabs. 
@@ -254,7 +296,7 @@ namespace Database_Project
             {
                 LoginConnectionLbl.ForeColor = System.Drawing.Color.Red;
             }
-            
+
         }
 
         private void MovieComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -275,32 +317,84 @@ namespace Database_Project
 
         private void AddComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(AddComboBox.Text == "Movie")
+            if (AddComboBox.Text == "Movie")
             {
+                toggleBoxes(settings.OFF);
                 //needs to set visibilty for textbox to allow data input / submit button / labels
                 movieAddBoxes(settings.ON);
             }
-            else if(AddComboBox.Text == "Director")
+            else if (AddComboBox.Text == "Director")
             {
+                toggleBoxes(settings.OFF);
+                directorAddBoxes(settings.ON);
 
             }
-             else if(AddComboBox.Text == "Actor")
+            else if (AddComboBox.Text == "Actor")
             {
+                toggleBoxes(settings.OFF);
 
             }
-            else if(AddComboBox.Text == "Character")
+            else if (AddComboBox.Text == "Character")
             {
+                toggleBoxes(settings.OFF);
 
             }
-            else if(AddComboBox.Text == "Planet")
+            else if (AddComboBox.Text == "Planet")
             {
-
+                toggleBoxes(settings.OFF);
             }
-            else if(AddComboBox.Text == "Pilot")
+            else if (AddComboBox.Text == "Pilot")
             {
-
+                toggleBoxes(settings.OFF);
             }
             //Need to add rest of tables
+        }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void movieAddSubmit_Click(object sender, EventArgs e)
+        {
+
+           
+            if (string.IsNullOrEmpty(movieAddName.Text) == true || string.IsNullOrEmpty(movieAddYear.Text) == true || string.IsNullOrEmpty(movieAddLength.Text) == true)
+                {
+                MessageBox.Show("Must equal in proper results for insert and no box can be left empty!");
+            }
+            try
+            {   
+                MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
+                connection.Open();
+                string query = string.Format("INSERT INTO Movie (idMovie,movieName,releaseYear,lengthMinutes) VALUES(LAST_INSERT_ID(),\"{0}\",\"{1}\",\"{2}\")", movieAddName.Text.ToString(),movieAddYear.Text.ToString(),movieAddLength.Text.ToString());
+                MySqlCommand sqlCmd = new MySqlCommand(query,connection);
+                sqlCmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void directorADDSubmit_Click(object sender, EventArgs e)//need to check the query and make sure it adds properly!!!!!
+        {
+            if (string.IsNullOrEmpty(directorADDFName.Text) == true || string.IsNullOrEmpty(directorAddLName.Text) == true || string.IsNullOrEmpty(directorADDBday.Text) == true)
+            {
+                MessageBox.Show("Must equal in proper results for insert and no box can be left empty!");
+            }
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
+                connection.Open();
+                string query = string.Format("INSERT INTO Director (idDirector,fName,lName,birthday) VALUES(LAST_INSERT_ID(),\"{0}\",\"{1}\",{2})", directorADDFName.Text.ToString(), directorADDlnametxt.Text.ToString(), directorADDBday.Text.ToString());
+                MySqlCommand sqlCmd = new MySqlCommand(query, connection);
+                sqlCmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
