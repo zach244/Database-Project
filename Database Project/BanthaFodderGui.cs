@@ -21,7 +21,7 @@ namespace Database_Project
         public string passwordName { get; set; }
         public string databaseName { get; set; }
 
-       MySqlConnection connection { get; set; }
+      // MySqlConnection connection { get; set; }
         public BanthaFodderGui()
         {
             InitializeComponent();
@@ -173,8 +173,10 @@ namespace Database_Project
             {
                 MessageBox.Show("Must enter a value to have a valid Sql Query");
             }
+            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
             try
             {
+                connection.Open();
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(sqlCmd);
                 DataTable dtRecord = new DataTable();
                 sqlDataAdap.Fill(dtRecord);
@@ -190,6 +192,7 @@ namespace Database_Project
             {
                 MessageBox.Show(ex.ToString());
             }
+            connection.Close();
         }
 
         private void PlanetNameTxt_TextChanged(object sender, EventArgs e)
@@ -204,7 +207,7 @@ namespace Database_Project
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
             }
 
-           
+            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
             MySqlCommand sqlCmd = new MySqlCommand();
             sqlCmd.Connection = connection;
             sqlCmd.CommandType = CommandType.Text;
@@ -214,7 +217,7 @@ namespace Database_Project
                 MessageBox.Show("Must enter a valid Sql Command");
             }
             try
-            {
+            {   connection.Open();
                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(sqlCmd);
                 DataTable dtRecord = new DataTable();
                 sqlDataAdap.Fill(dtRecord);
@@ -232,7 +235,7 @@ namespace Database_Project
             {
                 MessageBox.Show(ex.ToString());
             }
-
+            connection.Close();
         }
 
 
@@ -250,7 +253,7 @@ namespace Database_Project
                 sqlCmd.CommandType = CommandType.Text;
                 sqlCmd.CommandText = "select * from planet";
                 try
-                {
+                {   connection.Open();
                     MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(sqlCmd);
                     DataTable dtRecord = new DataTable();
                     sqlDataAdap.Fill(dtRecord);
@@ -278,8 +281,8 @@ namespace Database_Project
             useridName = UsernameTxt.Text;
             passwordName = PasswordTxt.Text;
             databaseName = DatabaseNameTxt.Text;
-            connection = new MySqlConnection(connectionBuilder().ToString());
-
+            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
+            connection.Open();
             try
             {
                 connection.Open();
@@ -297,7 +300,7 @@ namespace Database_Project
             {
                 LoginConnectionLbl.ForeColor = System.Drawing.Color.Red;
             }
-
+            connection.Close();
         }
 
         private void MovieComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -359,13 +362,13 @@ namespace Database_Project
         private void movieAddSubmit_Click(object sender, EventArgs e)
         {
 
-           
+            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
             if (string.IsNullOrEmpty(movieAddName.Text) == true || string.IsNullOrEmpty(movieAddYear.Text) == true || string.IsNullOrEmpty(movieAddLength.Text) == true)
                 {
                 MessageBox.Show("Must equal in proper results for insert and no box can be left empty!");
             }
             try
-            {   
+            {   connection.Open();
                 string query = string.Format("INSERT INTO Movie (idMovie,movieName,releaseYear,lengthMinutes) VALUES(LAST_INSERT_ID(),\"{0}\",\"{1}\",\"{2}\")", movieAddName.Text.ToString(),movieAddYear.Text.ToString(),movieAddLength.Text.ToString());
                 MySqlCommand sqlCmd = new MySqlCommand(query,connection);
                 sqlCmd.ExecuteNonQuery();
@@ -374,6 +377,7 @@ namespace Database_Project
             {
                 MessageBox.Show(ex.ToString());
             }
+            connection.Close();
         }
 
         private void directorADDSubmit_Click(object sender, EventArgs e)//need to check the query and make sure it adds properly!!!!!
@@ -382,8 +386,9 @@ namespace Database_Project
             {
                 MessageBox.Show("Must equal in proper results for insert and no box can be left empty!");
             }
+            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
             try
-            {
+            {   connection.Open();
                 string query = string.Format("INSERT INTO Director (idDirector,fName,lName,birthday) VALUES(LAST_INSERT_ID(),\"{0}\",\"{1}\",{2})", directorADDFName.Text.ToString(), directorADDlnametxt.Text.ToString(), directorADDBday.Text.ToString());
                 MySqlCommand sqlCmd = new MySqlCommand(query, connection);
                 sqlCmd.ExecuteNonQuery();
@@ -392,6 +397,7 @@ namespace Database_Project
             {
                 MessageBox.Show(ex.ToString());
             }
+            connection.Close();
         }
     }
 }
