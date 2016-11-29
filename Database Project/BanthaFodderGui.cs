@@ -314,7 +314,22 @@ namespace Database_Project
             {
                 MessageBox.Show(ex.ToString());
             }
-            LoginConnectionLbl.ForeColor = connection.State == ConnectionState.Open ? Color.LimeGreen : Color.Red;
+            
+            Image red = Image.FromFile("C:\\Users\\zach\\Documents\\GitHub\\Database-Project\\Database Project\\Green.png");
+            Image green = Image.FromFile("C:\\Users\\zach\\Documents\\GitHub\\Database-Project\\Database Project\\Green.png");
+           
+            if (connection.State == ConnectionState.Closed)
+            {
+                LoginPicture.Image = red;
+                LoginConnectionLbl.ForeColor = Color.Red;
+                LoginConnectionLbl.Text = "Not Connected";
+            }
+            else
+            {
+                LoginPicture.Image = green;
+                LoginConnectionLbl.ForeColor = Color.LimeGreen;
+                LoginConnectionLbl.Text = "Connected";
+            }
             connection.Close();
         }
 

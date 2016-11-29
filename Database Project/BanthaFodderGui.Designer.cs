@@ -31,59 +31,60 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BanthaFodderGui));
             this.Add = new System.Windows.Forms.TabPage();
-            this.AddComboBox = new System.Windows.Forms.ComboBox();
-            this.InsertLabel = new System.Windows.Forms.Label();
-            this.MovieNameAdd = new System.Windows.Forms.Label();
-            this.movieAddLblYear = new System.Windows.Forms.Label();
-            this.movieAddLengthLbl = new System.Windows.Forms.Label();
-            this.movieAddName = new System.Windows.Forms.TextBox();
-            this.movieAddYear = new System.Windows.Forms.TextBox();
-            this.movieAddLength = new System.Windows.Forms.TextBox();
-            this.movieAddSubmit = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.directorFnameAddLbl = new System.Windows.Forms.Label();
-            this.directorADDFName = new System.Windows.Forms.TextBox();
-            this.directorAddLName = new System.Windows.Forms.Label();
-            this.directorBdayLBL = new System.Windows.Forms.Label();
-            this.directorADDlnametxt = new System.Windows.Forms.TextBox();
-            this.directorADDSubmit = new System.Windows.Forms.Button();
             this.DirectorBdayADD = new System.Windows.Forms.DateTimePicker();
+            this.directorADDSubmit = new System.Windows.Forms.Button();
+            this.directorADDlnametxt = new System.Windows.Forms.TextBox();
+            this.directorADDFName = new System.Windows.Forms.TextBox();
+            this.movieAddLength = new System.Windows.Forms.TextBox();
+            this.movieAddYear = new System.Windows.Forms.TextBox();
+            this.movieAddName = new System.Windows.Forms.TextBox();
+            this.directorBdayLBL = new System.Windows.Forms.Label();
+            this.directorAddLName = new System.Windows.Forms.Label();
+            this.directorFnameAddLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.movieAddSubmit = new System.Windows.Forms.Button();
+            this.movieAddLengthLbl = new System.Windows.Forms.Label();
+            this.movieAddLblYear = new System.Windows.Forms.Label();
+            this.MovieNameAdd = new System.Windows.Forms.Label();
+            this.InsertLabel = new System.Windows.Forms.Label();
+            this.AddComboBox = new System.Windows.Forms.ComboBox();
             this.Custom = new System.Windows.Forms.TabPage();
-            this.CustomTxt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CustomDataGrid = new System.Windows.Forms.DataGridView();
-            this.SubmitCustom = new System.Windows.Forms.Button();
-            this.CustomLblShowall = new System.Windows.Forms.Label();
             this.ComboBoxCustom = new System.Windows.Forms.ComboBox();
+            this.CustomLblShowall = new System.Windows.Forms.Label();
+            this.SubmitCustom = new System.Windows.Forms.Button();
+            this.CustomDataGrid = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CustomTxt = new System.Windows.Forms.TextBox();
             this.Planet = new System.Windows.Forms.TabPage();
-            this.PlanetIDLbl = new System.Windows.Forms.Label();
-            this.SubmitPlanet = new System.Windows.Forms.Button();
-            this.ClimateLbl = new System.Windows.Forms.Label();
-            this.PlanetNameLbl = new System.Windows.Forms.Label();
-            this.PlanetIdTxt = new System.Windows.Forms.TextBox();
-            this.ClimateTxt = new System.Windows.Forms.TextBox();
-            this.PlanetNameTxt = new System.Windows.Forms.TextBox();
             this.PlanetDataGrid = new System.Windows.Forms.DataGridView();
+            this.PlanetNameTxt = new System.Windows.Forms.TextBox();
+            this.ClimateTxt = new System.Windows.Forms.TextBox();
+            this.PlanetIdTxt = new System.Windows.Forms.TextBox();
+            this.PlanetNameLbl = new System.Windows.Forms.Label();
+            this.ClimateLbl = new System.Windows.Forms.Label();
+            this.SubmitPlanet = new System.Windows.Forms.Button();
+            this.PlanetIDLbl = new System.Windows.Forms.Label();
             this.Movie = new System.Windows.Forms.TabPage();
-            this.ActorsMovieDropLbl = new System.Windows.Forms.Label();
-            this.MovieACtorsCombbo = new System.Windows.Forms.ComboBox();
-            this.MovieDirectedBy = new System.Windows.Forms.Label();
-            this.MovieDirectorCombo = new System.Windows.Forms.ComboBox();
-            this.charInMovie = new System.Windows.Forms.Label();
-            this.MovieCharCombo = new System.Windows.Forms.ComboBox();
             this.MoviesDataGrid = new System.Windows.Forms.DataGridView();
+            this.MovieCharCombo = new System.Windows.Forms.ComboBox();
+            this.charInMovie = new System.Windows.Forms.Label();
+            this.MovieDirectorCombo = new System.Windows.Forms.ComboBox();
+            this.MovieDirectedBy = new System.Windows.Forms.Label();
+            this.MovieACtorsCombbo = new System.Windows.Forms.ComboBox();
+            this.ActorsMovieDropLbl = new System.Windows.Forms.Label();
             this.Login = new System.Windows.Forms.TabPage();
-            this.LoginUsernameLbl = new System.Windows.Forms.Label();
-            this.LoginPasswordLbl = new System.Windows.Forms.Label();
-            this.ServerName = new System.Windows.Forms.Label();
-            this.LoginDatabaseNameLbl = new System.Windows.Forms.Label();
-            this.ServerNameTxt = new System.Windows.Forms.TextBox();
-            this.UsernameTxt = new System.Windows.Forms.TextBox();
-            this.PasswordTxt = new System.Windows.Forms.TextBox();
-            this.DatabaseNameTxt = new System.Windows.Forms.TextBox();
-            this.LoginButton = new System.Windows.Forms.Button();
             this.LoginConnectionLbl = new System.Windows.Forms.Label();
+            this.LoginButton = new System.Windows.Forms.Button();
+            this.DatabaseNameTxt = new System.Windows.Forms.TextBox();
+            this.PasswordTxt = new System.Windows.Forms.TextBox();
+            this.UsernameTxt = new System.Windows.Forms.TextBox();
+            this.ServerNameTxt = new System.Windows.Forms.TextBox();
+            this.LoginDatabaseNameLbl = new System.Windows.Forms.Label();
+            this.ServerName = new System.Windows.Forms.Label();
+            this.LoginPasswordLbl = new System.Windows.Forms.Label();
+            this.LoginUsernameLbl = new System.Windows.Forms.Label();
             this.Tab = new System.Windows.Forms.TabControl();
+            this.LoginPicture = new System.Windows.Forms.PictureBox();
             this.Add.SuspendLayout();
             this.Custom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomDataGrid)).BeginInit();
@@ -93,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MoviesDataGrid)).BeginInit();
             this.Login.SuspendLayout();
             this.Tab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LoginPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // Add
@@ -121,7 +123,145 @@
             this.Add.TabIndex = 6;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
-            
+            // 
+            // DirectorBdayADD
+            // 
+            this.DirectorBdayADD.CustomFormat = "yyyy-MM-dd";
+            this.DirectorBdayADD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DirectorBdayADD.Location = new System.Drawing.Point(290, 204);
+            this.DirectorBdayADD.Name = "DirectorBdayADD";
+            this.DirectorBdayADD.Size = new System.Drawing.Size(269, 20);
+            this.DirectorBdayADD.TabIndex = 17;
+            // 
+            // directorADDSubmit
+            // 
+            this.directorADDSubmit.Location = new System.Drawing.Point(370, 287);
+            this.directorADDSubmit.Name = "directorADDSubmit";
+            this.directorADDSubmit.Size = new System.Drawing.Size(75, 23);
+            this.directorADDSubmit.TabIndex = 16;
+            this.directorADDSubmit.Text = "Submit";
+            this.directorADDSubmit.UseVisualStyleBackColor = true;
+            this.directorADDSubmit.Click += new System.EventHandler(this.directorADDSubmit_Click);
+            // 
+            // directorADDlnametxt
+            // 
+            this.directorADDlnametxt.Location = new System.Drawing.Point(290, 141);
+            this.directorADDlnametxt.Name = "directorADDlnametxt";
+            this.directorADDlnametxt.Size = new System.Drawing.Size(269, 20);
+            this.directorADDlnametxt.TabIndex = 14;
+            // 
+            // directorADDFName
+            // 
+            this.directorADDFName.Location = new System.Drawing.Point(290, 74);
+            this.directorADDFName.Name = "directorADDFName";
+            this.directorADDFName.Size = new System.Drawing.Size(269, 20);
+            this.directorADDFName.TabIndex = 11;
+            // 
+            // movieAddLength
+            // 
+            this.movieAddLength.Location = new System.Drawing.Point(290, 204);
+            this.movieAddLength.Name = "movieAddLength";
+            this.movieAddLength.Size = new System.Drawing.Size(269, 20);
+            this.movieAddLength.TabIndex = 8;
+            // 
+            // movieAddYear
+            // 
+            this.movieAddYear.Location = new System.Drawing.Point(290, 141);
+            this.movieAddYear.Name = "movieAddYear";
+            this.movieAddYear.Size = new System.Drawing.Size(269, 20);
+            this.movieAddYear.TabIndex = 7;
+            // 
+            // movieAddName
+            // 
+            this.movieAddName.Location = new System.Drawing.Point(290, 73);
+            this.movieAddName.Name = "movieAddName";
+            this.movieAddName.Size = new System.Drawing.Size(269, 20);
+            this.movieAddName.TabIndex = 6;
+            // 
+            // directorBdayLBL
+            // 
+            this.directorBdayLBL.AutoSize = true;
+            this.directorBdayLBL.Location = new System.Drawing.Point(290, 188);
+            this.directorBdayLBL.Name = "directorBdayLBL";
+            this.directorBdayLBL.Size = new System.Drawing.Size(120, 13);
+            this.directorBdayLBL.TabIndex = 13;
+            this.directorBdayLBL.Text = "Enter Director\'s Birthday";
+            // 
+            // directorAddLName
+            // 
+            this.directorAddLName.AutoSize = true;
+            this.directorAddLName.Location = new System.Drawing.Point(287, 124);
+            this.directorAddLName.Name = "directorAddLName";
+            this.directorAddLName.Size = new System.Drawing.Size(133, 13);
+            this.directorAddLName.TabIndex = 12;
+            this.directorAddLName.Text = "Enter Director\'s Last Name";
+            // 
+            // directorFnameAddLbl
+            // 
+            this.directorFnameAddLbl.AutoSize = true;
+            this.directorFnameAddLbl.Location = new System.Drawing.Point(287, 57);
+            this.directorFnameAddLbl.Name = "directorFnameAddLbl";
+            this.directorFnameAddLbl.Size = new System.Drawing.Size(125, 13);
+            this.directorFnameAddLbl.TabIndex = 10;
+            this.directorFnameAddLbl.Text = "Enter Director First Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(287, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 1;
+            // 
+            // movieAddSubmit
+            // 
+            this.movieAddSubmit.Location = new System.Drawing.Point(370, 287);
+            this.movieAddSubmit.Name = "movieAddSubmit";
+            this.movieAddSubmit.Size = new System.Drawing.Size(75, 23);
+            this.movieAddSubmit.TabIndex = 9;
+            this.movieAddSubmit.Text = "Submit";
+            this.movieAddSubmit.UseVisualStyleBackColor = true;
+            this.movieAddSubmit.Click += new System.EventHandler(this.movieAddSubmit_Click);
+            // 
+            // movieAddLengthLbl
+            // 
+            this.movieAddLengthLbl.AutoSize = true;
+            this.movieAddLengthLbl.Location = new System.Drawing.Point(287, 188);
+            this.movieAddLengthLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.movieAddLengthLbl.Name = "movieAddLengthLbl";
+            this.movieAddLengthLbl.Size = new System.Drawing.Size(84, 13);
+            this.movieAddLengthLbl.TabIndex = 4;
+            this.movieAddLengthLbl.Text = "Lenght of Movie";
+            // 
+            // movieAddLblYear
+            // 
+            this.movieAddLblYear.AutoSize = true;
+            this.movieAddLblYear.Location = new System.Drawing.Point(287, 124);
+            this.movieAddLblYear.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.movieAddLblYear.Name = "movieAddLblYear";
+            this.movieAddLblYear.Size = new System.Drawing.Size(158, 13);
+            this.movieAddLblYear.TabIndex = 3;
+            this.movieAddLblYear.Text = "Please Enter the Year Released";
+            // 
+            // MovieNameAdd
+            // 
+            this.MovieNameAdd.AutoSize = true;
+            this.MovieNameAdd.Location = new System.Drawing.Point(287, 57);
+            this.MovieNameAdd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.MovieNameAdd.Name = "MovieNameAdd";
+            this.MovieNameAdd.Size = new System.Drawing.Size(95, 13);
+            this.MovieNameAdd.TabIndex = 2;
+            this.MovieNameAdd.Text = "Enter Movie Name";
+            // 
+            // InsertLabel
+            // 
+            this.InsertLabel.AutoSize = true;
+            this.InsertLabel.Location = new System.Drawing.Point(3, 46);
+            this.InsertLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.InsertLabel.Name = "InsertLabel";
+            this.InsertLabel.Size = new System.Drawing.Size(106, 13);
+            this.InsertLabel.TabIndex = 1;
+            this.InsertLabel.Text = "Table To Insert Entry";
             // 
             // AddComboBox
             // 
@@ -135,145 +275,6 @@
             this.AddComboBox.Size = new System.Drawing.Size(170, 21);
             this.AddComboBox.TabIndex = 0;
             this.AddComboBox.SelectedIndexChanged += new System.EventHandler(this.AddComboBox_SelectedIndexChanged);
-            // 
-            // InsertLabel
-            // 
-            this.InsertLabel.AutoSize = true;
-            this.InsertLabel.Location = new System.Drawing.Point(3, 46);
-            this.InsertLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.InsertLabel.Name = "InsertLabel";
-            this.InsertLabel.Size = new System.Drawing.Size(106, 13);
-            this.InsertLabel.TabIndex = 1;
-            this.InsertLabel.Text = "Table To Insert Entry";
-            // 
-            // MovieNameAdd
-            // 
-            this.MovieNameAdd.AutoSize = true;
-            this.MovieNameAdd.Location = new System.Drawing.Point(287, 57);
-            this.MovieNameAdd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.MovieNameAdd.Name = "MovieNameAdd";
-            this.MovieNameAdd.Size = new System.Drawing.Size(95, 13);
-            this.MovieNameAdd.TabIndex = 2;
-            this.MovieNameAdd.Text = "Enter Movie Name";
-            // 
-            // movieAddLblYear
-            // 
-            this.movieAddLblYear.AutoSize = true;
-            this.movieAddLblYear.Location = new System.Drawing.Point(287, 124);
-            this.movieAddLblYear.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.movieAddLblYear.Name = "movieAddLblYear";
-            this.movieAddLblYear.Size = new System.Drawing.Size(158, 13);
-            this.movieAddLblYear.TabIndex = 3;
-            this.movieAddLblYear.Text = "Please Enter the Year Released";
-            // 
-            // movieAddLengthLbl
-            // 
-            this.movieAddLengthLbl.AutoSize = true;
-            this.movieAddLengthLbl.Location = new System.Drawing.Point(287, 188);
-            this.movieAddLengthLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.movieAddLengthLbl.Name = "movieAddLengthLbl";
-            this.movieAddLengthLbl.Size = new System.Drawing.Size(84, 13);
-            this.movieAddLengthLbl.TabIndex = 4;
-            this.movieAddLengthLbl.Text = "Lenght of Movie";
-            // 
-            // movieAddName
-            // 
-            this.movieAddName.Location = new System.Drawing.Point(290, 73);
-            this.movieAddName.Name = "movieAddName";
-            this.movieAddName.Size = new System.Drawing.Size(269, 20);
-            this.movieAddName.TabIndex = 6;
-            // 
-            // movieAddYear
-            // 
-            this.movieAddYear.Location = new System.Drawing.Point(290, 141);
-            this.movieAddYear.Name = "movieAddYear";
-            this.movieAddYear.Size = new System.Drawing.Size(269, 20);
-            this.movieAddYear.TabIndex = 7;
-            // 
-            // movieAddLength
-            // 
-            this.movieAddLength.Location = new System.Drawing.Point(290, 204);
-            this.movieAddLength.Name = "movieAddLength";
-            this.movieAddLength.Size = new System.Drawing.Size(269, 20);
-            this.movieAddLength.TabIndex = 8;
-            // 
-            // movieAddSubmit
-            // 
-            this.movieAddSubmit.Location = new System.Drawing.Point(370, 287);
-            this.movieAddSubmit.Name = "movieAddSubmit";
-            this.movieAddSubmit.Size = new System.Drawing.Size(75, 23);
-            this.movieAddSubmit.TabIndex = 9;
-            this.movieAddSubmit.Text = "Submit";
-            this.movieAddSubmit.UseVisualStyleBackColor = true;
-            this.movieAddSubmit.Click += new System.EventHandler(this.movieAddSubmit_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(287, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 1;
-            // 
-            // directorFnameAddLbl
-            // 
-            this.directorFnameAddLbl.AutoSize = true;
-            this.directorFnameAddLbl.Location = new System.Drawing.Point(287, 57);
-            this.directorFnameAddLbl.Name = "directorFnameAddLbl";
-            this.directorFnameAddLbl.Size = new System.Drawing.Size(125, 13);
-            this.directorFnameAddLbl.TabIndex = 10;
-            this.directorFnameAddLbl.Text = "Enter Director First Name";
-            // 
-            // directorADDFName
-            // 
-            this.directorADDFName.Location = new System.Drawing.Point(290, 74);
-            this.directorADDFName.Name = "directorADDFName";
-            this.directorADDFName.Size = new System.Drawing.Size(269, 20);
-            this.directorADDFName.TabIndex = 11;
-            // 
-            // directorAddLName
-            // 
-            this.directorAddLName.AutoSize = true;
-            this.directorAddLName.Location = new System.Drawing.Point(287, 124);
-            this.directorAddLName.Name = "directorAddLName";
-            this.directorAddLName.Size = new System.Drawing.Size(133, 13);
-            this.directorAddLName.TabIndex = 12;
-            this.directorAddLName.Text = "Enter Director\'s Last Name";
-            // 
-            // directorBdayLBL
-            // 
-            this.directorBdayLBL.AutoSize = true;
-            this.directorBdayLBL.Location = new System.Drawing.Point(290, 188);
-            this.directorBdayLBL.Name = "directorBdayLBL";
-            this.directorBdayLBL.Size = new System.Drawing.Size(120, 13);
-            this.directorBdayLBL.TabIndex = 13;
-            this.directorBdayLBL.Text = "Enter Director\'s Birthday";
-            // 
-            // directorADDlnametxt
-            // 
-            this.directorADDlnametxt.Location = new System.Drawing.Point(290, 141);
-            this.directorADDlnametxt.Name = "directorADDlnametxt";
-            this.directorADDlnametxt.Size = new System.Drawing.Size(269, 20);
-            this.directorADDlnametxt.TabIndex = 14;
-            // 
-            // directorADDSubmit
-            // 
-            this.directorADDSubmit.Location = new System.Drawing.Point(370, 287);
-            this.directorADDSubmit.Name = "directorADDSubmit";
-            this.directorADDSubmit.Size = new System.Drawing.Size(75, 23);
-            this.directorADDSubmit.TabIndex = 16;
-            this.directorADDSubmit.Text = "Submit";
-            this.directorADDSubmit.UseVisualStyleBackColor = true;
-            this.directorADDSubmit.Click += new System.EventHandler(this.directorADDSubmit_Click);
-            // 
-            // DirectorBdayADD
-            // 
-            this.DirectorBdayADD.CustomFormat = "yyyy-MM-dd";
-            this.DirectorBdayADD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DirectorBdayADD.Location = new System.Drawing.Point(290, 204);
-            this.DirectorBdayADD.Name = "DirectorBdayADD";
-            this.DirectorBdayADD.Size = new System.Drawing.Size(269, 20);
-            this.DirectorBdayADD.TabIndex = 17;
             // 
             // Custom
             // 
@@ -290,49 +291,6 @@
             this.Custom.TabIndex = 0;
             this.Custom.Text = "Custom";
             this.Custom.UseVisualStyleBackColor = true;
-            // 
-            // CustomTxt
-            // 
-            this.CustomTxt.Location = new System.Drawing.Point(0, 19);
-            this.CustomTxt.Name = "CustomTxt";
-            this.CustomTxt.Size = new System.Drawing.Size(171, 20);
-            this.CustomTxt.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-3, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(188, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Please Enter a Custom SQL Command";
-            // 
-            // CustomDataGrid
-            // 
-            this.CustomDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CustomDataGrid.Location = new System.Drawing.Point(196, 0);
-            this.CustomDataGrid.Name = "CustomDataGrid";
-            this.CustomDataGrid.Size = new System.Drawing.Size(766, 597);
-            this.CustomDataGrid.TabIndex = 3;
-            // 
-            // SubmitCustom
-            // 
-            this.SubmitCustom.Location = new System.Drawing.Point(46, 45);
-            this.SubmitCustom.Name = "SubmitCustom";
-            this.SubmitCustom.Size = new System.Drawing.Size(75, 23);
-            this.SubmitCustom.TabIndex = 4;
-            this.SubmitCustom.Text = "Submit";
-            this.SubmitCustom.UseVisualStyleBackColor = true;
-            this.SubmitCustom.Click += new System.EventHandler(this.SubmitCustom_Click);
-            // 
-            // CustomLblShowall
-            // 
-            this.CustomLblShowall.AutoSize = true;
-            this.CustomLblShowall.Location = new System.Drawing.Point(-1, 120);
-            this.CustomLblShowall.Name = "CustomLblShowall";
-            this.CustomLblShowall.Size = new System.Drawing.Size(86, 13);
-            this.CustomLblShowall.TabIndex = 19;
-            this.CustomLblShowall.Text = "Show All Results";
             // 
             // ComboBoxCustom
             // 
@@ -357,6 +315,49 @@
             this.ComboBoxCustom.TabIndex = 21;
             this.ComboBoxCustom.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // CustomLblShowall
+            // 
+            this.CustomLblShowall.AutoSize = true;
+            this.CustomLblShowall.Location = new System.Drawing.Point(-1, 120);
+            this.CustomLblShowall.Name = "CustomLblShowall";
+            this.CustomLblShowall.Size = new System.Drawing.Size(86, 13);
+            this.CustomLblShowall.TabIndex = 19;
+            this.CustomLblShowall.Text = "Show All Results";
+            // 
+            // SubmitCustom
+            // 
+            this.SubmitCustom.Location = new System.Drawing.Point(46, 45);
+            this.SubmitCustom.Name = "SubmitCustom";
+            this.SubmitCustom.Size = new System.Drawing.Size(75, 23);
+            this.SubmitCustom.TabIndex = 4;
+            this.SubmitCustom.Text = "Submit";
+            this.SubmitCustom.UseVisualStyleBackColor = true;
+            this.SubmitCustom.Click += new System.EventHandler(this.SubmitCustom_Click);
+            // 
+            // CustomDataGrid
+            // 
+            this.CustomDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CustomDataGrid.Location = new System.Drawing.Point(196, 0);
+            this.CustomDataGrid.Name = "CustomDataGrid";
+            this.CustomDataGrid.Size = new System.Drawing.Size(766, 597);
+            this.CustomDataGrid.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(-3, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(188, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Please Enter a Custom SQL Command";
+            // 
+            // CustomTxt
+            // 
+            this.CustomTxt.Location = new System.Drawing.Point(0, 19);
+            this.CustomTxt.Name = "CustomTxt";
+            this.CustomTxt.Size = new System.Drawing.Size(171, 20);
+            this.CustomTxt.TabIndex = 1;
+            // 
             // Planet
             // 
             this.Planet.Controls.Add(this.PlanetDataGrid);
@@ -374,56 +375,13 @@
             this.Planet.Text = "Planet";
             this.Planet.UseVisualStyleBackColor = true;
             // 
-            // PlanetIDLbl
+            // PlanetDataGrid
             // 
-            this.PlanetIDLbl.AutoSize = true;
-            this.PlanetIDLbl.Location = new System.Drawing.Point(-3, 11);
-            this.PlanetIDLbl.Name = "PlanetIDLbl";
-            this.PlanetIDLbl.Size = new System.Drawing.Size(109, 13);
-            this.PlanetIDLbl.TabIndex = 2;
-            this.PlanetIDLbl.Text = "Please Enter PlanetId";
-            // 
-            // SubmitPlanet
-            // 
-            this.SubmitPlanet.Location = new System.Drawing.Point(41, 542);
-            this.SubmitPlanet.Name = "SubmitPlanet";
-            this.SubmitPlanet.Size = new System.Drawing.Size(75, 23);
-            this.SubmitPlanet.TabIndex = 3;
-            this.SubmitPlanet.Text = "Submit";
-            this.SubmitPlanet.UseVisualStyleBackColor = true;
-            this.SubmitPlanet.Click += new System.EventHandler(this.SubmitPlanet_Click);
-            // 
-            // ClimateLbl
-            // 
-            this.ClimateLbl.AutoSize = true;
-            this.ClimateLbl.Location = new System.Drawing.Point(0, 67);
-            this.ClimateLbl.Name = "ClimateLbl";
-            this.ClimateLbl.Size = new System.Drawing.Size(162, 13);
-            this.ClimateLbl.TabIndex = 5;
-            this.ClimateLbl.Text = "Please Enter the Planet\'s Climate";
-            // 
-            // PlanetNameLbl
-            // 
-            this.PlanetNameLbl.AutoSize = true;
-            this.PlanetNameLbl.Location = new System.Drawing.Point(0, 122);
-            this.PlanetNameLbl.Name = "PlanetNameLbl";
-            this.PlanetNameLbl.Size = new System.Drawing.Size(138, 13);
-            this.PlanetNameLbl.TabIndex = 7;
-            this.PlanetNameLbl.Text = "Please Enter Planet\'s Name";
-            // 
-            // PlanetIdTxt
-            // 
-            this.PlanetIdTxt.Location = new System.Drawing.Point(0, 27);
-            this.PlanetIdTxt.Name = "PlanetIdTxt";
-            this.PlanetIdTxt.Size = new System.Drawing.Size(170, 20);
-            this.PlanetIdTxt.TabIndex = 1;
-            // 
-            // ClimateTxt
-            // 
-            this.ClimateTxt.Location = new System.Drawing.Point(0, 83);
-            this.ClimateTxt.Name = "ClimateTxt";
-            this.ClimateTxt.Size = new System.Drawing.Size(170, 20);
-            this.ClimateTxt.TabIndex = 6;
+            this.PlanetDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PlanetDataGrid.Location = new System.Drawing.Point(196, 3);
+            this.PlanetDataGrid.Name = "PlanetDataGrid";
+            this.PlanetDataGrid.Size = new System.Drawing.Size(766, 597);
+            this.PlanetDataGrid.TabIndex = 9;
             // 
             // PlanetNameTxt
             // 
@@ -435,15 +393,57 @@
             this.PlanetNameTxt.Name = "PlanetNameTxt";
             this.PlanetNameTxt.Size = new System.Drawing.Size(170, 20);
             this.PlanetNameTxt.TabIndex = 8;
-           
             // 
-            // PlanetDataGrid
+            // ClimateTxt
             // 
-            this.PlanetDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PlanetDataGrid.Location = new System.Drawing.Point(196, 3);
-            this.PlanetDataGrid.Name = "PlanetDataGrid";
-            this.PlanetDataGrid.Size = new System.Drawing.Size(766, 597);
-            this.PlanetDataGrid.TabIndex = 9;
+            this.ClimateTxt.Location = new System.Drawing.Point(0, 83);
+            this.ClimateTxt.Name = "ClimateTxt";
+            this.ClimateTxt.Size = new System.Drawing.Size(170, 20);
+            this.ClimateTxt.TabIndex = 6;
+            // 
+            // PlanetIdTxt
+            // 
+            this.PlanetIdTxt.Location = new System.Drawing.Point(0, 27);
+            this.PlanetIdTxt.Name = "PlanetIdTxt";
+            this.PlanetIdTxt.Size = new System.Drawing.Size(170, 20);
+            this.PlanetIdTxt.TabIndex = 1;
+            // 
+            // PlanetNameLbl
+            // 
+            this.PlanetNameLbl.AutoSize = true;
+            this.PlanetNameLbl.Location = new System.Drawing.Point(0, 122);
+            this.PlanetNameLbl.Name = "PlanetNameLbl";
+            this.PlanetNameLbl.Size = new System.Drawing.Size(138, 13);
+            this.PlanetNameLbl.TabIndex = 7;
+            this.PlanetNameLbl.Text = "Please Enter Planet\'s Name";
+            // 
+            // ClimateLbl
+            // 
+            this.ClimateLbl.AutoSize = true;
+            this.ClimateLbl.Location = new System.Drawing.Point(0, 67);
+            this.ClimateLbl.Name = "ClimateLbl";
+            this.ClimateLbl.Size = new System.Drawing.Size(162, 13);
+            this.ClimateLbl.TabIndex = 5;
+            this.ClimateLbl.Text = "Please Enter the Planet\'s Climate";
+            // 
+            // SubmitPlanet
+            // 
+            this.SubmitPlanet.Location = new System.Drawing.Point(41, 542);
+            this.SubmitPlanet.Name = "SubmitPlanet";
+            this.SubmitPlanet.Size = new System.Drawing.Size(75, 23);
+            this.SubmitPlanet.TabIndex = 3;
+            this.SubmitPlanet.Text = "Submit";
+            this.SubmitPlanet.UseVisualStyleBackColor = true;
+            this.SubmitPlanet.Click += new System.EventHandler(this.SubmitPlanet_Click);
+            // 
+            // PlanetIDLbl
+            // 
+            this.PlanetIDLbl.AutoSize = true;
+            this.PlanetIDLbl.Location = new System.Drawing.Point(-3, 11);
+            this.PlanetIDLbl.Name = "PlanetIDLbl";
+            this.PlanetIDLbl.Size = new System.Drawing.Size(109, 13);
+            this.PlanetIDLbl.TabIndex = 2;
+            this.PlanetIDLbl.Text = "Please Enter PlanetId";
             // 
             // Movie
             // 
@@ -462,15 +462,67 @@
             this.Movie.Text = "Movie";
             this.Movie.UseVisualStyleBackColor = true;
             // 
-            // ActorsMovieDropLbl
+            // MoviesDataGrid
             // 
-            this.ActorsMovieDropLbl.AutoSize = true;
-            this.ActorsMovieDropLbl.Location = new System.Drawing.Point(2, 16);
-            this.ActorsMovieDropLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ActorsMovieDropLbl.Name = "ActorsMovieDropLbl";
-            this.ActorsMovieDropLbl.Size = new System.Drawing.Size(81, 13);
-            this.ActorsMovieDropLbl.TabIndex = 0;
-            this.ActorsMovieDropLbl.Text = "Actors In Movie";
+            this.MoviesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MoviesDataGrid.Location = new System.Drawing.Point(196, 3);
+            this.MoviesDataGrid.Name = "MoviesDataGrid";
+            this.MoviesDataGrid.RowTemplate.Height = 24;
+            this.MoviesDataGrid.Size = new System.Drawing.Size(766, 597);
+            this.MoviesDataGrid.TabIndex = 6;
+            // 
+            // MovieCharCombo
+            // 
+            this.MovieCharCombo.FormattingEnabled = true;
+            this.MovieCharCombo.Items.AddRange(new object[] {
+            "Episode IV - A New Hope",
+            "Episode V - The Empire Strikes Back",
+            "Episode VI - Return of the Jedi",
+            "Episode I - The Phantom Menace",
+            "Episode II - Attack of the Clones",
+            "Episode III - Revenge of the Sith",
+            "Episode VII - The Force Awakens",
+            "Rogue One"});
+            this.MovieCharCombo.Location = new System.Drawing.Point(4, 125);
+            this.MovieCharCombo.Margin = new System.Windows.Forms.Padding(2);
+            this.MovieCharCombo.Name = "MovieCharCombo";
+            this.MovieCharCombo.Size = new System.Drawing.Size(167, 21);
+            this.MovieCharCombo.TabIndex = 5;
+            // 
+            // charInMovie
+            // 
+            this.charInMovie.AutoSize = true;
+            this.charInMovie.Location = new System.Drawing.Point(2, 109);
+            this.charInMovie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.charInMovie.Name = "charInMovie";
+            this.charInMovie.Size = new System.Drawing.Size(101, 13);
+            this.charInMovie.TabIndex = 4;
+            this.charInMovie.Text = "Characters in Movie";
+            // 
+            // MovieDirectorCombo
+            // 
+            this.MovieDirectorCombo.FormattingEnabled = true;
+            this.MovieDirectorCombo.Items.AddRange(new object[] {
+            "George Lucas",
+            "Irvin Kershner",
+            "Richard Marquand",
+            "J.J Abrams",
+            "Gareth Edwards"});
+            this.MovieDirectorCombo.Location = new System.Drawing.Point(4, 80);
+            this.MovieDirectorCombo.Margin = new System.Windows.Forms.Padding(2);
+            this.MovieDirectorCombo.Name = "MovieDirectorCombo";
+            this.MovieDirectorCombo.Size = new System.Drawing.Size(167, 21);
+            this.MovieDirectorCombo.TabIndex = 3;
+            // 
+            // MovieDirectedBy
+            // 
+            this.MovieDirectedBy.AutoSize = true;
+            this.MovieDirectedBy.Location = new System.Drawing.Point(3, 63);
+            this.MovieDirectedBy.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.MovieDirectedBy.Name = "MovieDirectedBy";
+            this.MovieDirectedBy.Size = new System.Drawing.Size(93, 13);
+            this.MovieDirectedBy.TabIndex = 2;
+            this.MovieDirectedBy.Text = "Movie Directed by";
             // 
             // MovieACtorsCombbo
             // 
@@ -491,71 +543,19 @@
             this.MovieACtorsCombbo.TabIndex = 1;
             this.MovieACtorsCombbo.SelectedIndexChanged += new System.EventHandler(this.MovieComboBox1_SelectedIndexChanged);
             // 
-            // MovieDirectedBy
+            // ActorsMovieDropLbl
             // 
-            this.MovieDirectedBy.AutoSize = true;
-            this.MovieDirectedBy.Location = new System.Drawing.Point(3, 63);
-            this.MovieDirectedBy.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.MovieDirectedBy.Name = "MovieDirectedBy";
-            this.MovieDirectedBy.Size = new System.Drawing.Size(93, 13);
-            this.MovieDirectedBy.TabIndex = 2;
-            this.MovieDirectedBy.Text = "Movie Directed by";
-            // 
-            // MovieDirectorCombo
-            // 
-            this.MovieDirectorCombo.FormattingEnabled = true;
-            this.MovieDirectorCombo.Items.AddRange(new object[] {
-            "George Lucas",
-            "Irvin Kershner",
-            "Richard Marquand",
-            "J.J Abrams",
-            "Gareth Edwards"});
-            this.MovieDirectorCombo.Location = new System.Drawing.Point(4, 80);
-            this.MovieDirectorCombo.Margin = new System.Windows.Forms.Padding(2);
-            this.MovieDirectorCombo.Name = "MovieDirectorCombo";
-            this.MovieDirectorCombo.Size = new System.Drawing.Size(167, 21);
-            this.MovieDirectorCombo.TabIndex = 3;
-            // 
-            // charInMovie
-            // 
-            this.charInMovie.AutoSize = true;
-            this.charInMovie.Location = new System.Drawing.Point(2, 109);
-            this.charInMovie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.charInMovie.Name = "charInMovie";
-            this.charInMovie.Size = new System.Drawing.Size(101, 13);
-            this.charInMovie.TabIndex = 4;
-            this.charInMovie.Text = "Characters in Movie";
-            // 
-            // MovieCharCombo
-            // 
-            this.MovieCharCombo.FormattingEnabled = true;
-            this.MovieCharCombo.Items.AddRange(new object[] {
-            "Episode IV - A New Hope",
-            "Episode V - The Empire Strikes Back",
-            "Episode VI - Return of the Jedi",
-            "Episode I - The Phantom Menace",
-            "Episode II - Attack of the Clones",
-            "Episode III - Revenge of the Sith",
-            "Episode VII - The Force Awakens",
-            "Rogue One"});
-            this.MovieCharCombo.Location = new System.Drawing.Point(4, 125);
-            this.MovieCharCombo.Margin = new System.Windows.Forms.Padding(2);
-            this.MovieCharCombo.Name = "MovieCharCombo";
-            this.MovieCharCombo.Size = new System.Drawing.Size(167, 21);
-            this.MovieCharCombo.TabIndex = 5;
-            
-            // 
-            // MoviesDataGrid
-            // 
-            this.MoviesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MoviesDataGrid.Location = new System.Drawing.Point(196, 3);
-            this.MoviesDataGrid.Name = "MoviesDataGrid";
-            this.MoviesDataGrid.RowTemplate.Height = 24;
-            this.MoviesDataGrid.Size = new System.Drawing.Size(766, 597);
-            this.MoviesDataGrid.TabIndex = 6;
+            this.ActorsMovieDropLbl.AutoSize = true;
+            this.ActorsMovieDropLbl.Location = new System.Drawing.Point(2, 16);
+            this.ActorsMovieDropLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ActorsMovieDropLbl.Name = "ActorsMovieDropLbl";
+            this.ActorsMovieDropLbl.Size = new System.Drawing.Size(81, 13);
+            this.ActorsMovieDropLbl.TabIndex = 0;
+            this.ActorsMovieDropLbl.Text = "Actors In Movie";
             // 
             // Login
             // 
+            this.Login.Controls.Add(this.LoginPicture);
             this.Login.Controls.Add(this.LoginConnectionLbl);
             this.Login.Controls.Add(this.LoginButton);
             this.Login.Controls.Add(this.DatabaseNameTxt);
@@ -573,70 +573,15 @@
             this.Login.Text = "Login";
             this.Login.UseVisualStyleBackColor = true;
             // 
-            // LoginUsernameLbl
+            // LoginConnectionLbl
             // 
-            this.LoginUsernameLbl.AutoSize = true;
-            this.LoginUsernameLbl.Location = new System.Drawing.Point(388, 153);
-            this.LoginUsernameLbl.Name = "LoginUsernameLbl";
-            this.LoginUsernameLbl.Size = new System.Drawing.Size(55, 13);
-            this.LoginUsernameLbl.TabIndex = 0;
-            this.LoginUsernameLbl.Text = "Username";
-            // 
-            // LoginPasswordLbl
-            // 
-            this.LoginPasswordLbl.AutoSize = true;
-            this.LoginPasswordLbl.Location = new System.Drawing.Point(388, 207);
-            this.LoginPasswordLbl.Name = "LoginPasswordLbl";
-            this.LoginPasswordLbl.Size = new System.Drawing.Size(53, 13);
-            this.LoginPasswordLbl.TabIndex = 1;
-            this.LoginPasswordLbl.Text = "Password";
-            // 
-            // ServerName
-            // 
-            this.ServerName.AutoSize = true;
-            this.ServerName.Location = new System.Drawing.Point(388, 95);
-            this.ServerName.Name = "ServerName";
-            this.ServerName.Size = new System.Drawing.Size(69, 13);
-            this.ServerName.TabIndex = 2;
-            this.ServerName.Text = "Server Name";
-            // 
-            // LoginDatabaseNameLbl
-            // 
-            this.LoginDatabaseNameLbl.AutoSize = true;
-            this.LoginDatabaseNameLbl.Location = new System.Drawing.Point(388, 262);
-            this.LoginDatabaseNameLbl.Name = "LoginDatabaseNameLbl";
-            this.LoginDatabaseNameLbl.Size = new System.Drawing.Size(96, 13);
-            this.LoginDatabaseNameLbl.TabIndex = 3;
-            this.LoginDatabaseNameLbl.Text = "Name of Database";
-            // 
-            // ServerNameTxt
-            // 
-            this.ServerNameTxt.Location = new System.Drawing.Point(391, 112);
-            this.ServerNameTxt.Name = "ServerNameTxt";
-            this.ServerNameTxt.Size = new System.Drawing.Size(100, 20);
-            this.ServerNameTxt.TabIndex = 4;
-            // 
-            // UsernameTxt
-            // 
-            this.UsernameTxt.Location = new System.Drawing.Point(391, 170);
-            this.UsernameTxt.Name = "UsernameTxt";
-            this.UsernameTxt.Size = new System.Drawing.Size(100, 20);
-            this.UsernameTxt.TabIndex = 5;
-            // 
-            // PasswordTxt
-            // 
-            this.PasswordTxt.Location = new System.Drawing.Point(391, 223);
-            this.PasswordTxt.Name = "PasswordTxt";
-            this.PasswordTxt.PasswordChar = '*';
-            this.PasswordTxt.Size = new System.Drawing.Size(100, 20);
-            this.PasswordTxt.TabIndex = 6;
-            // 
-            // DatabaseNameTxt
-            // 
-            this.DatabaseNameTxt.Location = new System.Drawing.Point(391, 278);
-            this.DatabaseNameTxt.Name = "DatabaseNameTxt";
-            this.DatabaseNameTxt.Size = new System.Drawing.Size(100, 20);
-            this.DatabaseNameTxt.TabIndex = 7;
+            this.LoginConnectionLbl.AutoSize = true;
+            this.LoginConnectionLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LoginConnectionLbl.Location = new System.Drawing.Point(388, 404);
+            this.LoginConnectionLbl.Name = "LoginConnectionLbl";
+            this.LoginConnectionLbl.Size = new System.Drawing.Size(79, 26);
+            this.LoginConnectionLbl.TabIndex = 9;
+            this.LoginConnectionLbl.Text = "\r\nNot Connected";
             // 
             // LoginButton
             // 
@@ -648,15 +593,70 @@
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // LoginConnectionLbl
+            // DatabaseNameTxt
             // 
-            this.LoginConnectionLbl.AutoSize = true;
-            this.LoginConnectionLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LoginConnectionLbl.Location = new System.Drawing.Point(391, 363);
-            this.LoginConnectionLbl.Name = "LoginConnectionLbl";
-            this.LoginConnectionLbl.Size = new System.Drawing.Size(61, 13);
-            this.LoginConnectionLbl.TabIndex = 9;
-            this.LoginConnectionLbl.Text = "Connection";
+            this.DatabaseNameTxt.Location = new System.Drawing.Point(391, 278);
+            this.DatabaseNameTxt.Name = "DatabaseNameTxt";
+            this.DatabaseNameTxt.Size = new System.Drawing.Size(100, 20);
+            this.DatabaseNameTxt.TabIndex = 7;
+            // 
+            // PasswordTxt
+            // 
+            this.PasswordTxt.Location = new System.Drawing.Point(391, 223);
+            this.PasswordTxt.Name = "PasswordTxt";
+            this.PasswordTxt.PasswordChar = '*';
+            this.PasswordTxt.Size = new System.Drawing.Size(100, 20);
+            this.PasswordTxt.TabIndex = 6;
+            // 
+            // UsernameTxt
+            // 
+            this.UsernameTxt.Location = new System.Drawing.Point(391, 170);
+            this.UsernameTxt.Name = "UsernameTxt";
+            this.UsernameTxt.Size = new System.Drawing.Size(100, 20);
+            this.UsernameTxt.TabIndex = 5;
+            // 
+            // ServerNameTxt
+            // 
+            this.ServerNameTxt.Location = new System.Drawing.Point(391, 112);
+            this.ServerNameTxt.Name = "ServerNameTxt";
+            this.ServerNameTxt.Size = new System.Drawing.Size(100, 20);
+            this.ServerNameTxt.TabIndex = 4;
+            // 
+            // LoginDatabaseNameLbl
+            // 
+            this.LoginDatabaseNameLbl.AutoSize = true;
+            this.LoginDatabaseNameLbl.Location = new System.Drawing.Point(388, 262);
+            this.LoginDatabaseNameLbl.Name = "LoginDatabaseNameLbl";
+            this.LoginDatabaseNameLbl.Size = new System.Drawing.Size(96, 13);
+            this.LoginDatabaseNameLbl.TabIndex = 3;
+            this.LoginDatabaseNameLbl.Text = "Name of Database";
+            // 
+            // ServerName
+            // 
+            this.ServerName.AutoSize = true;
+            this.ServerName.Location = new System.Drawing.Point(388, 95);
+            this.ServerName.Name = "ServerName";
+            this.ServerName.Size = new System.Drawing.Size(69, 13);
+            this.ServerName.TabIndex = 2;
+            this.ServerName.Text = "Server Name";
+            // 
+            // LoginPasswordLbl
+            // 
+            this.LoginPasswordLbl.AutoSize = true;
+            this.LoginPasswordLbl.Location = new System.Drawing.Point(388, 207);
+            this.LoginPasswordLbl.Name = "LoginPasswordLbl";
+            this.LoginPasswordLbl.Size = new System.Drawing.Size(53, 13);
+            this.LoginPasswordLbl.TabIndex = 1;
+            this.LoginPasswordLbl.Text = "Password";
+            // 
+            // LoginUsernameLbl
+            // 
+            this.LoginUsernameLbl.AutoSize = true;
+            this.LoginUsernameLbl.Location = new System.Drawing.Point(388, 153);
+            this.LoginUsernameLbl.Name = "LoginUsernameLbl";
+            this.LoginUsernameLbl.Size = new System.Drawing.Size(55, 13);
+            this.LoginUsernameLbl.TabIndex = 0;
+            this.LoginUsernameLbl.Text = "Username";
             // 
             // Tab
             // 
@@ -671,6 +671,16 @@
             this.Tab.SelectedIndex = 0;
             this.Tab.Size = new System.Drawing.Size(965, 622);
             this.Tab.TabIndex = 0;
+            // 
+            // LoginPicture
+            // 
+            this.LoginPicture.ImageLocation = "C:\\Users\\zach\\Documents\\GitHub\\Database-Project\\Database Project\\Red.png";
+            this.LoginPicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("LoginPicture.InitialImage")));
+            this.LoginPicture.Location = new System.Drawing.Point(391, 351);
+            this.LoginPicture.Name = "LoginPicture";
+            this.LoginPicture.Size = new System.Drawing.Size(112, 69);
+            this.LoginPicture.TabIndex = 10;
+            this.LoginPicture.TabStop = false;
             // 
             // BanthaFodderGui
             // 
@@ -697,6 +707,7 @@
             this.Login.ResumeLayout(false);
             this.Login.PerformLayout();
             this.Tab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LoginPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -757,6 +768,7 @@
         private System.Windows.Forms.Label LoginPasswordLbl;
         private System.Windows.Forms.Label LoginUsernameLbl;
         private System.Windows.Forms.TabControl Tab;
+        private System.Windows.Forms.PictureBox LoginPicture;
     }
 }
 
