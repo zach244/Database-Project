@@ -1,44 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using MySql.Data.MySqlClient;
-using MySql.Data.Types;
-
 
 namespace Database_Project
 {
-    enum settings
+    /// <summary>
+    ///     Enum to toggle boxes on and off
+    /// </summary>
+    internal enum Settings
     {
-        ON,
-        OFF
-    };
+        On,
+        Off
+    }
 
     public partial class BanthaFodderGui : Form
     {
-        //need to create login class / method and write unit tests
-        public string LoginServerName { get; set; }
-        public string useridName { get; set; }
-        public string passwordName { get; set; }
-        public string databaseName { get; set; }
-
-        // MySqlConnection connection { get; set; }
         public BanthaFodderGui()
         {
             InitializeComponent();
-            toggleBoxes(settings.OFF);
-
+            //toggleBoxes(Settings.Off);
         }
 
-        private void movieAddBoxes(settings x)
+
+        /// <summary>
+        ///     Log in Variables
+        /// </summary>
+        public string LoginServerName { get; set; }
+
+        public string UseridName { get; set; }
+        public string PasswordName { get; set; }
+        public string DatabaseName { get; set; }
+
+        /// <summary>
+        ///     Method to turn on Movie Add Boxes using enum On,Off
+        /// </summary>
+        /// <param name="x"></param>
+        private void MovieAddBoxes(Settings x)
         {
-            if (x == settings.ON)
+            if (x == Settings.On)
             {
                 MovieNameAdd.Visible = true;
                 movieAddLblYear.Visible = true;
@@ -60,9 +61,13 @@ namespace Database_Project
             }
         }
 
-        private void directorAddBoxes(settings x)
+        /// <summary>
+        ///     Turns on Director Add Boxes using enum On,Off
+        /// </summary>
+        /// <param name="x"></param>
+        private void DirectorAddBoxes(Settings x)
         {
-            if (x == settings.ON)
+            if (x == Settings.On)
             {
                 directorADDFName.Visible = true;
                 directorAddLName.Visible = true;
@@ -84,111 +89,100 @@ namespace Database_Project
             }
         }
 
-        private void toggleBoxes(settings x)
+        /// <summary>
+        ///     Toggles All Add Boxes on and off using Enum On,Off
+        /// </summary>
+        /// <param name="x"></param>
+        private void ToggleBoxes(Settings x)
         {
-            if (x == settings.ON)
+            if (x == Settings.On)
             {
-                movieAddBoxes(settings.ON);
-                directorAddBoxes(settings.ON);
+                MovieAddBoxes(Settings.On);
+                DirectorAddBoxes(Settings.On);
             }
             else
             {
-                movieAddBoxes(settings.OFF);
-                directorAddBoxes(settings.OFF);
+                MovieAddBoxes(Settings.Off);
+                DirectorAddBoxes(Settings.Off);
             }
         }
 
-        private MySqlConnectionStringBuilder connectionBuilder()
+        /// <summary>
+        ///     Creates the Login String for executing commands from the text boxes from login menu
+        /// </summary>
+        /// <returns></returns>
+        private MySqlConnectionStringBuilder ConnectionBuilder()
         {
-            MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+            var builder = new MySqlConnectionStringBuilder();
             builder.Server = LoginServerName;
-            builder.UserID = useridName;
-            builder.Password = passwordName;
-            builder.Database = databaseName;
+            builder.UserID = UseridName;
+            builder.Password = PasswordName;
+            builder.Database = DatabaseName;
             return builder;
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
 
+        /// <summary>
+        ///     When clicked Takes the entered information in the Planet text boxes and converts them into Sql Query and returns
+        ///     result.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SubmitPlanet_Click(object sender, EventArgs e)
         {
-            MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-            if (LoginServerName == null || useridName == null || passwordName == null || databaseName == null)
-            {
+            if ((LoginServerName == null) || (UseridName == null) || (PasswordName == null) || (DatabaseName == null))
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
-            }
-            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
+            var connection = new MySqlConnection(ConnectionBuilder().ToString());
 
-            MySqlCommand sqlCmd = new MySqlCommand();
-            sqlCmd.Connection = connection;
-            sqlCmd.CommandType = CommandType.Text;
+            var sqlCmd = new MySqlCommand
+            {
+                Connection = connection,
+                CommandType = CommandType.Text
+            };
 
             if (!string.IsNullOrEmpty(PlanetIdTxt.Text) && string.IsNullOrEmpty(ClimateTxt.Text) &&
                 string.IsNullOrEmpty(PlanetNameTxt.Text))
-            {
                 sqlCmd.CommandText = "Select * from Planet where idPlanet =" + PlanetIdTxt.Text;
-            }
             else if (string.IsNullOrEmpty(PlanetIdTxt.Text) && !string.IsNullOrEmpty(ClimateTxt.Text) &&
                      string.IsNullOrEmpty(PlanetNameTxt.Text))
-            {
-                sqlCmd.CommandText = string.Format("Select * from Planet where climate = \"{0}\"", ClimateTxt.Text);
-            }
+                sqlCmd.CommandText = $"Select * from Planet where climate = \"{ClimateTxt.Text}\"";
             else if (string.IsNullOrEmpty(PlanetIdTxt.Text) && string.IsNullOrEmpty(ClimateTxt.Text) &&
                      !string.IsNullOrEmpty(PlanetNameTxt.Text))
-            {
-                sqlCmd.CommandText = string.Format("Select * from Planet where name = \"{0}\"", PlanetNameTxt.Text);
-            }
+                sqlCmd.CommandText = $"Select * from Planet where name = \"{PlanetNameTxt.Text}\"";
             else if (!string.IsNullOrEmpty(PlanetIdTxt.Text) && !string.IsNullOrEmpty(ClimateTxt.Text) &&
                      string.IsNullOrEmpty(PlanetNameTxt.Text))
-            {
-                sqlCmd.CommandText = string.Format("Select * from Planet where idPlanet = {0} and climate = \"{1}\"",
-                    PlanetIdTxt.Text, ClimateTxt.Text);
-            }
+                sqlCmd.CommandText =
+                    $"Select * from Planet where idPlanet = {PlanetIdTxt.Text} and climate = \"{ClimateTxt.Text}\"";
             else if (!string.IsNullOrEmpty(PlanetIdTxt.Text) && string.IsNullOrEmpty(ClimateTxt.Text) &&
                      !string.IsNullOrEmpty(PlanetNameTxt.Text))
-            {
-                sqlCmd.CommandText = string.Format("Select * from Planet where idPlanet = {0} and name = \"{1}\"",
-                    PlanetIdTxt.Text, PlanetNameTxt.Text);
-            }
+                sqlCmd.CommandText =
+                    $"Select * from Planet where idPlanet = {PlanetIdTxt.Text} and name = \"{PlanetNameTxt.Text}\"";
             else if (!string.IsNullOrEmpty(PlanetIdTxt.Text) && !string.IsNullOrEmpty(ClimateTxt.Text) &&
                      string.IsNullOrEmpty(PlanetNameTxt.Text))
-            {
-                sqlCmd.CommandText = string.Format("Select * from Planet where idPlanet = {0} and climate = \"{1}\"",
-                    PlanetIdTxt.Text, ClimateTxt.Text);
-            }
+                sqlCmd.CommandText =
+                    $"Select * from Planet where idPlanet = {PlanetIdTxt.Text} and climate = \"{ClimateTxt.Text}\"";
             else if (string.IsNullOrEmpty(PlanetIdTxt.Text) && !string.IsNullOrEmpty(ClimateTxt.Text) &&
                      !string.IsNullOrEmpty(PlanetNameTxt.Text))
-            {
-                sqlCmd.CommandText = string.Format("Select * from Planet where climate = \"{0}\" and name = \"{1}\"",
-                    ClimateTxt.Text, PlanetNameTxt.Text);
-            }
+                sqlCmd.CommandText =
+                    $"Select * from Planet where climate = \"{ClimateTxt.Text}\" and name = \"{PlanetNameTxt.Text}\"";
             else if (!string.IsNullOrEmpty(PlanetIdTxt.Text) && !string.IsNullOrEmpty(ClimateTxt.Text) &&
                      !string.IsNullOrEmpty(PlanetNameTxt.Text))
-            {
                 sqlCmd.CommandText =
-                    string.Format(
-                        "Select * from Planet where idPlanet = {0} and climate = \"{1}\" and name = \"{2}\" ",
-                        PlanetIdTxt.Text, ClimateTxt.Text, PlanetNameTxt.Text);
-            }
+                    $"Select * from Planet where idPlanet = {PlanetIdTxt.Text} and climate = \"{ClimateTxt.Text}\" and name = \"{PlanetNameTxt.Text}\" ";
             else
-            {
                 MessageBox.Show("Must enter a value to have a valid Sql Query");
-            }
 
             try
             {
                 connection.Open();
-                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(sqlCmd);
-                DataTable dtRecord = new DataTable();
+                var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                var dtRecord = new DataTable();
                 sqlDataAdap.Fill(dtRecord);
-                if (dtRecord != null && dtRecord.Rows.Count == 0)
-                {
+                if (dtRecord.Rows.Count == 0)
                     MessageBox.Show("No Results from Parameters");
-                }
                 PlanetDataGrid.ReadOnly = true;
                 PlanetDataGrid.DataSource = dtRecord;
                 connection.Close();
@@ -200,38 +194,34 @@ namespace Database_Project
             connection.Close();
         }
 
-        private void PlanetNameTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        ///     Executes Custom sql command when filled into Custom Textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SubmitCustom_Click(object sender, EventArgs e)
         {
-            if (LoginServerName == null || useridName == null || passwordName == null || databaseName == null)
-            {
+            if ((LoginServerName == null) || (UseridName == null) || (PasswordName == null) || (DatabaseName == null))
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
-            }
 
-            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
-            MySqlCommand sqlCmd = new MySqlCommand();
-            sqlCmd.Connection = connection;
-            sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = CustomTxt.Text;
-            if (string.IsNullOrEmpty(CustomTxt.Text))
+            var connection = new MySqlConnection(ConnectionBuilder().ToString());
+            var sqlCmd = new MySqlCommand
             {
+                Connection = connection,
+                CommandType = CommandType.Text,
+                CommandText = CustomTxt.Text
+            };
+            if (string.IsNullOrEmpty(CustomTxt.Text))
                 MessageBox.Show("Must enter a valid Sql Command");
-            }
             try
             {
                 connection.Open();
-                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(sqlCmd);
-                DataTable dtRecord = new DataTable();
+                var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                var dtRecord = new DataTable();
                 sqlDataAdap.Fill(dtRecord);
 
-                if (dtRecord != null && dtRecord.Rows.Count == 0)
-                {
+                if (dtRecord.Rows.Count == 0)
                     MessageBox.Show("No Results from Parameters");
-                }
 
                 CustomDataGrid.ReadOnly = true;
                 CustomDataGrid.DataSource = dtRecord;
@@ -244,51 +234,77 @@ namespace Database_Project
             connection.Close();
         }
 
-
+        /// <summary>
+        ///     When the Combobox is changed, executes sql query based on selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (LoginServerName == null || useridName == null || passwordName == null || databaseName == null)
-            {
+            if ((LoginServerName == null) || (UseridName == null) || (PasswordName == null) || (DatabaseName == null))
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
-            }
-            if (ComboBoxCustom.Text == "Planets")
+            var connection = new MySqlConnection(ConnectionBuilder().ToString());
+            var query = "";
+
+            if (ComboBoxCustom.SelectedIndex.Equals(0))
+                query = "Select * from Movie";
+            if (ComboBoxCustom.SelectedIndex.Equals(1))
+                query = "Select * from `Character`";
+            if (ComboBoxCustom.SelectedIndex.Equals(2))
+                query = "Select * from Actor";
+            if (ComboBoxCustom.SelectedIndex.Equals(3))
+                query = "Select * from ActedIn";
+            if (ComboBoxCustom.SelectedIndex.Equals(4))
+                query = "Select * from Directed";
+            if (ComboBoxCustom.SelectedIndex.Equals(5))
+                query = "Select * from Droid";
+            if (ComboBoxCustom.SelectedIndex.Equals(6))
+                query = "Select * from Manufacturer";
+            if (ComboBoxCustom.SelectedIndex.Equals(7))
+                query = "Select * from Director";
+            if (ComboBoxCustom.SelectedIndex.Equals(8))
+                query = "Select * from Pilot";
+            if (ComboBoxCustom.SelectedIndex.Equals(9))
+                query = "Select * from Planet";
+            if (ComboBoxCustom.SelectedIndex.Equals(10))
+                query = "Select * from VehicleAndShip";
+            if (ComboBoxCustom.SelectedIndex.Equals(11))
+                query = "Select * from Species";
+            if (ComboBoxCustom.SelectedIndex.Equals(12))
+                query = "Select * from Weapon";
+            try
             {
-                MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
-                MySqlCommand sqlCmd = new MySqlCommand();
-                sqlCmd.Connection = connection;
-                sqlCmd.CommandType = CommandType.Text;
-                sqlCmd.CommandText = "select * from planet";
-                try
-                {
-                    connection.Open();
-                    MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(sqlCmd);
-                    DataTable dtRecord = new DataTable();
-                    sqlDataAdap.Fill(dtRecord);
+                connection.Open();
+                var sqlCmd = new MySqlCommand(query, connection);
+                var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                var dtRecord = new DataTable();
+                sqlDataAdap.Fill(dtRecord);
 
-                    if (dtRecord != null && dtRecord.Rows.Count == 0)
-                    {
-                        MessageBox.Show("No Results from Parameters");
-                    }
+                if (dtRecord.Rows.Count == 0)
+                    MessageBox.Show("No Results from Parameters");
 
-                    CustomDataGrid.ReadOnly = true;
-                    CustomDataGrid.DataSource = dtRecord;
-                    connection.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-
+                CustomDataGrid.ReadOnly = true;
+                CustomDataGrid.DataSource = dtRecord;
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
+        /// <summary>
+        ///     When Pressed sets the login information for all of the connections in client
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginButton_Click(object sender, EventArgs e)
         {
             LoginServerName = ServerNameTxt.Text;
-            useridName = UsernameTxt.Text;
-            passwordName = PasswordTxt.Text;
-            databaseName = DatabaseNameTxt.Text;
-            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
+            UseridName = UsernameTxt.Text;
+            PasswordName = PasswordTxt.Text;
+            DatabaseName = DatabaseNameTxt.Text;
+            var connection = new MySqlConnection(ConnectionBuilder().ToString());
 
             try
             {
@@ -298,25 +314,16 @@ namespace Database_Project
             {
                 MessageBox.Show(ex.ToString());
             }
-            if (connection.State == ConnectionState.Open)
-            {
-                LoginConnectionLbl.ForeColor = System.Drawing.Color.LimeGreen;
-                    //possible connection indicator on everytab. 
-                Tab.SelectedTab = Actor; //could possiblye do a message box and on click it changes tabs. 
-            }
-            else
-            {
-                LoginConnectionLbl.ForeColor = System.Drawing.Color.Red;
-            }
+            LoginConnectionLbl.ForeColor = connection.State == ConnectionState.Open ? Color.LimeGreen : Color.Red;
             connection.Close();
         }
 
-       /* private void moviecomboboxpopulate()
+        /* private void moviecomboboxpopulate()
         {
             try
             {
                 string query = "SELECT movieName From Movie";
-                MySqlConnection connect = new MySqlConnection(connectionBuilder().ToString());
+                MySqlConnection connect = new MySqlConnection(ConnectionBuilder().ToString());
                 connect.Open();
                 MySqlCommand command = new MySqlCommand(query,connect);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -338,112 +345,90 @@ namespace Database_Project
         private void MovieComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //moviecomboboxpopulate();
-           /* if (MovieACtorsCombbo.SelectedIndex > -1)
-            {
-                string m = MovieACtorsCombbo.SelectedIndex.ToString();
-                string query = string.Format("Select *  from Movie where movieName = \"{0}\"",m); // Need sql command to get actors from 
-                MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
-                MySqlCommand cmd = new MySqlCommand(query,connection);
-                MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-                DataTable dtRecord = new DataTable();
-                sqlDataAdap.Fill(dtRecord);
-                CustomDataGrid.ReadOnly = true;
-                CustomDataGrid.DataSource = dtRecord;
-            }*/
+            /* if (MovieACtorsCombbo.SelectedIndex > -1)
+             {
+                 string m = MovieACtorsCombbo.SelectedIndex.ToString();
+                 string query = string.Format("Select *  from Movie where movieName = \"{0}\"",m); // Need sql command to get actors from 
+                 MySqlConnection connection = new MySqlConnection(ConnectionBuilder().ToString());
+                 MySqlCommand cmd = new MySqlCommand(query,connection);
+                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+                 DataTable dtRecord = new DataTable();
+                 sqlDataAdap.Fill(dtRecord);
+                 CustomDataGrid.ReadOnly = true;
+                 CustomDataGrid.DataSource = dtRecord;
+             }*/
 
             //use if statements instead
-
         }
 
-        private void ActorSubmitBtn_Click(object sender, EventArgs e)
-        {
-            //Need to mimic Planet class but for Actor
-
-        }
-
+        /// <summary>
+        ///     When selected toggles correct boxes on, to add information into database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (AddComboBox.Text == "Movie")
             {
-                toggleBoxes(settings.OFF);
+                ToggleBoxes(Settings.Off);
                 //needs to set visibilty for textbox to allow data input / submit button / labels
-                movieAddBoxes(settings.ON);
+                MovieAddBoxes(Settings.On);
             }
             else if (AddComboBox.Text == "Director")
             {
-                toggleBoxes(settings.OFF);
-                directorAddBoxes(settings.ON);
-
+                ToggleBoxes(Settings.Off);
+                DirectorAddBoxes(Settings.On);
             }
-            else if (AddComboBox.Text == "Actor")
-            {
-                toggleBoxes(settings.OFF);
-
-            }
-            else if (AddComboBox.Text == "Character")
-            {
-                toggleBoxes(settings.OFF);
-
-            }
-            else if (AddComboBox.Text == "Planet")
-            {
-                toggleBoxes(settings.OFF);
-            }
-            else if (AddComboBox.Text == "Pilot")
-            {
-                toggleBoxes(settings.OFF);
-            }
-            //Need to add rest of tables
         }
 
-        private void Add_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        ///     When clicked Adds the information added into the text boxes in Movie, to the database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void movieAddSubmit_Click(object sender, EventArgs e)
         {
-
-            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
+            var connection = new MySqlConnection(ConnectionBuilder().ToString());
             connection.Open();
-            if (string.IsNullOrEmpty(movieAddName.Text) || string.IsNullOrEmpty(movieAddYear.Text)  || string.IsNullOrEmpty(movieAddLength.Text))
-                {
+            if (string.IsNullOrEmpty(movieAddName.Text) || string.IsNullOrEmpty(movieAddYear.Text) ||
+                string.IsNullOrEmpty(movieAddLength.Text))
                 MessageBox.Show("Must equal in proper results for insert and no box can be left empty!");
-            }
             try
-            {   
-                string query = string.Format("INSERT INTO Movie (movieName,releaseYear,lengthMinutes) VALUES(\"{0}\",\"{1}\",\"{2}\")", movieAddName.Text.ToString(),movieAddYear.Text.ToString(),movieAddLength.Text.ToString());
-                MySqlCommand sqlCmd = new MySqlCommand(query,connection);
+            {
+                string query =
+                    $"INSERT INTO Movie (movieName,releaseYear,lengthMinutes) VALUES(\"{movieAddName.Text}\",\"{movieAddYear.Text}\",\"{movieAddLength.Text}\")";
+                var sqlCmd = new MySqlCommand(query, connection);
                 sqlCmd.ExecuteNonQuery();
                 connection.Close();
                 movieAddName.Clear();
                 movieAddLength.Clear();
                 movieAddYear.Clear();
-                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            
         }
 
-        private void directorADDSubmit_Click(object sender, EventArgs e)//need to check the query and make sure it adds properly!!!!!
+        /// <summary>
+        ///     When clicked adds all the information in text boxes to the database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void directorADDSubmit_Click(object sender, EventArgs e)
+
         {
-            if (string.IsNullOrEmpty(directorADDFName.Text) == true || string.IsNullOrEmpty(directorAddLName.Text) == true || string.IsNullOrEmpty(DirectorBdayADD.Text) == true)
-            {
+            if (string.IsNullOrEmpty(directorADDFName.Text) || string.IsNullOrEmpty(directorAddLName.Text) ||
+                string.IsNullOrEmpty(DirectorBdayADD.Text))
                 MessageBox.Show("Must equal in proper results for insert and no box can be left empty!");
-            }
-            MySqlConnection connection = new MySqlConnection(connectionBuilder().ToString());
+            var connection = new MySqlConnection(ConnectionBuilder().ToString());
             connection.Open();
 
             try
             {
-                
-                string query = string.Format(
-                        "INSERT INTO Director (fName,lName,birthday) VALUES(\"{0}\",\"{1}\",\"{2}\")",
-                        directorADDFName.Text.ToString(), directorADDlnametxt.Text.ToString(), DirectorBdayADD.Text);
-                MySqlCommand sqlCmd = new MySqlCommand(query, connection);
+                string query =
+                    $"INSERT INTO Director (fName,lName,birthday) VALUES(\"{directorADDFName.Text}\",\"{directorADDlnametxt.Text}\",\"{DirectorBdayADD.Text}\")";
+                var sqlCmd = new MySqlCommand(query, connection);
                 sqlCmd.ExecuteNonQuery();
                 connection.Close();
                 directorADDFName.Clear();
@@ -454,7 +439,6 @@ namespace Database_Project
             {
                 MessageBox.Show(ex.ToString());
             }
-            
         }
     }
 }
