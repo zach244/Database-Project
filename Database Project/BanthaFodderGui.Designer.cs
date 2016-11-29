@@ -69,30 +69,30 @@
             this.ActorDataGrid = new System.Windows.Forms.DataGridView();
             this.Movie = new System.Windows.Forms.TabPage();
             this.MoviesDataGrid = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.MovieCharCombo = new System.Windows.Forms.ComboBox();
             this.charInMovie = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.MovieDirectorCombo = new System.Windows.Forms.ComboBox();
             this.MovieDirectedBy = new System.Windows.Forms.Label();
-            this.MovieComboBox1 = new System.Windows.Forms.ComboBox();
+            this.MovieACtorsCombbo = new System.Windows.Forms.ComboBox();
             this.ActorsMovieDropLbl = new System.Windows.Forms.Label();
             this.Add = new System.Windows.Forms.TabPage();
+            this.DirectorBdayADD = new System.Windows.Forms.DateTimePicker();
+            this.directorADDSubmit = new System.Windows.Forms.Button();
+            this.directorADDlnametxt = new System.Windows.Forms.TextBox();
+            this.directorBdayLBL = new System.Windows.Forms.Label();
+            this.directorAddLName = new System.Windows.Forms.Label();
+            this.directorADDFName = new System.Windows.Forms.TextBox();
+            this.directorFnameAddLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.movieAddSubmit = new System.Windows.Forms.Button();
+            this.movieAddLength = new System.Windows.Forms.TextBox();
+            this.movieAddYear = new System.Windows.Forms.TextBox();
+            this.movieAddName = new System.Windows.Forms.TextBox();
             this.movieAddLengthLbl = new System.Windows.Forms.Label();
             this.movieAddLblYear = new System.Windows.Forms.Label();
             this.MovieNameAdd = new System.Windows.Forms.Label();
             this.InsertLabel = new System.Windows.Forms.Label();
             this.AddComboBox = new System.Windows.Forms.ComboBox();
-            this.movieAddName = new System.Windows.Forms.TextBox();
-            this.movieAddYear = new System.Windows.Forms.TextBox();
-            this.movieAddLength = new System.Windows.Forms.TextBox();
-            this.movieAddSubmit = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.directorFnameAddLbl = new System.Windows.Forms.Label();
-            this.directorADDFName = new System.Windows.Forms.TextBox();
-            this.directorAddLName = new System.Windows.Forms.Label();
-            this.directorBdayLBL = new System.Windows.Forms.Label();
-            this.directorADDlnametxt = new System.Windows.Forms.TextBox();
-            this.directorADDBday = new System.Windows.Forms.MaskedTextBox();
-            this.directorADDSubmit = new System.Windows.Forms.Button();
             this.Custom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomDataGrid)).BeginInit();
             this.Planet.SuspendLayout();
@@ -116,7 +116,7 @@
             this.Custom.Controls.Add(this.CustomTxt);
             this.Custom.Location = new System.Drawing.Point(4, 22);
             this.Custom.Name = "Custom";
-            this.Custom.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.Custom.Padding = new System.Windows.Forms.Padding(3);
             this.Custom.Size = new System.Drawing.Size(957, 596);
             this.Custom.TabIndex = 0;
             this.Custom.Text = "Custom";
@@ -407,7 +407,7 @@
             this.Actor.Controls.Add(this.ActorLabalFName);
             this.Actor.Controls.Add(this.ActorDataGrid);
             this.Actor.Location = new System.Drawing.Point(4, 22);
-            this.Actor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Actor.Margin = new System.Windows.Forms.Padding(2);
             this.Actor.Name = "Actor";
             this.Actor.Size = new System.Drawing.Size(957, 596);
             this.Actor.TabIndex = 5;
@@ -417,7 +417,7 @@
             // ActorSubmitBtn
             // 
             this.ActorSubmitBtn.Location = new System.Drawing.Point(5, 556);
-            this.ActorSubmitBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ActorSubmitBtn.Margin = new System.Windows.Forms.Padding(2);
             this.ActorSubmitBtn.Name = "ActorSubmitBtn";
             this.ActorSubmitBtn.Size = new System.Drawing.Size(144, 19);
             this.ActorSubmitBtn.TabIndex = 7;
@@ -428,7 +428,7 @@
             // chNameTxt
             // 
             this.chNameTxt.Location = new System.Drawing.Point(5, 131);
-            this.chNameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chNameTxt.Margin = new System.Windows.Forms.Padding(2);
             this.chNameTxt.Name = "chNameTxt";
             this.chNameTxt.Size = new System.Drawing.Size(167, 20);
             this.chNameTxt.TabIndex = 6;
@@ -446,7 +446,7 @@
             // ActorsLNametxt
             // 
             this.ActorsLNametxt.Location = new System.Drawing.Point(5, 80);
-            this.ActorsLNametxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ActorsLNametxt.Margin = new System.Windows.Forms.Padding(2);
             this.ActorsLNametxt.Name = "ActorsLNametxt";
             this.ActorsLNametxt.Size = new System.Drawing.Size(167, 20);
             this.ActorsLNametxt.TabIndex = 4;
@@ -464,7 +464,7 @@
             // ActorTextBoxFname
             // 
             this.ActorTextBoxFname.Location = new System.Drawing.Point(5, 33);
-            this.ActorTextBoxFname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ActorTextBoxFname.Margin = new System.Windows.Forms.Padding(2);
             this.ActorTextBoxFname.Name = "ActorTextBoxFname";
             this.ActorTextBoxFname.Size = new System.Drawing.Size(167, 20);
             this.ActorTextBoxFname.TabIndex = 2;
@@ -491,14 +491,14 @@
             // Movie
             // 
             this.Movie.Controls.Add(this.MoviesDataGrid);
-            this.Movie.Controls.Add(this.comboBox2);
+            this.Movie.Controls.Add(this.MovieCharCombo);
             this.Movie.Controls.Add(this.charInMovie);
-            this.Movie.Controls.Add(this.comboBox1);
+            this.Movie.Controls.Add(this.MovieDirectorCombo);
             this.Movie.Controls.Add(this.MovieDirectedBy);
-            this.Movie.Controls.Add(this.MovieComboBox1);
+            this.Movie.Controls.Add(this.MovieACtorsCombbo);
             this.Movie.Controls.Add(this.ActorsMovieDropLbl);
             this.Movie.Location = new System.Drawing.Point(4, 22);
-            this.Movie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Movie.Margin = new System.Windows.Forms.Padding(2);
             this.Movie.Name = "Movie";
             this.Movie.Size = new System.Drawing.Size(957, 596);
             this.Movie.TabIndex = 4;
@@ -514,15 +514,24 @@
             this.MoviesDataGrid.Size = new System.Drawing.Size(766, 597);
             this.MoviesDataGrid.TabIndex = 6;
             // 
-            // comboBox2
+            // MovieCharCombo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(4, 125);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(167, 21);
-            this.comboBox2.TabIndex = 5;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.MovieCharCombo.FormattingEnabled = true;
+            this.MovieCharCombo.Items.AddRange(new object[] {
+            "Episode IV - A New Hope",
+            "Episode V - The Empire Strikes Back",
+            "Episode VI - Return of the Jedi",
+            "Episode I - The Phantom Menace",
+            "Episode II - Attack of the Clones",
+            "Episode III - Revenge of the Sith",
+            "Episode VII - The Force Awakens",
+            "Rogue One"});
+            this.MovieCharCombo.Location = new System.Drawing.Point(4, 125);
+            this.MovieCharCombo.Margin = new System.Windows.Forms.Padding(2);
+            this.MovieCharCombo.Name = "MovieCharCombo";
+            this.MovieCharCombo.Size = new System.Drawing.Size(167, 21);
+            this.MovieCharCombo.TabIndex = 5;
+            this.MovieCharCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // charInMovie
             // 
@@ -534,14 +543,20 @@
             this.charInMovie.TabIndex = 4;
             this.charInMovie.Text = "Characters in Movie";
             // 
-            // comboBox1
+            // MovieDirectorCombo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(4, 80);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(167, 21);
-            this.comboBox1.TabIndex = 3;
+            this.MovieDirectorCombo.FormattingEnabled = true;
+            this.MovieDirectorCombo.Items.AddRange(new object[] {
+            "George Lucas",
+            "Irvin Kershner",
+            "Richard Marquand",
+            "J.J Abrams",
+            "Gareth Edwards"});
+            this.MovieDirectorCombo.Location = new System.Drawing.Point(4, 80);
+            this.MovieDirectorCombo.Margin = new System.Windows.Forms.Padding(2);
+            this.MovieDirectorCombo.Name = "MovieDirectorCombo";
+            this.MovieDirectorCombo.Size = new System.Drawing.Size(167, 21);
+            this.MovieDirectorCombo.TabIndex = 3;
             // 
             // MovieDirectedBy
             // 
@@ -553,15 +568,24 @@
             this.MovieDirectedBy.TabIndex = 2;
             this.MovieDirectedBy.Text = "Movie Directed by";
             // 
-            // MovieComboBox1
+            // MovieACtorsCombbo
             // 
-            this.MovieComboBox1.FormattingEnabled = true;
-            this.MovieComboBox1.Location = new System.Drawing.Point(4, 32);
-            this.MovieComboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MovieComboBox1.Name = "MovieComboBox1";
-            this.MovieComboBox1.Size = new System.Drawing.Size(167, 21);
-            this.MovieComboBox1.TabIndex = 1;
-            this.MovieComboBox1.SelectedIndexChanged += new System.EventHandler(this.MovieComboBox1_SelectedIndexChanged);
+            this.MovieACtorsCombbo.FormattingEnabled = true;
+            this.MovieACtorsCombbo.Items.AddRange(new object[] {
+            "Episode IV - A New Hope",
+            "Episode V - The Empire Strikes Back",
+            "Episode VI - Return of the Jedi",
+            "Episode I - The Phantom Menace",
+            "Episode II - Attack of the Clones",
+            "Episode III - Revenge of the Sith",
+            "Episode VII - The Force Awakens",
+            "Rogue One"});
+            this.MovieACtorsCombbo.Location = new System.Drawing.Point(4, 32);
+            this.MovieACtorsCombbo.Margin = new System.Windows.Forms.Padding(2);
+            this.MovieACtorsCombbo.Name = "MovieACtorsCombbo";
+            this.MovieACtorsCombbo.Size = new System.Drawing.Size(167, 21);
+            this.MovieACtorsCombbo.TabIndex = 1;
+            this.MovieACtorsCombbo.SelectedIndexChanged += new System.EventHandler(this.MovieComboBox1_SelectedIndexChanged);
             // 
             // ActorsMovieDropLbl
             // 
@@ -575,8 +599,8 @@
             // 
             // Add
             // 
+            this.Add.Controls.Add(this.DirectorBdayADD);
             this.Add.Controls.Add(this.directorADDSubmit);
-            this.Add.Controls.Add(this.directorADDBday);
             this.Add.Controls.Add(this.directorADDlnametxt);
             this.Add.Controls.Add(this.directorBdayLBL);
             this.Add.Controls.Add(this.directorAddLName);
@@ -593,13 +617,112 @@
             this.Add.Controls.Add(this.InsertLabel);
             this.Add.Controls.Add(this.AddComboBox);
             this.Add.Location = new System.Drawing.Point(4, 22);
-            this.Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Add.Margin = new System.Windows.Forms.Padding(2);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(957, 596);
             this.Add.TabIndex = 6;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
+            // 
+            // DirectorBdayADD
+            // 
+            this.DirectorBdayADD.CustomFormat = "yyyy-MM-dd";
+            this.DirectorBdayADD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DirectorBdayADD.Location = new System.Drawing.Point(290, 204);
+            this.DirectorBdayADD.Name = "DirectorBdayADD";
+            this.DirectorBdayADD.Size = new System.Drawing.Size(269, 20);
+            this.DirectorBdayADD.TabIndex = 17;
+            // 
+            // directorADDSubmit
+            // 
+            this.directorADDSubmit.Location = new System.Drawing.Point(370, 287);
+            this.directorADDSubmit.Name = "directorADDSubmit";
+            this.directorADDSubmit.Size = new System.Drawing.Size(75, 23);
+            this.directorADDSubmit.TabIndex = 16;
+            this.directorADDSubmit.Text = "Submit";
+            this.directorADDSubmit.UseVisualStyleBackColor = true;
+            this.directorADDSubmit.Click += new System.EventHandler(this.directorADDSubmit_Click);
+            // 
+            // directorADDlnametxt
+            // 
+            this.directorADDlnametxt.Location = new System.Drawing.Point(290, 141);
+            this.directorADDlnametxt.Name = "directorADDlnametxt";
+            this.directorADDlnametxt.Size = new System.Drawing.Size(269, 20);
+            this.directorADDlnametxt.TabIndex = 14;
+            // 
+            // directorBdayLBL
+            // 
+            this.directorBdayLBL.AutoSize = true;
+            this.directorBdayLBL.Location = new System.Drawing.Point(290, 188);
+            this.directorBdayLBL.Name = "directorBdayLBL";
+            this.directorBdayLBL.Size = new System.Drawing.Size(120, 13);
+            this.directorBdayLBL.TabIndex = 13;
+            this.directorBdayLBL.Text = "Enter Director\'s Birthday";
+            // 
+            // directorAddLName
+            // 
+            this.directorAddLName.AutoSize = true;
+            this.directorAddLName.Location = new System.Drawing.Point(287, 124);
+            this.directorAddLName.Name = "directorAddLName";
+            this.directorAddLName.Size = new System.Drawing.Size(133, 13);
+            this.directorAddLName.TabIndex = 12;
+            this.directorAddLName.Text = "Enter Director\'s Last Name";
+            // 
+            // directorADDFName
+            // 
+            this.directorADDFName.Location = new System.Drawing.Point(290, 74);
+            this.directorADDFName.Name = "directorADDFName";
+            this.directorADDFName.Size = new System.Drawing.Size(269, 20);
+            this.directorADDFName.TabIndex = 11;
+            // 
+            // directorFnameAddLbl
+            // 
+            this.directorFnameAddLbl.AutoSize = true;
+            this.directorFnameAddLbl.Location = new System.Drawing.Point(287, 57);
+            this.directorFnameAddLbl.Name = "directorFnameAddLbl";
+            this.directorFnameAddLbl.Size = new System.Drawing.Size(125, 13);
+            this.directorFnameAddLbl.TabIndex = 10;
+            this.directorFnameAddLbl.Text = "Enter Director First Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(287, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 1;
+            // 
+            // movieAddSubmit
+            // 
+            this.movieAddSubmit.Location = new System.Drawing.Point(370, 287);
+            this.movieAddSubmit.Name = "movieAddSubmit";
+            this.movieAddSubmit.Size = new System.Drawing.Size(75, 23);
+            this.movieAddSubmit.TabIndex = 9;
+            this.movieAddSubmit.Text = "Submit";
+            this.movieAddSubmit.UseVisualStyleBackColor = true;
+            this.movieAddSubmit.Click += new System.EventHandler(this.movieAddSubmit_Click);
+            // 
+            // movieAddLength
+            // 
+            this.movieAddLength.Location = new System.Drawing.Point(290, 204);
+            this.movieAddLength.Name = "movieAddLength";
+            this.movieAddLength.Size = new System.Drawing.Size(269, 20);
+            this.movieAddLength.TabIndex = 8;
+            // 
+            // movieAddYear
+            // 
+            this.movieAddYear.Location = new System.Drawing.Point(290, 141);
+            this.movieAddYear.Name = "movieAddYear";
+            this.movieAddYear.Size = new System.Drawing.Size(269, 20);
+            this.movieAddYear.TabIndex = 7;
+            // 
+            // movieAddName
+            // 
+            this.movieAddName.Location = new System.Drawing.Point(290, 73);
+            this.movieAddName.Name = "movieAddName";
+            this.movieAddName.Size = new System.Drawing.Size(269, 20);
+            this.movieAddName.TabIndex = 6;
             // 
             // movieAddLengthLbl
             // 
@@ -652,110 +775,11 @@
             "Planet",
             "Pilot"});
             this.AddComboBox.Location = new System.Drawing.Point(3, 63);
-            this.AddComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.AddComboBox.Name = "AddComboBox";
             this.AddComboBox.Size = new System.Drawing.Size(170, 21);
             this.AddComboBox.TabIndex = 0;
             this.AddComboBox.SelectedIndexChanged += new System.EventHandler(this.AddComboBox_SelectedIndexChanged);
-            // 
-            // movieAddName
-            // 
-            this.movieAddName.Location = new System.Drawing.Point(290, 73);
-            this.movieAddName.Name = "movieAddName";
-            this.movieAddName.Size = new System.Drawing.Size(269, 20);
-            this.movieAddName.TabIndex = 6;
-            // 
-            // movieAddYear
-            // 
-            this.movieAddYear.Location = new System.Drawing.Point(290, 141);
-            this.movieAddYear.Name = "movieAddYear";
-            this.movieAddYear.Size = new System.Drawing.Size(269, 20);
-            this.movieAddYear.TabIndex = 7;
-            // 
-            // movieAddLength
-            // 
-            this.movieAddLength.Location = new System.Drawing.Point(290, 204);
-            this.movieAddLength.Name = "movieAddLength";
-            this.movieAddLength.Size = new System.Drawing.Size(269, 20);
-            this.movieAddLength.TabIndex = 8;
-            // 
-            // movieAddSubmit
-            // 
-            this.movieAddSubmit.Location = new System.Drawing.Point(370, 287);
-            this.movieAddSubmit.Name = "movieAddSubmit";
-            this.movieAddSubmit.Size = new System.Drawing.Size(75, 23);
-            this.movieAddSubmit.TabIndex = 9;
-            this.movieAddSubmit.Text = "Submit";
-            this.movieAddSubmit.UseVisualStyleBackColor = true;
-            this.movieAddSubmit.Click += new System.EventHandler(this.movieAddSubmit_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(287, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 1;
-            // 
-            // directorFnameAddLbl
-            // 
-            this.directorFnameAddLbl.AutoSize = true;
-            this.directorFnameAddLbl.Location = new System.Drawing.Point(287, 57);
-            this.directorFnameAddLbl.Name = "directorFnameAddLbl";
-            this.directorFnameAddLbl.Size = new System.Drawing.Size(125, 13);
-            this.directorFnameAddLbl.TabIndex = 10;
-            this.directorFnameAddLbl.Text = "Enter Director First Name";
-            // 
-            // directorADDFName
-            // 
-            this.directorADDFName.Location = new System.Drawing.Point(290, 74);
-            this.directorADDFName.Name = "directorADDFName";
-            this.directorADDFName.Size = new System.Drawing.Size(269, 20);
-            this.directorADDFName.TabIndex = 11;
-            // 
-            // directorAddLName
-            // 
-            this.directorAddLName.AutoSize = true;
-            this.directorAddLName.Location = new System.Drawing.Point(287, 124);
-            this.directorAddLName.Name = "directorAddLName";
-            this.directorAddLName.Size = new System.Drawing.Size(133, 13);
-            this.directorAddLName.TabIndex = 12;
-            this.directorAddLName.Text = "Enter Director\'s Last Name";
-            // 
-            // directorBdayLBL
-            // 
-            this.directorBdayLBL.AutoSize = true;
-            this.directorBdayLBL.Location = new System.Drawing.Point(290, 188);
-            this.directorBdayLBL.Name = "directorBdayLBL";
-            this.directorBdayLBL.Size = new System.Drawing.Size(120, 13);
-            this.directorBdayLBL.TabIndex = 13;
-            this.directorBdayLBL.Text = "Enter Director\'s Birthday";
-            // 
-            // directorADDlnametxt
-            // 
-            this.directorADDlnametxt.Location = new System.Drawing.Point(290, 141);
-            this.directorADDlnametxt.Name = "directorADDlnametxt";
-            this.directorADDlnametxt.Size = new System.Drawing.Size(269, 20);
-            this.directorADDlnametxt.TabIndex = 14;
-            // 
-            // directorADDBday
-            // 
-            this.directorADDBday.Location = new System.Drawing.Point(290, 204);
-            this.directorADDBday.Mask = "00/00/0000";
-            this.directorADDBday.Name = "directorADDBday";
-            this.directorADDBday.Size = new System.Drawing.Size(269, 20);
-            this.directorADDBday.TabIndex = 15;
-            this.directorADDBday.ValidatingType = typeof(System.DateTime);
-            // 
-            // directorADDSubmit
-            // 
-            this.directorADDSubmit.Location = new System.Drawing.Point(370, 287);
-            this.directorADDSubmit.Name = "directorADDSubmit";
-            this.directorADDSubmit.Size = new System.Drawing.Size(75, 23);
-            this.directorADDSubmit.TabIndex = 16;
-            this.directorADDSubmit.Text = "Submit";
-            this.directorADDSubmit.UseVisualStyleBackColor = true;
-            this.directorADDSubmit.Click += new System.EventHandler(this.directorADDSubmit_Click);
             // 
             // BanthaFodderGui
             // 
@@ -820,11 +844,11 @@
         private System.Windows.Forms.TabControl Tab;
         private System.Windows.Forms.TabPage Movie;
         private System.Windows.Forms.DataGridView MoviesDataGrid;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox MovieCharCombo;
         private System.Windows.Forms.Label charInMovie;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox MovieDirectorCombo;
         private System.Windows.Forms.Label MovieDirectedBy;
-        private System.Windows.Forms.ComboBox MovieComboBox1;
+        private System.Windows.Forms.ComboBox MovieACtorsCombbo;
         private System.Windows.Forms.Label ActorsMovieDropLbl;
         private System.Windows.Forms.TabPage Actor;
         private System.Windows.Forms.Button ActorSubmitBtn;
@@ -847,13 +871,13 @@
         private System.Windows.Forms.Button movieAddSubmit;
         private System.Windows.Forms.TextBox movieAddLength;
         private System.Windows.Forms.Button directorADDSubmit;
-        private System.Windows.Forms.MaskedTextBox directorADDBday;
         private System.Windows.Forms.TextBox directorADDlnametxt;
         private System.Windows.Forms.Label directorBdayLBL;
         private System.Windows.Forms.Label directorAddLName;
         private System.Windows.Forms.TextBox directorADDFName;
         private System.Windows.Forms.Label directorFnameAddLbl;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker DirectorBdayADD;
     }
 }
 
