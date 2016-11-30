@@ -407,7 +407,7 @@ namespace Database_Project
             connection.Open();
             if (string.IsNullOrEmpty(movieAddName.Text) || string.IsNullOrEmpty(movieAddYear.Text) ||
                 string.IsNullOrEmpty(movieAddLength.Text))
-                MessageBox.Show("Must equal in proper results for insert and no box can be left empty!");
+                MessageBox.Show("Must enter in proper results for insert and no box can be left empty!");
             try
             {
                 string query =
