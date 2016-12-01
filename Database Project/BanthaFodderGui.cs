@@ -324,7 +324,7 @@ namespace Database_Project
                 LoginConnectionLbl.ForeColor = Color.Red;
                 LoginConnectionLbl.Text = "Not Connected";
             }
-            else
+            else if(connection.State == ConnectionState.Open)
             {
                 LoginPicture.Image = green;
                 LoginConnectionLbl.ForeColor = Color.LimeGreen;
@@ -358,7 +358,24 @@ namespace Database_Project
         }*/
 
         private void MovieComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {       var query ="";
+            if (MovieACtorsCombbo.SelectedIndex.Equals(0))
+            {
+                query = "SELECT * FROM Actor,ActedIn, Movie where Movie.movieName= 'Episode IV - A New Hope' AND Movie.idMovie = ActedIn.idMovie AND Actor.idActor = ActedIn.idActor";
+            }
+
+
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(ConnectionBuilder().ToString());
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(e.ToString());
+            }
             //moviecomboboxpopulate();
             /* if (MovieACtorsCombbo.SelectedIndex > -1)
              {
