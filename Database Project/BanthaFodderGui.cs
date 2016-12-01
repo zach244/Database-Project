@@ -20,7 +20,7 @@ namespace Database_Project
         public BanthaFodderGui()
         {
             InitializeComponent();
-            //toggleBoxes(Settings.Off);
+            ToggleBoxes(Settings.Off);
         }
 
 
@@ -32,6 +32,7 @@ namespace Database_Project
         public string UseridName { get; set; }
         public string PasswordName { get; set; }
         public string DatabaseName { get; set; }
+        public MySqlConnection Connection { get; set; }
 
         /// <summary>
         ///     Method to turn on Movie Add Boxes using enum On,Off
@@ -113,11 +114,13 @@ namespace Database_Project
         /// <returns></returns>
         private MySqlConnectionStringBuilder ConnectionBuilder()
         {
-            var builder = new MySqlConnectionStringBuilder();
-            builder.Server = LoginServerName;
-            builder.UserID = UseridName;
-            builder.Password = PasswordName;
-            builder.Database = DatabaseName;
+            var builder = new MySqlConnectionStringBuilder
+            {
+                Server = LoginServerName,
+                UserID = UseridName,
+                Password = PasswordName,
+                Database = DatabaseName
+            };
             return builder;
         }
 
@@ -135,11 +138,10 @@ namespace Database_Project
         {
             if ((LoginServerName == null) || (UseridName == null) || (PasswordName == null) || (DatabaseName == null))
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
-            var connection = new MySqlConnection(ConnectionBuilder().ToString());
 
             var sqlCmd = new MySqlCommand
             {
-                Connection = connection,
+                Connection = Connection,
                 CommandType = CommandType.Text
             };
 
@@ -177,7 +179,6 @@ namespace Database_Project
 
             try
             {
-                connection.Open();
                 var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
                 var dtRecord = new DataTable();
                 sqlDataAdap.Fill(dtRecord);
@@ -185,13 +186,11 @@ namespace Database_Project
                     MessageBox.Show("No Results from Parameters");
                 PlanetDataGrid.ReadOnly = true;
                 PlanetDataGrid.DataSource = dtRecord;
-                connection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            connection.Close();
         }
 
         /// <summary>
@@ -203,11 +202,9 @@ namespace Database_Project
         {
             if ((LoginServerName == null) || (UseridName == null) || (PasswordName == null) || (DatabaseName == null))
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
-
-            var connection = new MySqlConnection(ConnectionBuilder().ToString());
             var sqlCmd = new MySqlCommand
             {
-                Connection = connection,
+                Connection = Connection,
                 CommandType = CommandType.Text,
                 CommandText = CustomTxt.Text
             };
@@ -215,23 +212,19 @@ namespace Database_Project
                 MessageBox.Show("Must enter a valid Sql Command");
             try
             {
-                connection.Open();
                 var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
                 var dtRecord = new DataTable();
                 sqlDataAdap.Fill(dtRecord);
-
                 if (dtRecord.Rows.Count == 0)
                     MessageBox.Show("No Results from Parameters");
 
                 CustomDataGrid.ReadOnly = true;
                 CustomDataGrid.DataSource = dtRecord;
-                connection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            connection.Close();
         }
 
         /// <summary>
@@ -243,53 +236,33 @@ namespace Database_Project
         {
             if ((LoginServerName == null) || (UseridName == null) || (PasswordName == null) || (DatabaseName == null))
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
-            var connection = new MySqlConnection(ConnectionBuilder().ToString());
-            var query = "";
 
-            if (ComboBoxCustom.SelectedIndex.Equals(0))
-                query = "Select * from Movie";
-            if (ComboBoxCustom.SelectedIndex.Equals(1))
-                query = "Select * from `Character`";
-            if (ComboBoxCustom.SelectedIndex.Equals(2))
-                query = "Select * from Actor";
-            if (ComboBoxCustom.SelectedIndex.Equals(3))
-                query = "Select * from ActedIn";
-            if (ComboBoxCustom.SelectedIndex.Equals(4))
-                query = "Select * from Directed";
-            if (ComboBoxCustom.SelectedIndex.Equals(5))
-                query = "Select * from Droid";
-            if (ComboBoxCustom.SelectedIndex.Equals(6))
-                query = "Select * from Manufacturer";
-            if (ComboBoxCustom.SelectedIndex.Equals(7))
-                query = "Select * from Director";
-            if (ComboBoxCustom.SelectedIndex.Equals(8))
-                query = "Select * from Pilot";
-            if (ComboBoxCustom.SelectedIndex.Equals(9))
-                query = "Select * from Planet";
-            if (ComboBoxCustom.SelectedIndex.Equals(10))
-                query = "Select * from VehicleAndShip";
-            if (ComboBoxCustom.SelectedIndex.Equals(11))
-                query = "Select * from Species";
-            if (ComboBoxCustom.SelectedIndex.Equals(12))
-                query = "Select * from Weapon";
-            try
+            if (!ComboBoxCustom.SelectedIndex.Equals(0))
             {
-                connection.Open();
-                var sqlCmd = new MySqlCommand(query, connection);
-                var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
-                var dtRecord = new DataTable();
-                sqlDataAdap.Fill(dtRecord);
+                var query = !ComboBoxCustom.SelectedIndex.Equals(2)
+                    ? $"Select * from {ComboBoxCustom.SelectedItem}"
+                    : $"Select * from `{ComboBoxCustom.SelectedItem}`";
+                try
+                {
+                    var sqlCmd = new MySqlCommand(query, Connection);
+                    var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                    var dtRecord = new DataTable();
+                    sqlDataAdap.Fill(dtRecord);
 
-                if (dtRecord.Rows.Count == 0)
-                    MessageBox.Show("No Results from Parameters");
+                    if (dtRecord.Rows.Count == 0)
+                        MessageBox.Show("No Results from Parameters");
 
-                CustomDataGrid.ReadOnly = true;
-                CustomDataGrid.DataSource = dtRecord;
-                connection.Close();
+                    CustomDataGrid.ReadOnly = true;
+                    CustomDataGrid.DataSource = dtRecord;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                CustomDataGrid.DataSource = null;
             }
         }
 
@@ -304,33 +277,33 @@ namespace Database_Project
             UseridName = UsernameTxt.Text;
             PasswordName = PasswordTxt.Text;
             DatabaseName = DatabaseNameTxt.Text;
-            var connection = new MySqlConnection(ConnectionBuilder().ToString());
+            Connection = new MySqlConnection(ConnectionBuilder().ToString());
 
             try
             {
-                connection.Open();
+                Connection.Open();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            
-            Image red = Image.FromFile("C:\\Users\\zach\\Documents\\GitHub\\Database-Project\\Database Project\\Green.png");
-            Image green = Image.FromFile("C:\\Users\\zach\\Documents\\GitHub\\Database-Project\\Database Project\\Green.png");
-           
-            if (connection.State == ConnectionState.Closed)
+
+            var red = Image.FromFile("C:\\Users\\zach\\Documents\\GitHub\\Database-Project\\Database Project\\Green.png");
+            var green =
+                Image.FromFile("C:\\Users\\zach\\Documents\\GitHub\\Database-Project\\Database Project\\Green.png");
+
+            if (Connection.State == ConnectionState.Closed)
             {
                 LoginPicture.Image = red;
                 LoginConnectionLbl.ForeColor = Color.Red;
                 LoginConnectionLbl.Text = "Not Connected";
             }
-            else if(connection.State == ConnectionState.Open)
+            else if (Connection.State == ConnectionState.Open)
             {
                 LoginPicture.Image = green;
                 LoginConnectionLbl.ForeColor = Color.LimeGreen;
                 LoginConnectionLbl.Text = "Connected";
             }
-            connection.Close();
         }
 
         /* private void moviecomboboxpopulate()
@@ -358,31 +331,40 @@ namespace Database_Project
         }*/
 
         private void MovieComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {       var query ="";
-            if (MovieACtorsCombbo.SelectedIndex.Equals(0))
+        {
+            if (!MovieACtorsCombbo.SelectedIndex.Equals(0))
             {
-                query = "SELECT * FROM Actor,ActedIn, Movie where Movie.movieName= 'Episode IV - A New Hope' AND Movie.idMovie = ActedIn.idMovie AND Actor.idActor = ActedIn.idActor";
+                var query =
+                    $"SELECT* FROM Actor,ActedIn, Movie where Movie.movieName = \'{MovieACtorsCombbo.SelectedItem}\' AND Movie.idMovie = ActedIn.idMovie AND Actor.idActor = ActedIn.idActor";
+                try
+                {
+                    var sqlCmd = new MySqlCommand(query, Connection);
+                    var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                    var dtRecord = new DataTable();
+                    sqlDataAdap.Fill(dtRecord);
+
+                    if (dtRecord.Rows.Count == 0)
+                        MessageBox.Show("No Results from Parameters");
+
+                    MoviesDataGrid.ReadOnly = true;
+                    MoviesDataGrid.DataSource = dtRecord;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-
-
-            try
+            else
             {
-                MySqlConnection connection = new MySqlConnection(ConnectionBuilder().ToString());
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(e.ToString());
+                MoviesDataGrid.DataSource = null;
             }
             //moviecomboboxpopulate();
             /* if (MovieACtorsCombbo.SelectedIndex > -1)
              {
                  string m = MovieACtorsCombbo.SelectedIndex.ToString();
                  string query = string.Format("Select *  from Movie where movieName = \"{0}\"",m); // Need sql command to get actors from 
-                 MySqlConnection connection = new MySqlConnection(ConnectionBuilder().ToString());
-                 MySqlCommand cmd = new MySqlCommand(query,connection);
+                 MySqlConnection Connection = new MySqlConnection(ConnectionBuilder().ToString());
+                 MySqlCommand cmd = new MySqlCommand(query,Connection);
                  MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
                  DataTable dtRecord = new DataTable();
                  sqlDataAdap.Fill(dtRecord);
@@ -420,8 +402,6 @@ namespace Database_Project
         /// <param name="e"></param>
         private void movieAddSubmit_Click(object sender, EventArgs e)
         {
-            var connection = new MySqlConnection(ConnectionBuilder().ToString());
-            connection.Open();
             if (string.IsNullOrEmpty(movieAddName.Text) || string.IsNullOrEmpty(movieAddYear.Text) ||
                 string.IsNullOrEmpty(movieAddLength.Text))
                 MessageBox.Show("Must enter in proper results for insert and no box can be left empty!");
@@ -429,9 +409,9 @@ namespace Database_Project
             {
                 string query =
                     $"INSERT INTO Movie (movieName,releaseYear,lengthMinutes) VALUES(\"{movieAddName.Text}\",\"{movieAddYear.Text}\",\"{movieAddLength.Text}\")";
-                var sqlCmd = new MySqlCommand(query, connection);
+                var sqlCmd = new MySqlCommand(query, Connection);
                 sqlCmd.ExecuteNonQuery();
-                connection.Close();
+
                 movieAddName.Clear();
                 movieAddLength.Clear();
                 movieAddYear.Clear();
@@ -452,17 +432,14 @@ namespace Database_Project
         {
             if (string.IsNullOrEmpty(directorADDFName.Text) || string.IsNullOrEmpty(directorAddLName.Text) ||
                 string.IsNullOrEmpty(DirectorBdayADD.Text))
-                MessageBox.Show("Must equal in proper results for insert and no box can be left empty!");
-            var connection = new MySqlConnection(ConnectionBuilder().ToString());
-            connection.Open();
+                MessageBox.Show("Must enter in proper results for insert and no box can be left empty!");
 
             try
             {
                 string query =
                     $"INSERT INTO Director (fName,lName,birthday) VALUES(\"{directorADDFName.Text}\",\"{directorADDlnametxt.Text}\",\"{DirectorBdayADD.Text}\")";
-                var sqlCmd = new MySqlCommand(query, connection);
+                var sqlCmd = new MySqlCommand(query, Connection);
                 sqlCmd.ExecuteNonQuery();
-                connection.Close();
                 directorADDFName.Clear();
                 directorADDlnametxt.Clear();
                 DirectorBdayADD.ResetText();
@@ -471,6 +448,142 @@ namespace Database_Project
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void MovieDirectorCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!MovieDirectorCombo.SelectedIndex.Equals(0))
+            {
+                var names = MovieDirectorCombo.SelectedItem.ToString().Split(' ');
+                var query =
+                    $"select movieName, releaseYear, lengthMinutes from Movie,Directed,Director where Director.fName = \"{names[0]}\" and Director.lName = \"{names[1]}\" and Director.idDirector = Directed.idDirector and Directed.idMovie = Movie.idMovie";
+                try
+                {
+                    var sqlCmd = new MySqlCommand(query, Connection);
+                    var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                    var dtRecord = new DataTable();
+                    sqlDataAdap.Fill(dtRecord);
+                    if (dtRecord.Rows.Count == 0)
+                        MessageBox.Show("No Results from Parameters");
+
+                    MoviesDataGrid.ReadOnly = true;
+                    MoviesDataGrid.DataSource = dtRecord;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            else
+            {
+                MoviesDataGrid.DataSource = null;
+            }
+        }
+
+        private void MovieCharCombo_SelectedIndexChanged(object sender, EventArgs e) //Still Need Sql Statement
+        {
+            if (!MovieCharCombo.SelectedIndex.Equals(0))
+            {
+                var query = "";
+
+                //needsql statement;
+                try
+                {
+                    var sqlCmd = new MySqlCommand(query, Connection);
+                    var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                    var dtRecord = new DataTable();
+                    sqlDataAdap.Fill(dtRecord);
+                    if (dtRecord.Rows.Count == 0)
+                        MessageBox.Show("No Results from Parameters");
+
+                    MoviesDataGrid.ReadOnly = true;
+                    MoviesDataGrid.DataSource = dtRecord;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            else
+            {
+                MoviesDataGrid.DataSource = null;
+            }
+        }
+
+        private void ComboxRemove_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((LoginServerName == null) || (UseridName == null) || (PasswordName == null) || (DatabaseName == null))
+                MessageBox.Show("You have not logged in with the right creditentials please re-login");
+
+
+            var query = $"Select * from {ComboxRemove.SelectedItem}";
+            try
+            {
+                var sqlCmd = new MySqlCommand(query, Connection);
+                var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                var dtRecord = new DataTable();
+                sqlDataAdap.Fill(dtRecord);
+                if (dtRecord.Rows.Count == 0)
+                    MessageBox.Show("No Results from Parameters");
+
+                dataGridRemove.ReadOnly = true;
+                dataGridRemove.DataSource = dtRecord;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (dataGridRemove.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Please Select Row/Rows to delete");
+                return;
+            }
+            if (dataGridRemove.CurrentRow != null)
+            {
+                var index = Convert.ToInt32(dataGridRemove.CurrentRow.Cells[0].Value);
+                var query = $"Delete from {ComboxRemove.SelectedItem} where id{ComboxRemove.SelectedItem}= {index}";
+                try
+                {
+                    var sqlCmd = new MySqlCommand(query, Connection);
+                    var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                    var dtRecord = new DataTable();
+                    sqlDataAdap.Fill(dtRecord);
+                    dataGridRemove.ReadOnly = true;
+                    dataGridRemove.DataSource = dtRecord;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            //needsql statement;
+
+            var query2 = $"Select * from {ComboxRemove.SelectedItem}";
+            try
+            {
+                var sqlCmd = new MySqlCommand(query2, Connection);
+                var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                var dtRecord = new DataTable();
+                sqlDataAdap.Fill(dtRecord);
+                if (dtRecord.Rows.Count == 0)
+                    MessageBox.Show("No Results from Parameters");
+
+                dataGridRemove.ReadOnly = true;
+                dataGridRemove.DataSource = dtRecord;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void BanthaFodderGui_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Connection.Close();
         }
     }
 }
