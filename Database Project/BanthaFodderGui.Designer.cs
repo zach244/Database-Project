@@ -86,10 +86,10 @@
             this.LoginUsernameLbl = new System.Windows.Forms.Label();
             this.Tab = new System.Windows.Forms.TabControl();
             this.Remove = new System.Windows.Forms.TabPage();
-            this.ComboxRemove = new System.Windows.Forms.ComboBox();
-            this.RemoveLabel = new System.Windows.Forms.Label();
-            this.dataGridRemove = new System.Windows.Forms.DataGridView();
             this.DeleteBtn = new System.Windows.Forms.Button();
+            this.dataGridRemove = new System.Windows.Forms.DataGridView();
+            this.RemoveLabel = new System.Windows.Forms.Label();
+            this.ComboxRemove = new System.Windows.Forms.ComboBox();
             this.Add.SuspendLayout();
             this.Custom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomDataGrid)).BeginInit();
@@ -600,7 +600,7 @@
             // 
             this.LoginConnectionLbl.AutoSize = true;
             this.LoginConnectionLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LoginConnectionLbl.Location = new System.Drawing.Point(388, 404);
+            this.LoginConnectionLbl.Location = new System.Drawing.Point(388, 478);
             this.LoginConnectionLbl.Name = "LoginConnectionLbl";
             this.LoginConnectionLbl.Size = new System.Drawing.Size(79, 26);
             this.LoginConnectionLbl.TabIndex = 9;
@@ -709,6 +709,35 @@
             this.Remove.Text = "Remove";
             this.Remove.UseVisualStyleBackColor = true;
             // 
+            // DeleteBtn
+            // 
+            this.DeleteBtn.Location = new System.Drawing.Point(57, 524);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.DeleteBtn.TabIndex = 3;
+            this.DeleteBtn.Text = "Delete";
+            this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
+            // dataGridRemove
+            // 
+            this.dataGridRemove.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridRemove.Location = new System.Drawing.Point(255, 3);
+            this.dataGridRemove.Name = "dataGridRemove";
+            this.dataGridRemove.ReadOnly = true;
+            this.dataGridRemove.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridRemove.Size = new System.Drawing.Size(702, 590);
+            this.dataGridRemove.TabIndex = 2;
+            // 
+            // RemoveLabel
+            // 
+            this.RemoveLabel.AutoSize = true;
+            this.RemoveLabel.Location = new System.Drawing.Point(3, 77);
+            this.RemoveLabel.Name = "RemoveLabel";
+            this.RemoveLabel.Size = new System.Drawing.Size(148, 13);
+            this.RemoveLabel.TabIndex = 1;
+            this.RemoveLabel.Text = "Select Table to Remove From";
+            // 
             // ComboxRemove
             // 
             this.ComboxRemove.AutoCompleteCustomSource.AddRange(new string[] {
@@ -723,35 +752,6 @@
             this.ComboxRemove.Size = new System.Drawing.Size(187, 21);
             this.ComboxRemove.TabIndex = 0;
             this.ComboxRemove.SelectedIndexChanged += new System.EventHandler(this.ComboxRemove_SelectedIndexChanged);
-            // 
-            // RemoveLabel
-            // 
-            this.RemoveLabel.AutoSize = true;
-            this.RemoveLabel.Location = new System.Drawing.Point(3, 77);
-            this.RemoveLabel.Name = "RemoveLabel";
-            this.RemoveLabel.Size = new System.Drawing.Size(148, 13);
-            this.RemoveLabel.TabIndex = 1;
-            this.RemoveLabel.Text = "Select Table to Remove From";
-            // 
-            // dataGridRemove
-            // 
-            this.dataGridRemove.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridRemove.Location = new System.Drawing.Point(255, 3);
-            this.dataGridRemove.Name = "dataGridRemove";
-            this.dataGridRemove.ReadOnly = true;
-            this.dataGridRemove.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridRemove.Size = new System.Drawing.Size(702, 590);
-            this.dataGridRemove.TabIndex = 2;
-            // 
-            // DeleteBtn
-            // 
-            this.DeleteBtn.Location = new System.Drawing.Point(57, 524);
-            this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(75, 23);
-            this.DeleteBtn.TabIndex = 3;
-            this.DeleteBtn.Text = "Delete";
-            this.DeleteBtn.UseVisualStyleBackColor = true;
-            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // BanthaFodderGui
             // 

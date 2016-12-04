@@ -301,7 +301,7 @@ namespace Database_Project
             else if (Connection.State == ConnectionState.Open)
             {
                 LoginPicture.Image = green;
-                LoginConnectionLbl.ForeColor = Color.LimeGreen;
+                LoginConnectionLbl.ForeColor = Color.Aquamarine;
                 LoginConnectionLbl.Text = "Connected";
             }
         }
@@ -449,7 +449,11 @@ namespace Database_Project
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        /// <summary>
+        /// Shows the movieName,releaseYear and lengthMinutes from a movie where directed by a single person
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MovieDirectorCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!MovieDirectorCombo.SelectedIndex.Equals(0))
@@ -479,13 +483,16 @@ namespace Database_Project
                 MoviesDataGrid.DataSource = null;
             }
         }
-
+        /// <summary>
+        /// Gets the Characters from a single movie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MovieCharCombo_SelectedIndexChanged(object sender, EventArgs e) //Still Need Sql Statement
         {
             if (!MovieCharCombo.SelectedIndex.Equals(0))
             {
                 var query = "";
-
                 //needsql statement;
                 try
                 {
@@ -509,7 +516,11 @@ namespace Database_Project
                 MoviesDataGrid.DataSource = null;
             }
         }
-
+        /// <summary>
+        /// Combobox event to pick which table to remove from
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboxRemove_SelectedIndexChanged(object sender, EventArgs e)
         {
             if ((LoginServerName == null) || (UseridName == null) || (PasswordName == null) || (DatabaseName == null))
@@ -534,7 +545,11 @@ namespace Database_Project
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        /// <summary>
+        /// delete button when pressed removes the chosen row
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             if (dataGridRemove.SelectedRows.Count <= 0)
@@ -560,7 +575,7 @@ namespace Database_Project
                     MessageBox.Show(ex.ToString());
                 }
             }
-            //needsql statement;
+            
 
             var query2 = $"Select * from {ComboxRemove.SelectedItem}";
             try
@@ -580,10 +595,23 @@ namespace Database_Project
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        /// <summary>
+        /// 
+        /// When the application is closed, closes connection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BanthaFodderGui_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Connection.Close();
+            try
+            {
+                Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
     }
 }
