@@ -237,8 +237,7 @@ namespace Database_Project
             if ((LoginServerName == null) || (UseridName == null) || (PasswordName == null) || (DatabaseName == null))
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
 
-            if (!ComboBoxCustom.SelectedIndex.Equals(0))
-            {
+           
                 var query = !ComboBoxCustom.SelectedIndex.Equals(2)
                     ? $"Select * from {ComboBoxCustom.SelectedItem}"
                     : $"Select * from `{ComboBoxCustom.SelectedItem}`";
@@ -259,11 +258,8 @@ namespace Database_Project
                 {
                     MessageBox.Show(ex.ToString());
                 }
-            }
-            else
-            {
-                CustomDataGrid.DataSource = null;
-            }
+            
+            
         }
 
         /// <summary>
@@ -282,6 +278,10 @@ namespace Database_Project
             try
             {
                 Connection.Open();
+                MovieComboBoxResults();
+                MovieDirectorBoxResults();
+                MovieCharacterBoxResults();
+                CustomAllResults();
             }
             catch (Exception ex)
             {
@@ -306,34 +306,9 @@ namespace Database_Project
             }
         }
 
-        /* private void moviecomboboxpopulate()
-        {
-            try
-            {
-                string query = "SELECT movieName From Movie";
-                MySqlConnection connect = new MySqlConnection(ConnectionBuilder().ToString());
-                connect.Open();
-                MySqlCommand command = new MySqlCommand(query,connect);
-                MySqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    MovieComboBox1.Items.Add(reader.GetString("movieName"));
-                }
-
-            }
-            catch (Exception ex)
-            {
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                
-            }
-        }*/
-
         private void MovieComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!MovieACtorsCombbo.SelectedIndex.Equals(0))
-            {
+           
                 var query =
                     $"SELECT* FROM Actor,ActedIn, Movie where Movie.movieName = \'{MovieACtorsCombbo.SelectedItem}\' AND Movie.idMovie = ActedIn.idMovie AND Actor.idActor = ActedIn.idActor";
                 try
@@ -353,11 +328,8 @@ namespace Database_Project
                 {
                     MessageBox.Show(ex.ToString());
                 }
-            }
-            else
-            {
-                MoviesDataGrid.DataSource = null;
-            }
+            
+            
             //moviecomboboxpopulate();
             /* if (MovieACtorsCombbo.SelectedIndex > -1)
              {
@@ -373,6 +345,64 @@ namespace Database_Project
              }*/
 
             //use if statements instead
+        }
+
+        private void MovieComboBoxResults()
+        {
+            string query = $"select movieName from Movie";
+            MySqlDataAdapter da = new MySqlDataAdapter(query,Connection);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
+            {
+                string rowz = string.Format("{0}", row.ItemArray[0]);
+                MovieACtorsCombbo.Items.Add(rowz);
+                if (rowz == null)
+                    throw new ArgumentNullException(nameof(rowz));
+            }
+        }
+
+        private void MovieDirectorBoxResults()
+        {
+            string query = $"select fName, lName from Director";
+            MySqlDataAdapter da = new MySqlDataAdapter(query, Connection);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
+            {
+                string rowz = string.Format("{0} {1}", row.ItemArray[0],row.ItemArray[1]);
+                MovieDirectorCombo.Items.Add(rowz);
+                if (rowz == null)
+                    throw new ArgumentNullException(nameof(rowz));
+            }
+        }
+        private void MovieCharacterBoxResults()
+        {
+            string query = $"select movieName from Movie";
+            MySqlDataAdapter da = new MySqlDataAdapter(query, Connection);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
+            {
+                string rowz = string.Format("{0}", row.ItemArray[0]);
+                MovieCharCombo.Items.Add(rowz);
+                if (rowz == null)
+                    throw new ArgumentNullException(nameof(rowz));
+            }
+        }
+        private void CustomAllResults()
+        {
+            string query = $"select TABLE_NAME from INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE ='BASE TABLE'";
+            MySqlDataAdapter da = new MySqlDataAdapter(query, Connection);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
+            {
+                string rowz = string.Format("{0}", row.ItemArray[0].ToString());
+               ComboBoxCustom.Items.Add(rowz);
+                if (rowz == null)
+                    throw new ArgumentNullException(nameof(rowz));
+            }
         }
 
         /// <summary>
@@ -456,8 +486,7 @@ namespace Database_Project
         /// <param name="e"></param>
         private void MovieDirectorCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!MovieDirectorCombo.SelectedIndex.Equals(0))
-            {
+           
                 var names = MovieDirectorCombo.SelectedItem.ToString().Split(' ');
                 var query =
                     $"select movieName, releaseYear, lengthMinutes from Movie,Directed,Director where Director.fName = \"{names[0]}\" and Director.lName = \"{names[1]}\" and Director.idDirector = Directed.idDirector and Directed.idMovie = Movie.idMovie";
@@ -477,11 +506,8 @@ namespace Database_Project
                 {
                     MessageBox.Show(ex.ToString());
                 }
-            }
-            else
-            {
-                MoviesDataGrid.DataSource = null;
-            }
+            
+            
         }
         /// <summary>
         /// Gets the Characters from a single movie
@@ -490,8 +516,7 @@ namespace Database_Project
         /// <param name="e"></param>
         private void MovieCharCombo_SelectedIndexChanged(object sender, EventArgs e) //Still Need Sql Statement
         {
-            if (!MovieCharCombo.SelectedIndex.Equals(0))
-            {
+           
                 var query = "";
                 //needsql statement;
                 try
@@ -510,11 +535,8 @@ namespace Database_Project
                 {
                     MessageBox.Show(ex.ToString());
                 }
-            }
-            else
-            {
-                MoviesDataGrid.DataSource = null;
-            }
+            
+           
         }
         /// <summary>
         /// Combobox event to pick which table to remove from
@@ -613,5 +635,6 @@ namespace Database_Project
             }
 
         }
+        
     }
 }

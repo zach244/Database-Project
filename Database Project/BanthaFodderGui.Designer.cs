@@ -302,21 +302,6 @@
             // ComboBoxCustom
             // 
             this.ComboBoxCustom.FormattingEnabled = true;
-            this.ComboBoxCustom.Items.AddRange(new object[] {
-            "",
-            "Movie",
-            "Character",
-            "Actor",
-            "ActedIn",
-            "Directed",
-            "Droid",
-            "Manufacturer",
-            "Director",
-            "Pilot",
-            "Planet",
-            "VehiclesAndShip",
-            "Specie",
-            "Weapon"});
             this.ComboBoxCustom.Location = new System.Drawing.Point(0, 136);
             this.ComboBoxCustom.Name = "ComboBoxCustom";
             this.ComboBoxCustom.Size = new System.Drawing.Size(171, 21);
@@ -482,16 +467,6 @@
             // MovieCharCombo
             // 
             this.MovieCharCombo.FormattingEnabled = true;
-            this.MovieCharCombo.Items.AddRange(new object[] {
-            "",
-            "Episode IV - A New Hope",
-            "Episode V - The Empire Strikes Back",
-            "Episode VI - Return of the Jedi",
-            "Episode I - The Phantom Menace",
-            "Episode II - Attack of the Clones",
-            "Episode III - Revenge of the Sith",
-            "Episode VII - The Force Awakens",
-            "Rogue One"});
             this.MovieCharCombo.Location = new System.Drawing.Point(4, 125);
             this.MovieCharCombo.Margin = new System.Windows.Forms.Padding(2);
             this.MovieCharCombo.Name = "MovieCharCombo";
@@ -512,13 +487,6 @@
             // MovieDirectorCombo
             // 
             this.MovieDirectorCombo.FormattingEnabled = true;
-            this.MovieDirectorCombo.Items.AddRange(new object[] {
-            "",
-            "George Lucas",
-            "Irvin Kershner",
-            "Richard Marquand",
-            "J.J Abrams",
-            "Gareth Edwards"});
             this.MovieDirectorCombo.Location = new System.Drawing.Point(4, 80);
             this.MovieDirectorCombo.Margin = new System.Windows.Forms.Padding(2);
             this.MovieDirectorCombo.Name = "MovieDirectorCombo";
@@ -539,16 +507,6 @@
             // MovieACtorsCombbo
             // 
             this.MovieACtorsCombbo.FormattingEnabled = true;
-            this.MovieACtorsCombbo.Items.AddRange(new object[] {
-            "",
-            "Episode IV - A New Hope",
-            "Episode V - The Empire Strikes Back",
-            "Episode VI - Return of the Jedi",
-            "Episode I - The Phantom Menace",
-            "Episode II - Attack of the Clones",
-            "Episode III - Revenge of the Sith",
-            "Episode VII - The Force Awakens",
-            "Rogue One"});
             this.MovieACtorsCombbo.Location = new System.Drawing.Point(4, 32);
             this.MovieACtorsCombbo.Margin = new System.Windows.Forms.Padding(2);
             this.MovieACtorsCombbo.Name = "MovieACtorsCombbo";
