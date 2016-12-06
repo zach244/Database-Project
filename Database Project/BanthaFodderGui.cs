@@ -278,10 +278,7 @@ namespace Database_Project
             try
             {
                 Connection.Open();
-                MovieComboBoxResults();
-                MovieDirectorBoxResults();
-                MovieCharacterBoxResults();
-                CustomAllResults();
+                ResetCombos();
             }
             catch (Exception ex)
             {
@@ -292,20 +289,26 @@ namespace Database_Project
             var green =
                 Image.FromFile("C:\\Users\\zach\\Documents\\GitHub\\Database-Project\\Database Project\\Green.png");
 
-            if (Connection.State == ConnectionState.Closed)
-            {
-                LoginPicture.Image = red;
-                LoginConnectionLbl.ForeColor = Color.Red;
-                LoginConnectionLbl.Text = "Not Connected";
-            }
-            else if (Connection.State == ConnectionState.Open)
+           
+             if (Connection.State == ConnectionState.Open && Connection.State != ConnectionState.Connecting)
             {
                 LoginPicture.Image = green;
                 LoginConnectionLbl.ForeColor = Color.Aquamarine;
                 LoginConnectionLbl.Text = "Connected";
             }
+             else
+             {
+                    LoginPicture.Image = red;
+                    LoginConnectionLbl.ForeColor = Color.Red;
+                    LoginConnectionLbl.Text = "Not Connected";
+                
+            }
         }
-
+        /// <summary>
+        /// Selects the actors in a certain movie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MovieComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
            
@@ -346,7 +349,9 @@ namespace Database_Project
 
             //use if statements instead
         }
-
+        /// <summary>
+        /// updates the combobox values with results from sql query
+        /// </summary>
         private void MovieComboBoxResults()
         {
             string query = $"select movieName from Movie";
@@ -361,7 +366,9 @@ namespace Database_Project
                     throw new ArgumentNullException(nameof(rowz));
             }
         }
-
+        /// <summary>
+        /// updates combobox with results from sql query
+        /// </summary>
         private void MovieDirectorBoxResults()
         {
             string query = $"select fName, lName from Director";
@@ -376,6 +383,9 @@ namespace Database_Project
                     throw new ArgumentNullException(nameof(rowz));
             }
         }
+        /// <summary>
+        /// updates combobox with sql query results
+        /// </summary>
         private void MovieCharacterBoxResults()
         {
             string query = $"select movieName from Movie";
@@ -390,6 +400,9 @@ namespace Database_Project
                     throw new ArgumentNullException(nameof(rowz));
             }
         }
+        /// <summary>
+        /// updates the combobox with sql query results
+        /// </summary>
         private void CustomAllResults()
         {
             string query = $"select TABLE_NAME from INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE ='BASE TABLE'";
@@ -404,7 +417,20 @@ namespace Database_Project
                     throw new ArgumentNullException(nameof(rowz));
             }
         }
-
+        /// <summary>
+        /// resets all combobox results
+        /// </summary>
+        private void ResetCombos()
+        {
+            MovieACtorsCombbo.Items.Clear();
+            MovieDirectorCombo.Items.Clear();
+            MovieCharCombo.Items.Clear();
+            ComboBoxCustom.Items.Clear();
+            MovieComboBoxResults();
+            MovieDirectorBoxResults();
+            MovieCharacterBoxResults();
+            CustomAllResults();
+        }
         /// <summary>
         ///     When selected toggles correct boxes on, to add information into database
         /// </summary>
@@ -445,6 +471,7 @@ namespace Database_Project
                 movieAddName.Clear();
                 movieAddLength.Clear();
                 movieAddYear.Clear();
+                ResetCombos();
             }
             catch (Exception ex)
             {
@@ -473,6 +500,10 @@ namespace Database_Project
                 directorADDFName.Clear();
                 directorADDlnametxt.Clear();
                 DirectorBdayADD.ResetText();
+
+                MovieACtorsCombbo.Items.Clear();
+                MovieDirectorCombo.Items.Clear();
+                ResetCombos();
             }
             catch (Exception ex)
             {
@@ -591,6 +622,7 @@ namespace Database_Project
                     sqlDataAdap.Fill(dtRecord);
                     dataGridRemove.ReadOnly = true;
                     dataGridRemove.DataSource = dtRecord;
+                    ResetCombos();
                 }
                 catch (Exception ex)
                 {
