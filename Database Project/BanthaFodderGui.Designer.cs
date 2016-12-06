@@ -90,6 +90,15 @@
             this.dataGridRemove = new System.Windows.Forms.DataGridView();
             this.RemoveLabel = new System.Windows.Forms.Label();
             this.ComboxRemove = new System.Windows.Forms.ComboBox();
+            this.Search = new System.Windows.Forms.TabPage();
+            this.SearchDataGrid = new System.Windows.Forms.DataGridView();
+            this.SearchTableCombo = new System.Windows.Forms.ComboBox();
+            this.TableCombo = new System.Windows.Forms.Label();
+            this.ColumnLabel = new System.Windows.Forms.Label();
+            this.ColumnCombo = new System.Windows.Forms.ComboBox();
+            this.SearchText = new System.Windows.Forms.TextBox();
+            this.SearchLabel = new System.Windows.Forms.Label();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.Add.SuspendLayout();
             this.Custom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomDataGrid)).BeginInit();
@@ -102,6 +111,8 @@
             this.Tab.SuspendLayout();
             this.Remove.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRemove)).BeginInit();
+            this.Search.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // Add
@@ -642,6 +653,7 @@
             // Tab
             // 
             this.Tab.Controls.Add(this.Login);
+            this.Tab.Controls.Add(this.Search);
             this.Tab.Controls.Add(this.Movie);
             this.Tab.Controls.Add(this.Planet);
             this.Tab.Controls.Add(this.Custom);
@@ -711,6 +723,93 @@
             this.ComboxRemove.TabIndex = 0;
             this.ComboxRemove.SelectedIndexChanged += new System.EventHandler(this.ComboxRemove_SelectedIndexChanged);
             // 
+            // Search
+            // 
+            this.Search.Controls.Add(this.SearchButton);
+            this.Search.Controls.Add(this.SearchLabel);
+            this.Search.Controls.Add(this.SearchText);
+            this.Search.Controls.Add(this.ColumnCombo);
+            this.Search.Controls.Add(this.ColumnLabel);
+            this.Search.Controls.Add(this.TableCombo);
+            this.Search.Controls.Add(this.SearchTableCombo);
+            this.Search.Controls.Add(this.SearchDataGrid);
+            this.Search.Location = new System.Drawing.Point(4, 22);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(957, 596);
+            this.Search.TabIndex = 8;
+            this.Search.Text = "Search";
+            this.Search.UseVisualStyleBackColor = true;
+            // 
+            // SearchDataGrid
+            // 
+            this.SearchDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SearchDataGrid.Location = new System.Drawing.Point(285, 3);
+            this.SearchDataGrid.Name = "SearchDataGrid";
+            this.SearchDataGrid.Size = new System.Drawing.Size(672, 590);
+            this.SearchDataGrid.TabIndex = 0;
+            // 
+            // SearchTableCombo
+            // 
+            this.SearchTableCombo.FormattingEnabled = true;
+            this.SearchTableCombo.Location = new System.Drawing.Point(6, 66);
+            this.SearchTableCombo.Name = "SearchTableCombo";
+            this.SearchTableCombo.Size = new System.Drawing.Size(185, 21);
+            this.SearchTableCombo.TabIndex = 1;
+            this.SearchTableCombo.SelectedIndexChanged += new System.EventHandler(this.SearchTableCombo_SelectedIndexChanged);
+            // 
+            // TableCombo
+            // 
+            this.TableCombo.AutoSize = true;
+            this.TableCombo.Location = new System.Drawing.Point(3, 50);
+            this.TableCombo.Name = "TableCombo";
+            this.TableCombo.Size = new System.Drawing.Size(67, 13);
+            this.TableCombo.TabIndex = 2;
+            this.TableCombo.Text = "Pick a Table";
+            // 
+            // ColumnLabel
+            // 
+            this.ColumnLabel.AutoSize = true;
+            this.ColumnLabel.Location = new System.Drawing.Point(3, 130);
+            this.ColumnLabel.Name = "ColumnLabel";
+            this.ColumnLabel.Size = new System.Drawing.Size(124, 13);
+            this.ColumnLabel.TabIndex = 3;
+            this.ColumnLabel.Text = "Pick a Column to Search";
+            // 
+            // ColumnCombo
+            // 
+            this.ColumnCombo.FormattingEnabled = true;
+            this.ColumnCombo.Location = new System.Drawing.Point(6, 146);
+            this.ColumnCombo.Name = "ColumnCombo";
+            this.ColumnCombo.Size = new System.Drawing.Size(185, 21);
+            this.ColumnCombo.TabIndex = 4;
+            this.ColumnCombo.SelectedIndexChanged += new System.EventHandler(this.ColumnCombo_SelectedIndexChanged);
+            // 
+            // SearchText
+            // 
+            this.SearchText.Location = new System.Drawing.Point(6, 205);
+            this.SearchText.Name = "SearchText";
+            this.SearchText.Size = new System.Drawing.Size(185, 20);
+            this.SearchText.TabIndex = 5;
+            // 
+            // SearchLabel
+            // 
+            this.SearchLabel.AutoSize = true;
+            this.SearchLabel.Location = new System.Drawing.Point(6, 186);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(82, 13);
+            this.SearchLabel.TabIndex = 6;
+            this.SearchLabel.Text = "What to Search";
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Location = new System.Drawing.Point(6, 283);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(166, 23);
+            this.SearchButton.TabIndex = 7;
+            this.SearchButton.Text = "Search Button";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
             // BanthaFodderGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -741,6 +840,9 @@
             this.Remove.ResumeLayout(false);
             this.Remove.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRemove)).EndInit();
+            this.Search.ResumeLayout(false);
+            this.Search.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -807,6 +909,15 @@
         private System.Windows.Forms.DataGridView dataGridRemove;
         private System.Windows.Forms.Label RemoveLabel;
         private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.TabPage Search;
+        private System.Windows.Forms.ComboBox ColumnCombo;
+        private System.Windows.Forms.Label ColumnLabel;
+        private System.Windows.Forms.Label TableCombo;
+        private System.Windows.Forms.ComboBox SearchTableCombo;
+        private System.Windows.Forms.DataGridView SearchDataGrid;
+        private System.Windows.Forms.Label SearchLabel;
+        private System.Windows.Forms.TextBox SearchText;
+        private System.Windows.Forms.Button SearchButton;
     }
 }
 

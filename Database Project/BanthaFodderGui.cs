@@ -237,29 +237,27 @@ namespace Database_Project
             if ((LoginServerName == null) || (UseridName == null) || (PasswordName == null) || (DatabaseName == null))
                 MessageBox.Show("You have not logged in with the right creditentials please re-login");
 
-           
-                var query = !ComboBoxCustom.SelectedIndex.Equals(2)
-                    ? $"Select * from {ComboBoxCustom.SelectedItem}"
-                    : $"Select * from `{ComboBoxCustom.SelectedItem}`";
-                try
-                {
-                    var sqlCmd = new MySqlCommand(query, Connection);
-                    var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
-                    var dtRecord = new DataTable();
-                    sqlDataAdap.Fill(dtRecord);
 
-                    if (dtRecord.Rows.Count == 0)
-                        MessageBox.Show("No Results from Parameters");
+            var query = !ComboBoxCustom.SelectedIndex.Equals(2)
+                ? $"Select * from {ComboBoxCustom.SelectedItem}"
+                : $"Select * from `{ComboBoxCustom.SelectedItem}`";
+            try
+            {
+                var sqlCmd = new MySqlCommand(query, Connection);
+                var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                var dtRecord = new DataTable();
+                sqlDataAdap.Fill(dtRecord);
 
-                    CustomDataGrid.ReadOnly = true;
-                    CustomDataGrid.DataSource = dtRecord;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            
-            
+                if (dtRecord.Rows.Count == 0)
+                    MessageBox.Show("No Results from Parameters");
+
+                CustomDataGrid.ReadOnly = true;
+                CustomDataGrid.DataSource = dtRecord;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         /// <summary>
@@ -289,136 +287,143 @@ namespace Database_Project
             var green =
                 Image.FromFile("C:\\Users\\zach\\Documents\\GitHub\\Database-Project\\Database Project\\Green.png");
 
-           
-             if (Connection.State == ConnectionState.Open && Connection.State != ConnectionState.Connecting)
+
+            if ((Connection.State == ConnectionState.Open) && (Connection.State != ConnectionState.Connecting) &&
+                (Connection.State != ConnectionState.Fetching) && (Connection.State != ConnectionState.Executing))
             {
                 LoginPicture.Image = green;
                 LoginConnectionLbl.ForeColor = Color.Aquamarine;
                 LoginConnectionLbl.Text = "Connected";
             }
-             else
-             {
-                    LoginPicture.Image = red;
-                    LoginConnectionLbl.ForeColor = Color.Red;
-                    LoginConnectionLbl.Text = "Not Connected";
-                
+            else
+            {
+                LoginPicture.Image = red;
+                LoginConnectionLbl.ForeColor = Color.Red;
+                LoginConnectionLbl.Text = "Not Connected";
             }
         }
+
         /// <summary>
-        /// Selects the actors in a certain movie
+        ///     Selects the actors in a certain movie
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MovieComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-                var query =
-                    $"SELECT* FROM Actor,ActedIn, Movie where Movie.movieName = \'{MovieACtorsCombbo.SelectedItem}\' AND Movie.idMovie = ActedIn.idMovie AND Actor.idActor = ActedIn.idActor";
-                try
-                {
-                    var sqlCmd = new MySqlCommand(query, Connection);
-                    var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
-                    var dtRecord = new DataTable();
-                    sqlDataAdap.Fill(dtRecord);
+            var query =
+                $"SELECT* FROM Actor,ActedIn, Movie where Movie.movieName = \'{MovieACtorsCombbo.SelectedItem}\' AND Movie.idMovie = ActedIn.idMovie AND Actor.idActor = ActedIn.idActor";
+            try
+            {
+                var sqlCmd = new MySqlCommand(query, Connection);
+                var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                var dtRecord = new DataTable();
+                sqlDataAdap.Fill(dtRecord);
 
-                    if (dtRecord.Rows.Count == 0)
-                        MessageBox.Show("No Results from Parameters");
+                if (dtRecord.Rows.Count == 0)
+                    MessageBox.Show("No Results from Parameters");
 
-                    MoviesDataGrid.ReadOnly = true;
-                    MoviesDataGrid.DataSource = dtRecord;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            
-            
-            //moviecomboboxpopulate();
-            /* if (MovieACtorsCombbo.SelectedIndex > -1)
-             {
-                 string m = MovieACtorsCombbo.SelectedIndex.ToString();
-                 string query = string.Format("Select *  from Movie where movieName = \"{0}\"",m); // Need sql command to get actors from 
-                 MySqlConnection Connection = new MySqlConnection(ConnectionBuilder().ToString());
-                 MySqlCommand cmd = new MySqlCommand(query,Connection);
-                 MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-                 DataTable dtRecord = new DataTable();
-                 sqlDataAdap.Fill(dtRecord);
-                 CustomDataGrid.ReadOnly = true;
-                 CustomDataGrid.DataSource = dtRecord;
-             }*/
-
-            //use if statements instead
+                MoviesDataGrid.ReadOnly = true;
+                MoviesDataGrid.DataSource = dtRecord;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
+
         /// <summary>
-        /// updates the combobox values with results from sql query
+        ///     updates the combobox values with results from sql query
         /// </summary>
         private void MovieComboBoxResults()
         {
             string query = $"select movieName from Movie";
-            MySqlDataAdapter da = new MySqlDataAdapter(query,Connection);
-            DataTable dt = new DataTable();
+            var da = new MySqlDataAdapter(query, Connection);
+            var dt = new DataTable();
             da.Fill(dt);
             foreach (DataRow row in dt.Rows)
             {
-                string rowz = string.Format("{0}", row.ItemArray[0]);
+                var rowz = string.Format("{0}", row.ItemArray[0]);
                 MovieACtorsCombbo.Items.Add(rowz);
                 if (rowz == null)
                     throw new ArgumentNullException(nameof(rowz));
             }
         }
+
         /// <summary>
-        /// updates combobox with results from sql query
+        ///     updates combobox with results from sql query
         /// </summary>
         private void MovieDirectorBoxResults()
         {
             string query = $"select fName, lName from Director";
-            MySqlDataAdapter da = new MySqlDataAdapter(query, Connection);
-            DataTable dt = new DataTable();
+            var da = new MySqlDataAdapter(query, Connection);
+            var dt = new DataTable();
             da.Fill(dt);
             foreach (DataRow row in dt.Rows)
             {
-                string rowz = string.Format("{0} {1}", row.ItemArray[0],row.ItemArray[1]);
+                var rowz = string.Format("{0} {1}", row.ItemArray[0], row.ItemArray[1]);
                 MovieDirectorCombo.Items.Add(rowz);
                 if (rowz == null)
                     throw new ArgumentNullException(nameof(rowz));
             }
         }
+
         /// <summary>
-        /// updates combobox with sql query results
+        ///     updates combobox with sql query results
         /// </summary>
         private void MovieCharacterBoxResults()
         {
             string query = $"select movieName from Movie";
-            MySqlDataAdapter da = new MySqlDataAdapter(query, Connection);
-            DataTable dt = new DataTable();
+            var da = new MySqlDataAdapter(query, Connection);
+            var dt = new DataTable();
             da.Fill(dt);
             foreach (DataRow row in dt.Rows)
             {
-                string rowz = string.Format("{0}", row.ItemArray[0]);
+                var rowz = string.Format("{0}", row.ItemArray[0]);
                 MovieCharCombo.Items.Add(rowz);
                 if (rowz == null)
                     throw new ArgumentNullException(nameof(rowz));
             }
         }
+
         /// <summary>
-        /// updates the combobox with sql query results
+        ///     updates the combobox with sql query results
         /// </summary>
         private void CustomAllResults()
         {
             string query = $"select TABLE_NAME from INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE ='BASE TABLE'";
-            MySqlDataAdapter da = new MySqlDataAdapter(query, Connection);
-            DataTable dt = new DataTable();
+            var da = new MySqlDataAdapter(query, Connection);
+            var dt = new DataTable();
             da.Fill(dt);
             foreach (DataRow row in dt.Rows)
             {
-                string rowz = string.Format("{0}", row.ItemArray[0].ToString());
-               ComboBoxCustom.Items.Add(rowz);
+                var rowz = string.Format("{0}", row.ItemArray[0]);
+                ComboBoxCustom.Items.Add(rowz);
                 if (rowz == null)
                     throw new ArgumentNullException(nameof(rowz));
             }
         }
+
+        private void ColumnResults()
+        {
+        }
+
+        private void TableResults()
+        {
+            string query = $"select TABLE_NAME from INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE ='BASE TABLE'";
+            var da = new MySqlDataAdapter(query, Connection);
+            var dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
+            {
+                var rowz = string.Format("{0}", row.ItemArray[0]);
+                SearchTableCombo.Items.Add(rowz);
+                if (rowz == null)
+                    throw new ArgumentNullException(nameof(rowz));
+            }
+        }
+
         /// <summary>
-        /// resets all combobox results
+        ///     resets all combobox results
         /// </summary>
         private void ResetCombos()
         {
@@ -430,7 +435,9 @@ namespace Database_Project
             MovieDirectorBoxResults();
             MovieCharacterBoxResults();
             CustomAllResults();
+            TableResults();
         }
+
         /// <summary>
         ///     When selected toggles correct boxes on, to add information into database
         /// </summary>
@@ -510,76 +517,69 @@ namespace Database_Project
                 MessageBox.Show(ex.ToString());
             }
         }
+
         /// <summary>
-        /// Shows the movieName,releaseYear and lengthMinutes from a movie where directed by a single person
+        ///     Shows the movieName,releaseYear and lengthMinutes from a movie where directed by a single person
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MovieDirectorCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-                var names = MovieDirectorCombo.SelectedItem.ToString().Split(' ');
-                var query =
-                    $"select movieName, releaseYear, lengthMinutes from Movie,Directed,Director where Director.fName = \"{names[0]}\" and Director.lName = \"{names[1]}\" and Director.idDirector = Directed.idDirector and Directed.idMovie = Movie.idMovie";
-                try
-                {
-                    var sqlCmd = new MySqlCommand(query, Connection);
-                    var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
-                    var dtRecord = new DataTable();
-                    sqlDataAdap.Fill(dtRecord);
-                    if (dtRecord.Rows.Count == 0)
-                        MessageBox.Show("No Results from Parameters");
+            var names = MovieDirectorCombo.SelectedItem.ToString().Split(' ');
+            var query =
+                $"select movieName, releaseYear, lengthMinutes from Movie,Directed,Director where Director.fName = \"{names[0]}\" and Director.lName = \"{names[1]}\" and Director.idDirector = Directed.idDirector and Directed.idMovie = Movie.idMovie";
+            try
+            {
+                var sqlCmd = new MySqlCommand(query, Connection);
+                var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                var dtRecord = new DataTable();
+                sqlDataAdap.Fill(dtRecord);
+                if (dtRecord.Rows.Count == 0)
+                    MessageBox.Show("No Results from Parameters");
 
-                    MoviesDataGrid.ReadOnly = true;
-                    MoviesDataGrid.DataSource = dtRecord;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            
-            
+                MoviesDataGrid.ReadOnly = true;
+                MoviesDataGrid.DataSource = dtRecord;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
+
         /// <summary>
-        /// Gets the Characters from a single movie
+        ///     Gets the Characters from a single movie
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MovieCharCombo_SelectedIndexChanged(object sender, EventArgs e) //Still Need Sql Statement
         {
-           
-                var query = "";
-                //needsql statement;
-                try
-                {
-                    var sqlCmd = new MySqlCommand(query, Connection);
-                    var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
-                    var dtRecord = new DataTable();
-                    sqlDataAdap.Fill(dtRecord);
-                    if (dtRecord.Rows.Count == 0)
-                        MessageBox.Show("No Results from Parameters");
+            var query = "";
+            //needsql statement;
+            try
+            {
+                var sqlCmd = new MySqlCommand(query, Connection);
+                var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                var dtRecord = new DataTable();
+                sqlDataAdap.Fill(dtRecord);
+                if (dtRecord.Rows.Count == 0)
+                    MessageBox.Show("No Results from Parameters");
 
-                    MoviesDataGrid.ReadOnly = true;
-                    MoviesDataGrid.DataSource = dtRecord;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-            
-           
+                MoviesDataGrid.ReadOnly = true;
+                MoviesDataGrid.DataSource = dtRecord;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
+
         /// <summary>
-        /// Combobox event to pick which table to remove from
+        ///     Combobox event to pick which table to remove from
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ComboxRemove_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((LoginServerName == null) || (UseridName == null) || (PasswordName == null) || (DatabaseName == null))
-                MessageBox.Show("You have not logged in with the right creditentials please re-login");
-
-
             var query = $"Select * from {ComboxRemove.SelectedItem}";
             try
             {
@@ -598,8 +598,9 @@ namespace Database_Project
                 MessageBox.Show(ex.ToString());
             }
         }
+
         /// <summary>
-        /// delete button when pressed removes the chosen row
+        ///     delete button when pressed removes the chosen row
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -629,7 +630,7 @@ namespace Database_Project
                     MessageBox.Show(ex.ToString());
                 }
             }
-            
+
 
             var query2 = $"Select * from {ComboxRemove.SelectedItem}";
             try
@@ -649,9 +650,9 @@ namespace Database_Project
                 MessageBox.Show(ex.ToString());
             }
         }
+
         /// <summary>
-        /// 
-        /// When the application is closed, closes connection
+        ///     When the application is closed, closes connection
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -665,8 +666,61 @@ namespace Database_Project
             {
                 MessageBox.Show(ex.ToString());
             }
-
         }
-        
+
+        private void SearchTableCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ColumnCombo.Items.Clear();
+            var query = $"SHOW COLUMNS FROM {SearchTableCombo.SelectedItem}";
+            var da = new MySqlDataAdapter(query, Connection);
+            var dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
+            {
+                var rowz = string.Format("{0}", row.ItemArray[0]);
+                ColumnCombo.Items.Add(rowz);
+                if (rowz == null)
+                    throw new ArgumentNullException(nameof(rowz));
+            }
+        }
+
+        private void ColumnCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            var input = "";
+            if (!string.IsNullOrWhiteSpace(SearchText.Text))
+            {
+                int temp;
+                if (int.TryParse(SearchText.Text, out temp))
+                    if ((temp >= 0) && (temp <= 100))
+                        input = SearchText.Text;
+                    else
+                        MessageBox.Show("Enter in a valid Integer");
+                else
+                    input = $"\'{SearchText.Text}\'";
+            }
+            var query =
+                $"SELECT * FROM {SearchTableCombo.GetItemText(SearchTableCombo.SelectedItem)} where {ColumnCombo.GetItemText(ColumnCombo.SelectedItem)} = {input}";
+            try
+            {
+                var sqlCmd = new MySqlCommand(query, Connection);
+                var sqlDataAdap = new MySqlDataAdapter(sqlCmd);
+                var dtRecord = new DataTable();
+                sqlDataAdap.Fill(dtRecord);
+                if (dtRecord.Rows.Count == 0)
+                    MessageBox.Show("No Results from Parameters");
+
+                SearchDataGrid.ReadOnly = true;
+                SearchDataGrid.DataSource = dtRecord;
+                SearchText.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
