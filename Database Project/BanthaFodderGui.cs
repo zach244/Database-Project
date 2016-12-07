@@ -310,7 +310,7 @@ namespace Database_Project
         /// <param name="e"></param>
         private void MovieComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MovieDirectorCombo.SelectedIndex = -1;
+           
             var query =
                 $"SELECT* FROM Actor,ActedIn, Movie where Movie.movieName = \'{MovieACtorsCombbo.SelectedItem}\' AND Movie.idMovie = ActedIn.idMovie AND Actor.idActor = ActedIn.idActor";
             try
@@ -526,10 +526,11 @@ namespace Database_Project
         /// <param name="e"></param>
         private void MovieDirectorCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MovieACtorsCombbo.SelectedIndex = -1;
             var names = MovieDirectorCombo.SelectedItem.ToString().Split(' ');
             var query =
                 $"select movieName, releaseYear, lengthMinutes from Movie,Directed,Director where Director.fName = \"{names[0]}\" and Director.lName = \"{names[1]}\" and Director.idDirector = Directed.idDirector and Directed.idMovie = Movie.idMovie";
+
+           
             try
             {
                 var sqlCmd = new MySqlCommand(query, Connection);
