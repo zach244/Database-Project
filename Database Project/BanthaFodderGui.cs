@@ -292,7 +292,7 @@ namespace Database_Project
                 (Connection.State != ConnectionState.Fetching) && (Connection.State != ConnectionState.Executing))
             {
                 LoginPicture.Image = green;
-                LoginConnectionLbl.ForeColor = Color.Aquamarine;
+                LoginConnectionLbl.ForeColor = Color.DarkGreen;
                 LoginConnectionLbl.Text = "Connected";
             }
             else
@@ -529,8 +529,6 @@ namespace Database_Project
             var names = MovieDirectorCombo.SelectedItem.ToString().Split(' ');
             var query =
                 $"select movieName, releaseYear, lengthMinutes from Movie,Directed,Director where Director.fName = \"{names[0]}\" and Director.lName = \"{names[1]}\" and Director.idDirector = Directed.idDirector and Directed.idMovie = Movie.idMovie";
-
-           
             try
             {
                 var sqlCmd = new MySqlCommand(query, Connection);
@@ -670,7 +668,11 @@ namespace Database_Project
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        /// <summary>
+        /// Searches based on selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchTableCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
             ColumnCombo.SelectedIndex = -1;
@@ -692,7 +694,11 @@ namespace Database_Project
         private void ColumnCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
-
+        /// <summary>
+        /// When button is clicked it takes the user input and searches based on the combo box selections. Has a wild card for partial searches. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchButton_Click(object sender, EventArgs e)
         {
             var input = "";
